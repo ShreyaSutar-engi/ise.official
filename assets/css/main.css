@@ -2497,3 +2497,68 @@ input, select, textarea {
 				}
 
 	}
+
+	/* === Hero logo =========================================== */
+	.hero-logo {
+		display: block;
+		margin: 0 auto 2em auto;
+		height: 140px;
+		width: auto;
+		filter: drop-shadow(0 4px 24px rgba(192, 192, 192, 0.25));
+	}
+	@media screen and (max-width: 1000px) {
+		.hero-logo { height: 110px; margin-bottom: 1.5em; }
+	}
+	@media screen and (max-width: 736px) {
+		.hero-logo { height: 85px; margin-bottom: 1.25em; }
+	}
+
+	/* === Sponsors section ==================================== */
+	.sponsor-card {
+		text-align: center;
+		padding: 3em 2em;
+		border: 1px solid var(--c-border);
+		background: rgba(255, 255, 255, 0.02);
+		transition: border-color 0.3s ease, background 0.3s ease;
+	}
+	.sponsor-card:hover {
+		border-color: var(--c-border-strong);
+		background: rgba(255, 255, 255, 0.04);
+	}
+	.sponsor-mark {
+		display: inline-block;
+		font-family: var(--ff-sans);
+		font-size: 0.72em;
+		font-weight: 500;
+		letter-spacing: 0.35em;
+		text-transform: uppercase;
+		color: var(--c-silver);
+		padding: 0.5em 1.25em;
+		border: 1px solid var(--c-border-strong);
+		border-radius: 999px;
+		margin-bottom: 1.5em;
+	}
+	.sponsor-name {
+		font-size: 1.75em;
+		font-weight: 500;
+		margin-bottom: 0.75em;
+		color: var(--c-silver-bright);
+	}
+	.sponsor-quote {
+		border-left: none;
+		border-top: 1px solid var(--c-border);
+		border-bottom: 1px solid var(--c-border);
+		padding: 1.25em 0;
+		margin: 0 auto 2em auto;
+		max-width: 50ch;
+		font-family: var(--ff-serif);
+		font-style: italic;
+		font-size: 1.15em;
+		color: var(--c-text-dim);
+		text-align: center;
+	}
+	@media screen and (max-width: 736px) {
+		.sponsor-card { padding: 2em 1.25em; }
+		.sponsor-name { font-size: 1.4em; }
+		.sponsor-quote { font-size: 1em; }
+	}
