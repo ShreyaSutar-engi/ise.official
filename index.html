@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 <!--
-	Ise Official STEM Journal
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	ISE Official STEM Journal
+	Base template: html5up.net (CCA 3.0) | Theme override: ISE black/silver
 -->
 <html>
 	<head>
@@ -10,394 +9,465 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+		<style>
+			/* === ISE Theme — Black / White / Silver / Gray ============ */
+			:root {
+				--c-bg:            #0a0a0a;
+				--c-bg-2:          #121212;
+				--c-bg-3:          #1a1a1a;
+				--c-bg-elev:       #222222;
+				--c-border:        rgba(192,192,192,0.14);
+				--c-border-strong: rgba(192,192,192,0.38);
+				--c-text:          #ececec;
+				--c-text-dim:      #a8a8a8;
+				--c-text-mute:     #7a7a7a;
+				--c-silver:        #c0c0c0;
+				--c-silver-bright: #ebebeb;
+				--c-silver-dark:   #8a8a8a;
+				--ff-serif:        'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+				--ff-sans:         'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			}
+
+			html, body, body.is-preload {
+				background: var(--c-bg);
+				color: var(--c-text);
+				font-family: var(--ff-sans);
+				font-weight: 300;
+				letter-spacing: 0.005em;
+				line-height: 1.65;
+			}
+
+			h1, h2, h3, h4, h5, h6 {
+				font-family: var(--ff-serif);
+				font-weight: 500;
+				letter-spacing: -0.01em;
+				color: var(--c-silver-bright);
+			}
+
+			a { color: var(--c-silver-bright); transition: color .2s ease; }
+			a:hover { color: #fff; }
+
+			/* ---- Hero -------------------------------------------------- */
+			#header {
+				position: relative;
+				min-height: 100vh;
+				display: flex; flex-direction: column;
+				align-items: center; justify-content: center;
+				text-align: center;
+				padding: 5rem 1.5rem;
+				background: #000;
+				overflow: hidden;
+			}
+			#header::before {
+				content: '';
+				position: absolute; inset: 0;
+				background-image: var(--hero-image, none);
+				background-size: cover;
+				background-position: center;
+				opacity: 0.40;
+				filter: grayscale(100%) contrast(1.05);
+				z-index: 0;
+			}
+			#header::after {
+				content: '';
+				position: absolute; inset: 0;
+				background:
+					radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.92) 75%),
+					linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.85));
+				z-index: 1;
+			}
+			#header > * { position: relative; z-index: 2; }
+
+			#header header h1 {
+				font-size: clamp(2.1rem, 5vw, 3.8rem);
+				line-height: 1.15;
+				max-width: 22ch;
+				margin: 0 auto 1.25rem;
+				background: linear-gradient(180deg, #ffffff 0%, #b8b8b8 100%);
+				-webkit-background-clip: text;
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+			#header header p {
+				font-size: 1.1rem;
+				color: var(--c-text-dim);
+				max-width: 60ch;
+				margin: 0 auto 2.5rem;
+				font-style: italic;
+				font-family: var(--ff-serif);
+			}
+			#header footer { margin-top: 1rem; }
+
+			/* ---- Buttons ---------------------------------------------- */
+			.button,
+			input[type="submit"],
+			input[type="reset"] {
+				display: inline-block;
+				background: transparent !important;
+				border: 1px solid var(--c-silver) !important;
+				color: var(--c-silver-bright) !important;
+				text-transform: uppercase;
+				letter-spacing: 0.2em;
+				font-family: var(--ff-sans) !important;
+				font-size: 0.78rem !important;
+				font-weight: 500 !important;
+				padding: 1rem 2.25rem !important;
+				border-radius: 0 !important;
+				box-shadow: none !important;
+				text-shadow: none !important;
+				transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+				cursor: pointer;
+			}
+			.button:hover,
+			input[type="submit"]:hover,
+			input[type="reset"]:hover {
+				background: var(--c-silver-bright) !important;
+				color: #000 !important;
+				border-color: var(--c-silver-bright) !important;
+				transform: translateY(-1px);
+			}
+			.button.alt,
+			input[type="reset"] {
+				border-color: var(--c-silver-dark) !important;
+				color: var(--c-text-dim) !important;
+			}
+
+			/* ---- Main sections --------------------------------------- */
+			.main {
+				background: var(--c-bg);
+				padding: 6rem 0;
+			}
+			.main + .main { border-top: 1px solid var(--c-border); }
+
+			.main > header { text-align: center; margin-bottom: 4rem; padding: 0 1.5rem; }
+			.main > header h2 {
+				font-size: clamp(1.8rem, 4vw, 2.8rem);
+				margin-bottom: 1rem;
+				display: inline-block;
+				position: relative;
+			}
+			.main > header h2::after {
+				content: '';
+				display: block;
+				width: 60px; height: 1px;
+				background: var(--c-silver);
+				margin: 1.25rem auto 0;
+			}
+			.main > header p {
+				color: var(--c-text-dim);
+				max-width: 65ch;
+				margin: 0 auto;
+				font-size: 1.02rem;
+			}
+
+			/* ---- Content blocks -------------------------------------- */
+			.content.dark { background: transparent; color: var(--c-text); }
+			.content.style1.featured { background: linear-gradient(180deg, #0d0d0d 0%, #181818 100%); padding: 4rem 0; }
+			.content.style2 { padding: 2rem 0; }
+			.content.style3 { padding: 2rem 0; }
+			.content.style4 { background: linear-gradient(180deg, #101010 0%, #1a1a1a 100%); padding: 4rem 0; }
+
+			/* ---- Feature cards (section 1) --------------------------- */
+			.content.style1 .col-4 > section {
+				background: var(--c-bg-3);
+				border: 1px solid var(--c-border);
+				padding: 2.75rem 2rem;
+				height: 100%;
+				text-align: center;
+				transition: transform .3s ease, border-color .3s ease, background .3s ease;
+			}
+			.content.style1 .col-4 > section:hover {
+				transform: translateY(-4px);
+				border-color: var(--c-border-strong);
+				background: var(--c-bg-elev);
+			}
+			.feature-icon {
+				display: inline-flex;
+				align-items: center; justify-content: center;
+				width: 68px; height: 68px;
+				border-radius: 50%;
+				border: 1px solid var(--c-silver);
+				margin-bottom: 1.5rem;
+				background: rgba(255,255,255,0.02);
+			}
+			.feature-icon .icon { color: var(--c-silver-bright); font-size: 1.4rem; }
+			.content.style1 .col-4 h3 {
+				font-size: 1.5rem;
+				margin: 0 0 0.75rem;
+				letter-spacing: 0.02em;
+			}
+			.content.style1 .col-4 p { color: var(--c-text-dim); font-size: 0.96rem; }
+
+			/* ---- Image grids ----------------------------------------- */
+			.image.fit { display: block; overflow: hidden; }
+			.image.fit img {
+				display: block;
+				width: 100%; height: auto;
+				border: 1px solid var(--c-border);
+				filter: grayscale(100%) contrast(1.05) brightness(0.88);
+				transition: filter .4s ease, transform .5s ease;
+			}
+			.image.fit:hover img {
+				filter: grayscale(0%) contrast(1.0) brightness(1.0);
+				transform: scale(1.03);
+			}
+			.image.featured {
+				display: block;
+				margin-bottom: 3rem;
+				border: 1px solid var(--c-border);
+			}
+			.image.featured img {
+				width: 100%; height: auto; display: block;
+				filter: grayscale(35%) contrast(1.05);
+			}
+
+			/* ---- Forms ----------------------------------------------- */
+			input[type="text"],
+			input[type="email"],
+			textarea,
+			select {
+				background: rgba(255,255,255,0.03) !important;
+				border: 1px solid var(--c-border) !important;
+				color: var(--c-text) !important;
+				border-radius: 0 !important;
+				padding: 1rem 1.1rem !important;
+				font-family: var(--ff-sans) !important;
+				font-size: 0.95rem !important;
+				box-shadow: none !important;
+				transition: border-color .2s ease, background .2s ease;
+			}
+			input[type="text"]:focus,
+			input[type="email"]:focus,
+			textarea:focus,
+			select:focus {
+				border-color: var(--c-silver) !important;
+				background: rgba(255,255,255,0.05) !important;
+				outline: none !important;
+			}
+			::placeholder { color: var(--c-text-mute) !important; }
+			textarea { min-height: 180px; }
+
+			/* ---- Footer ---------------------------------------------- */
+			#footer {
+				background: #000;
+				padding: 3.5rem 1.5rem;
+				text-align: center;
+				border-top: 1px solid var(--c-border);
+			}
+			#footer .icons { margin-bottom: 1.25rem; }
+			#footer .icons li a {
+				color: var(--c-silver) !important;
+				transition: color .25s ease, transform .25s ease;
+				display: inline-block;
+			}
+			#footer .icons li a:hover {
+				color: #fff !important;
+				transform: translateY(-2px);
+			}
+			#footer .copyright {
+				color: var(--c-text-mute);
+				font-size: 0.85rem;
+				letter-spacing: 0.05em;
+			}
+			#footer .copyright a { color: var(--c-silver); }
+
+			/* ---- Section 1 intro -------------------------------------- */
+			#first > header h2 { letter-spacing: 0.15em; font-size: 1rem; color: var(--c-silver); text-transform: uppercase; font-family: var(--ff-sans); font-weight: 500; }
+			#first > header h2::after { display: none; }
+			#first > header p { font-family: var(--ff-serif); font-size: 1.35rem; font-style: italic; color: var(--c-text); max-width: 55ch; }
+
+			/* ---- Spacing tweaks --------------------------------------- */
+			.container { padding-left: 1.5rem; padding-right: 1.5rem; }
+			.row > * { margin-bottom: 1.5rem; }
+		</style>
 	</head>
 	<body class="is-preload">
 
-		<!-- Header -->
-			<section id="header" class="dark">
-				<header>
-					<h1>ISE Official Research Journal & Competition Based Organization</h1>
-					<p>A group of High School Students finding out what it truely means to be researchers.</p>
-				</header>
-					<footer>
-  						<a href="https://drive.google.com/file/d/1ZbXNEr56wgRQEBzD4_aUhIesoJZzXqxv/view?usp=sharing" class="button" target="_blank">Journal Link</a>
-					</footer>
-				</section>
+		<!-- Header / Hero -->
+		<!-- Drop your image at images/hero.jpg, or change the URL in the style="" below -->
+		<section id="header" class="dark" style="--hero-image: url('images/hero.jpg');">
+			<header>
+				<h1>ISE Official Research Journal &amp; Competition-Based Organization</h1>
+				<p>A group of high school students discovering what it truly means to be researchers.</p>
+			</header>
+			<footer>
+				<a href="https://drive.google.com/file/d/1ZbXNEr56wgRQEBzD4_aUhIesoJZzXqxv/view?usp=sharing" class="button" target="_blank" rel="noopener">Read the Journal</a>
+			</footer>
+		</section>
+
 		<!-- First -->
-			<section id="first" class="main">
-				<header>
-					<div class="container">
-						<h2>EST. July 2025</h2>
-						<p>ISE was created by two 10th Grade Students, Shreya Sutar, and Ayush Kumar. Their idea was to create<br />
-						an oppportunity for CAMS Students to explore their interests and admisinster Scientific Research on it.</p>
-					</div>
-				</header>
-				<div class="content dark style1 featured">
-					<div class="container">
-						<div class="row">
-							<div class="col-4 col-12-narrow">
-								<section>
-									<span class="feature-icon"><span class="icon fa-clock"></span></span>
-									<header>
-										<h3>Time</h3>
-									</header>
-									<p>We meet at the California Academy of Mathematics and Science on Tuesdays 
-									after school from 3:45-4:45 in room 2005. Usually at these meetings we 
-									debrief our progress and at the end we go over the deliverables.<p>
-								</section>
-							</div>
-							<div class="col-4 col-12-narrow">
-								<section>
-									<span class="feature-icon"><span class="icon solid fa-bolt"></span></span>
-									<header>
-										<h3>Work</h3>
-									</header>
-									<p>At ISE we work on many different types of scientific research. For example,
-									we provide an oppportunity to work on your own research project and get it 
-									published in a certified ISSN research journal. We also plan to create a MIT 
-									InvenTeam, to work together and apply for a research grant, while flying to MIT 
-									to present our research proposition if advancing to the final level.
-									</p>
-								</section>
-							</div>
-							<div class="col-4 col-12-narrow">
-								<section>
-									<span class="feature-icon"><span class="icon solid fa-cloud"></span></span>
-									<header>
-										<h3>Accumsan</h3>
-									</header>
-									<p>Gravida dis placerat lectus ante vel nunc euismod est turpis sodales.
-									Diam tempor dui lacinia accumsan vivamus. Gravida dis placerat lectus
-									ante vel nunc euismod est turpis sodales. Diam tempor dui lacinia
-									accumsan vivamus.</p>
-								</section>
-							</div>
-							<div class="col-12">
-								<footer>
-									<a href="#second" class="button scrolly">Gravida tempor lacinia</a>
-								</footer>
-							</div>
+		<section id="first" class="main">
+			<header>
+				<div class="container">
+					<h2>EST. July 2025</h2>
+					<p>ISE was founded by two 10th grade students, Shreya Sutar and Ayush Kumar, to create an opportunity for CAMS students to explore their interests and conduct real scientific research.</p>
+				</div>
+			</header>
+			<div class="content dark style1 featured">
+				<div class="container">
+					<div class="row">
+						<div class="col-4 col-12-narrow">
+							<section>
+								<span class="feature-icon"><span class="icon fa-clock"></span></span>
+								<header><h3>When We Meet</h3></header>
+								<p>We meet at the California Academy of Mathematics and Science on Tuesdays after school from 3:45&ndash;4:45 in room 2005. Meetings are used to debrief progress and review deliverables for the week.</p>
+							</section>
+						</div>
+						<div class="col-4 col-12-narrow">
+							<section>
+								<span class="feature-icon"><span class="icon solid fa-bolt"></span></span>
+								<header><h3>What We Do</h3></header>
+								<p>Members work on independent research projects and have the opportunity to publish in a certified ISSN journal. We are also building a MIT InvenTeam to collaborate on a grant proposal and, if advanced, present at MIT.</p>
+							</section>
+						</div>
+						<div class="col-4 col-12-narrow">
+							<section>
+								<span class="feature-icon"><span class="icon solid fa-trophy"></span></span>
+								<header><h3>How We Compete</h3></header>
+								<!-- TODO: customize this copy with the specific competitions ISE participates in -->
+								<p>Beyond publication, ISE prepares members for national-level science and engineering competitions &mdash; from fair circuits to invitationals &mdash; with structured mentorship at every stage.</p>
+							</section>
+						</div>
+						<div class="col-12">
+							<footer>
+								<a href="#second" class="button scrolly">Learn More</a>
+							</footer>
 						</div>
 					</div>
 				</div>
-			</section>
+			</div>
+		</section>
 
 		<!-- Second -->
-			<section id="second" class="main">
-				<header>
-					<div class="container">
-						<h2>Euismod sed feugiat lorem tempus magna</h2>
-						<p>Gravida dis placerat lectus ante vel nunc euismod eget ornare varius gravida euismod lorem ipsum dolor sit amet consequat<br />
-						feugiat. Gravida dis placerat lectus ante vel nunc euismod eget ornare varius gravida euismod lorem ipsum dolor sit amet.</p>
-					</div>
-				</header>
-				<div class="content dark style2">
-					<div class="container">
-						<div class="row">
-							<div class="col-4 col-12-narrow">
-								<section>
-									<h3>Augue vivamus sed ipsum commodo lorem dolor</h3>
-									<p>Gravida dis placerat lectus ante vel nunc euismod est turpis sodales. Diam
-									tempor dui lacinia eget ornare varius gravida. Gravida dis placerat lectus ante
-									vel nunc euismod est turpis sodales. Diam tempor dui lacinia accumsan vivamus
-									augue cubilia vivamus nisi eu eget ornare varius gravida euismod.  Gravida dis
-									lorem ipsum dolor placerat magna tempus feugiat.</p>
-									<p>Lectus ante vel nunc euismod est turpis sodales. Diam tempor dui lacinia
-									accumsan vivamus augue cubilia vivamus nisi eu eget ornare varius gravida dolore
-									euismod lorem ipsum dolor.</p>
-									<footer>
-										<a href="#third" class="button scrolly">Accumsan nisi tempor</a>
-									</footer>
-								</section>
-							</div>
-							<div class="col-8 col-12-narrow">
-								<div class="row">
-									<div class="col-6"><a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a></div>
-									<div class="col-6"><a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a></div>
-									<div class="col-6"><a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a></div>
-									<div class="col-6"><a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a></div>
-									<div class="col-6"><a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a></div>
-									<div class="col-6"><a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a></div>
-								</div>
+		<section id="second" class="main">
+			<header>
+				<div class="container">
+					<h2>Research, Mentorship &amp; Community</h2>
+					<!-- TODO: customize -->
+					<p>From an early idea to a peer-reviewed paper, members move through every stage of the research process with the support of their peers and mentors.</p>
+				</div>
+			</header>
+			<div class="content dark style2">
+				<div class="container">
+					<div class="row">
+						<div class="col-4 col-12-narrow">
+							<section>
+								<h3>Built by students, for students</h3>
+								<!-- TODO: customize this copy -->
+								<p>ISE exists because we believe that high school students are capable of producing real, rigorous research &mdash; not just learning about it. Every member chooses a question they care about and is paired with peers and mentors who help them sharpen it into something publishable.</p>
+								<p>We take submissions seriously. Every piece that enters the journal is reviewed for clarity, methodology, and contribution before it ever sees publication.</p>
+								<footer>
+									<a href="#third" class="button scrolly">Featured Work</a>
+								</footer>
+							</section>
+						</div>
+						<div class="col-8 col-12-narrow">
+							<div class="row">
+								<div class="col-6"><a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a></div>
+								<div class="col-6"><a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a></div>
+								<div class="col-6"><a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a></div>
+								<div class="col-6"><a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a></div>
+								<div class="col-6"><a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a></div>
+								<div class="col-6"><a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a></div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</section>
+			</div>
+		</section>
 
 		<!-- Third -->
-			<section id="third" class="main">
-				<header>
-					<div class="container">
-						<h2>Ornare varius lorem ipsum ante lectus</h2>
-						<p>Gravida dis placerat lectus ante vel nunc euismod eget ornare varius gravida euismod lorem ipsum dolor sit amet consequat<br />
-						feugiat. Gravida dis placerat lectus ante vel nunc euismod eget ornare varius gravida euismod lorem ipsum dolor sit amet.</p>
-					</div>
-				</header>
-				<div class="content dark style3">
-					<div class="container">
-						<span class="image featured"><img src="images/pic07.jpg" alt="" /></span>
-						<div class="row">
-							<div class="col-4 col-12-narrow">
-								<h3>Diam vivamus turpis lorem sodales lectus ornare</h3>
-								<p>Gravida dis placerat lectus ante vel nunc euismod est turpis sodales. Diam
-								tempor dui lacinia eget ornare varius gravida. Gravida dis placerat lectus ante
-								vel nunc euismod est turpis sodales. Diam tempor dui lacinia accumsan vivamus
-								augue cubilia vivamus nisi eu eget ornare varius gravida euismod.  Gravida dis
-								lorem ipsum dolor placerat magna tempus feugiat.</p>
-								<p>Lectus ante vel nunc euismod est turpis sodales. Diam tempor dui lacinia
-								accumsan vivamus augue cubilia vivamus nisi eu eget ornare varius gravida dolore
-								euismod lorem ipsum dolor sit amet consequat. vivamus nisi eu eget ornare varius
-								gravida dolore euismod lorem ipsum dolor sit amet consequat. vivamus nisi eu
-								eget ornare et magna.</p>
-							</div>
-							<div class="col-4 col-12-narrow">
-								<p>Gravida dis placerat lectus ante vel nunc euismod est turpis sodales. Diam
-								tempor dui lacinia eget ornare varius gravida. Gravida dis placerat lectus ante
-								vel nunc euismod est turpis sodales. Diam tempor dui lacinia accumsan vivamus
-								augue cubilia vivamus nisi eu eget ornare varius gravida euismod.  Gravida dis
-								lorem ipsum dolor placerat magna tempus feugiat.</p>
-								<p>Lectus ante vel nunc euismod est turpis sodales. Diam tempor dui lacinia
-								accumsan vivamus augue cubilia vivamus nisi eu eget ornare varius gravida dolore
-								euismod lorem ipsum dolor sit amet consequat eget ornare varius gravida euismod.
-								Gravida dis lorem ipsum dolor placerat magna tempus feugiat magna tempus lorem.</p>
-								<p>Lectus ante vel nunc euismod est turpis sodales. Diam tempor dui lacinia
-								accumsan vivamus augue cubilia.</p>
-							</div>
-							<div class="col-4 col-12-narrow">
-								<p>Placerat lectus ante vel nunc euismod est turpis sodales. Diam tempor dui
-								lacinia eget ornare varius gravida. Gravida dis placerat lectus ante vel nunc
-								euismod est turpis sodales. Diam tempor dui lacinia accumsan vivamus augue
-								cubilia vivamus nisi eu eget ornare varius gravida euismod.  Gravida dis
-								lorem ipsum dolor placerat magna tempus feugiat. Lectus ante vel nunc euismod
-								est turpis sodales. Diam tempor dui lacinia dolore.</p>
-								<p>Accumsan vivamus augue cubilia vivamus nisi eu eget ornare varius gravida
-								dolore euismod lorem ipsum dolor sit amet conseismod lorem ipsum dolor sit amet
-								consequat lorem ipsum consequat feugiat sed tempus euismod feugiat veroeros.</p>
-								<footer>
-									<a href="#fourth" class="button scrolly">Ipsum ornare lorem dolor</a>
-								</footer>
-							</div>
+		<section id="third" class="main">
+			<header>
+				<div class="container">
+					<h2>Featured Publication</h2>
+					<!-- TODO: customize -->
+					<p>Each cycle we highlight a student-led project that captures the depth of work coming out of ISE. Below: a brief look at our most recent feature.</p>
+				</div>
+			</header>
+			<div class="content dark style3">
+				<div class="container">
+					<span class="image featured"><img src="images/pic07.jpg" alt="" /></span>
+					<div class="row">
+						<div class="col-4 col-12-narrow">
+							<h3>About the project</h3>
+							<!-- TODO: replace with the actual abstract or summary -->
+							<p>A short overview of the featured research goes here &mdash; the question being asked, why it matters, and what the student set out to answer. Two to three sentences is plenty.</p>
+							<p>Include a sentence about the methods used or the dataset examined so readers get a feel for the rigor before they click through.</p>
+						</div>
+						<div class="col-4 col-12-narrow">
+							<h3>Findings</h3>
+							<!-- TODO: replace -->
+							<p>A short summary of the most interesting findings from the project. Keep it accessible to a reader who is not in the field, but specific enough that someone in the field would respect it.</p>
+							<p>If the project produced a model, a measurement, or a recommendation, name it here.</p>
+						</div>
+						<div class="col-4 col-12-narrow">
+							<h3>Author &amp; next steps</h3>
+							<!-- TODO: replace -->
+							<p>Who wrote it, what year they are at CAMS, and what they plan to do with the work next. If there is a follow-up project, mention it here so readers know where ISE is headed.</p>
+							<footer>
+								<a href="#fourth" class="button scrolly">Get In Touch</a>
+							</footer>
 						</div>
 					</div>
 				</div>
-			</section>
-
-		<!-- Basic Elements -->
-		<!--
-			<section class="main">
-				<header>
-					<div class="container">
-						<h2>A Whole Lotta Elements</h2>
-						<p>General purpose elements for every general purpose. Or something like that.</p>
-					</div>
-				</header>
-				<div class="content style1 dark">
-					<div class="container">
-						<section>
-							<header>
-								<h3>Paragraph</h3>
-								<p>This is a byline</p>
-							</header>
-							<p>Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci. Pellentesque
-							habitant <strong>strong</strong> tristique <b>bold</b> et netus <i>italic</i> malesuada <em>emphasized</em> ac turpis egestas. Morbi
-							leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies. Vestibulum sit
-							amet risus elit.</p>
-						</section>
-						<section>
-							<header>
-								<h3>Blockquote</h3>
-							</header>
-							<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget.
-							tempus euismod. Vestibulum ante ipsum primis in faucibus. Cras sit amet urna eros, id egestas
-							tempus ante ipsum primis in faucibus orci luctus et ultrices.</blockquote>
-						</section>
-						<section>
-							<header>
-								<h3>Divider</h3>
-							</header>
-							<p>Donec consectetur <a href="#">vestibulum dolor et pulvinar</a>. Etiam vel felis enim, at viverra
-							ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
-							facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
-							tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-							posuere cubilia.</p>
-							<hr />
-							<p>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra
-							ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
-							facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
-							tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-							posuere cubilia.</p>
-						</section>
-						<section>
-							<header>
-								<h3>Unordered List</h3>
-							</header>
-							<ul class="default">
-								<li>Donec consectetur vestibulum dolor et vel felis enim at viverra ligula. Ut porttitor sagittis lorem.</li>
-								<li>Donec consectetur vestibulum dolor et vel felis enim at viverra ligula. Ut porttitor sagittis lorem.</li>
-								<li>Donec consectetur vestibulum dolor et vel felis enim at viverra ligula. Ut porttitor sagittis lorem.</li>
-								<li>Donec consectetur vestibulum dolor et vel felis enim at viverra ligula. Ut porttitor sagittis lorem.</li>
-							</ul>
-						</section>
-						<section>
-							<header>
-								<h3>Ordered List</h3>
-							</header>
-							<ol class="default">
-								<li>Donec consectetur vestibulum dolor et vel felis enim at viverra ligula. Ut porttitor sagittis lorem.</li>
-								<li>Donec consectetur vestibulum dolor et vel felis enim at viverra ligula. Ut porttitor sagittis lorem.</li>
-								<li>Donec consectetur vestibulum dolor et vel felis enim at viverra ligula. Ut porttitor sagittis lorem.</li>
-								<li>Donec consectetur vestibulum dolor et vel felis enim at viverra ligula. Ut porttitor sagittis lorem.</li>
-							</ol>
-						</section>
-						<section>
-							<header>
-								<h3>Table</h3>
-							</header>
-							<div class="table-wrapper">
-								<table class="default">
-									<thead>
-										<tr>
-											<th>ID</th>
-											<th>Name</th>
-											<th>Description</th>
-											<th>Price</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>00001</td>
-											<td>Lorem ipsum dolor</td>
-											<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>00002</td>
-											<td>Sit amet nullam</td>
-											<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>00003</td>
-											<td>Feugiat felis viverra</td>
-											<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>00004</td>
-											<td>Sagittis enim felis</td>
-											<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>00005</td>
-											<td>Nullam sed vestibulum</td>
-											<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
-											<td>19.99</td>
-										</tr>
-									</tbody>
-									<tfoot>
-										<tr>
-											<td colspan="3"></td>
-											<td>100.00</td>
-										</tr>
-									</tfoot>
-								</table>
-							</div>
-						</section>
-						<section>
-							<header>
-								<h3>Form</h3>
-							</header>
-							<form method="post" action="#">
-								<div class="row gtr-50">
-									<div class="col-6 col-12-narrow">
-										<input type="text" name="name" id="name" value="" placeholder="John Doe" />
-									</div>
-									<div class="col-6 col-12-narrow">
-										<input type="text" name="email" id="email" value="" placeholder="johndoe@domain.tld" />
-									</div>
-									<div class="col-12">
-										<div class="select" tabindex="-1">
-											<select name="department" id="department">
-												<option value="">Choose a department</option>
-												<option value="1">Manufacturing</option>
-												<option value="2">Administration</option>
-												<option value="3">Support</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-12">
-										<input type="text" name="subject" id="subject" value="" placeholder="Enter your subject" />
-									</div>
-									<div class="col-12">
-										<textarea name="message" id="message" placeholder="Enter your message"></textarea>
-									</div>
-									<div class="col-12">
-										<ul class="actions">
-											<li><input type="submit" class="button" value="Send Message" /></li>
-											<li><input type="reset" class="button alt" value="Clear Form" /></li>
-										</ul>
-									</div>
-								</div>
-							</form>
-						</section>
-					</div>
-				</div>
-			</section>
-		-->
+			</div>
+		</section>
 
 		<!-- Fourth -->
-			<section id="fourth" class="main">
-				<header>
-					<div class="container">
-						<h2>Sed feugiat ipsum consequat</h2>
-						<p>Gravida dis placerat lectus ante vel nunc euismod eget ornare varius gravida euismod lorem ipsum dolor sit amet consequat<br />
-						feugiat. Gravida dis placerat lectus ante vel nunc euismod eget ornare varius gravida euismod lorem ipsum dolor sit amet.</p>
-					</div>
-				</header>
-				<div class="content style4 featured">
-					<div class="container medium">
-						<form method="post" action="#">
-							<div class="row gtr-50">
-								<div class="col-6 col-12-mobile"><input type="text" placeholder="Name" /></div>
-								<div class="col-6 col-12-mobile"><input type="text" placeholder="Email" /></div>
-								<div class="col-12"><textarea name="message" placeholder="Message"></textarea></div>
-								<div class="col-12">
-									<ul class="actions special">
-										<li><input type="submit" class="button" value="Send Message" /></li>
-										<li><input type="reset" class="button alt" value="Clear Form" /></li>
-									</ul>
-								</div>
-							</div>
-						</form>
-					</div>
+		<section id="fourth" class="main">
+			<header>
+				<div class="container">
+					<h2>Get In Touch</h2>
+					<p>Questions about joining ISE, contributing to our journal, or partnering with our team? Send a message &mdash; we read every one.</p>
 				</div>
-			</section>
+			</header>
+			<div class="content style4 featured">
+				<div class="container medium">
+					<form method="post" action="#">
+						<div class="row gtr-50">
+							<div class="col-6 col-12-mobile"><input type="text" placeholder="Name" /></div>
+							<div class="col-6 col-12-mobile"><input type="text" placeholder="Email" /></div>
+							<div class="col-12"><textarea name="message" placeholder="Message"></textarea></div>
+							<div class="col-12">
+								<ul class="actions special">
+									<li><input type="submit" class="button" value="Send Message" /></li>
+									<li><input type="reset" class="button alt" value="Clear Form" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
 
 		<!-- Footer -->
-			<section id="footer">
-				<ul class="icons">
-					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-					<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+		<section id="footer">
+			<ul class="icons">
+				<!-- TODO: replace each href="#" with the real social URL, or delete the <li> if unused -->
+				<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+				<li><a href="mailto:contact@example.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+			</ul>
+			<div class="copyright">
+				<ul class="menu">
+					<li>&copy; 2026 ISE Research Journal. All rights reserved.</li>
+					<li>California Academy of Mathematics and Science</li>
 				</ul>
-				<div class="copyright">
-					<ul class="menu">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</section>
+			</div>
+		</section>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 
 	</body>
 </html>
