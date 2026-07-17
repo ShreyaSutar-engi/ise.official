@@ -7,7 +7,13 @@
 	<head>
 		<title>ISE Official STEM Journal</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="ISE is a student-founded research journal and competition-based organization at the California Academy of Mathematics and Science, giving high school students the opportunity to conduct and publish real scientific research." />
+		<link rel="icon" type="image/png" href="images/ISE_image.png" />
+		<meta property="og:title" content="ISE Official Research Journal & Competition-Based Organization" />
+		<meta property="og:description" content="A group of high school students discovering what it truly means to be researchers." />
+		<meta property="og:image" content="images/header.jpg" />
+		<meta property="og:type" content="website" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -275,6 +281,19 @@
 			}
 			#footer .copyright a { color: var(--c-silver); }
 
+			/* ---- Kill template's leftover light/colorful backgrounds --
+			   main.css still ships base rules (.main > header, .main >
+			   .content.styleN) that are more specific than the rules
+			   above, so they were winning and showing the original
+			   template's white panels + purple/mauve gradients through. */
+			.main > header { background: transparent !important; }
+			.main > .content.dark,
+			.main > .content.style1,
+			.main > .content.style2,
+			.main > .content.style3 { background: var(--c-bg) !important; }
+			.main > .content.style1.featured { background: linear-gradient(180deg, #0d0d0d 0%, #181818 100%) !important; }
+			.main > .content.style4 { background: linear-gradient(180deg, #101010 0%, #1a1a1a 100%) !important; }
+
 			/* ---- Section 1 intro -------------------------------------- */
 			#first > header h2 { letter-spacing: 0.15em; font-size: 1rem; color: var(--c-silver); text-transform: uppercase; font-family: var(--ff-sans); font-weight: 500; }
 			#first > header h2::after { display: none; }
@@ -287,7 +306,7 @@
 	</head>
 	<body class="is-preload">
 
-		<section id="header" class="dark" style="--hero-image: url('images/hero.jpg');">
+		<section id="header" class="dark" style="--hero-image: url('images/header.jpg');">
 			<img src="images/ISE_image.png" alt="ISE" class="hero-logo" />
 			<header>
 				<h1>ISE Official Research Journal &amp; Competition-Based Organization</h1>
@@ -327,8 +346,7 @@
 							<section>
 								<span class="feature-icon"><span class="icon solid fa-trophy"></span></span>
 								<header><h3>How We Compete</h3></header>
-								<!-- TODO: customize this copy with the specific competitions ISE participates in -->
-								<p>Beyond publication, ISE prepares members for national-level science and engineering competitions &mdash; from fair circuits to invitationals &mdash; with structured mentorship at every stage.</p>
+								<p>In our very first year, 11 ISE members qualified for the California Invention Convention, with several advancing to the later stages of MIT BWAT &mdash; early proof of what focused, student-led research can do.</p>
 							</section>
 						</div>
 						<div class="col-12">
@@ -341,12 +359,28 @@
 			</div>
 		</section>
 
+		<!-- Mentor -->
+		<section id="mentor" class="main">
+			<header>
+				<div class="container">
+					<h2>Our Mentor</h2>
+					<p>ISE is guided by mentors who help our members think and write like real researchers.</p>
+				</div>
+			</header>
+			<div class="content dark style2">
+				<div class="container medium" style="text-align: center;">
+					<h3>Dr. Ellen Roche</h3>
+					<p style="color: var(--c-text-dim); font-style: italic; margin-bottom: 1.5rem;">Associate Professor of Mechanical Engineering, MIT</p>
+					<p>Dr. Roche mentors ISE's founders, Ayush Kumar and Shreya Sutar, offering guidance on reading academic papers and drawing on her experience in the research sector to give incredible advice as the organization grows.</p>
+				</div>
+			</div>
+		</section>
+
 		<!-- Second -->
 		<section id="second" class="main">
 			<header>
 				<div class="container">
 					<h2>Research, Mentorship &amp; Community</h2>
-					<!-- TODO: customize -->
 					<p>From an early idea to a peer-reviewed paper, members move through every stage of the research process with the support of their peers and mentors.</p>
 				</div>
 			</header>
@@ -356,7 +390,6 @@
 						<div class="col-4 col-12-narrow">
 							<section>
 								<h3>Built by students, for students</h3>
-								<!-- TODO: customize this copy -->
 								<p>ISE exists because we believe that high school students are capable of producing real, rigorous research &mdash; not just learning about it. Every member chooses a question they care about and is paired with peers and mentors who help them sharpen it into something publishable.</p>
 								<p>We take submissions seriously. Every piece that enters the journal is reviewed for clarity, methodology, and contribution before it ever sees publication.</p>
 								<footer>
@@ -366,12 +399,12 @@
 						</div>
 						<div class="col-8 col-12-narrow">
 							<div class="row">
-								<div class="col-6"><a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a></div>
-								<div class="col-6"><a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a></div>
-								<div class="col-6"><a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a></div>
-								<div class="col-6"><a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a></div>
-								<div class="col-6"><a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a></div>
-								<div class="col-6"><a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a></div>
+								<div class="col-6"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+								<div class="col-6"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+								<div class="col-6"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+								<div class="col-6"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
+								<div class="col-6"><span class="image fit"><img src="images/pic05.jpg" alt="" /></span></div>
+								<div class="col-6"><span class="image fit"><img src="images/pic06.jpg" alt="" /></span></div>
 							</div>
 						</div>
 					</div>
@@ -384,61 +417,19 @@
 			<header>
 				<div class="container">
 					<h2>Featured Publication</h2>
-					<!-- TODO: customize -->
-					<p>Each cycle we highlight a student-led project that captures the depth of work coming out of ISE. Below: a brief look at our most recent feature.</p>
+					<p>Each cycle we'll highlight a student-led project that captures the depth of work coming out of ISE.</p>
 				</div>
 			</header>
 			<div class="content dark style3">
 				<div class="container">
-					<span class="image featured"><img src="images/pic07.jpg" alt="" /></span>
 					<div class="row">
-						<div class="col-4 col-12-narrow">
-							<h3>About the project</h3>
-							<!-- TODO: replace with the actual abstract or summary -->
-							<p>A short overview of the featured research goes here &mdash; the question being asked, why it matters, and what the student set out to answer. Two to three sentences is plenty.</p>
-							<p>Include a sentence about the methods used or the dataset examined so readers get a feel for the rigor before they click through.</p>
-						</div>
-						<div class="col-4 col-12-narrow">
-							<h3>Findings</h3>
-							<!-- TODO: replace -->
-							<p>A short summary of the most interesting findings from the project. Keep it accessible to a reader who is not in the field, but specific enough that someone in the field would respect it.</p>
-							<p>If the project produced a model, a measurement, or a recommendation, name it here.</p>
-						</div>
-						<div class="col-4 col-12-narrow">
-							<h3>Author &amp; next steps</h3>
-							<!-- TODO: replace -->
-							<p>Who wrote it, what year they are at CAMS, and what they plan to do with the work next. If there is a follow-up project, mention it here so readers know where ISE is headed.</p>
+						<div class="col-12" style="text-align: center;">
+							<p>Our first featured publication is coming soon &mdash; check back once ISE's inaugural journal cycle wraps.</p>
 							<footer>
 								<a href="#fourth" class="button scrolly">Get In Touch</a>
 							</footer>
 						</div>
 					</div>
-				</div>
-			</div>
-		</section>
-		<!-- Fourth -->
-		<section id="fourth" class="main">
-			<header>
-				<div class="container">
-					<h2>Get In Touch</h2>
-					<p>Questions about joining ISE, contributing to our journal, or partnering with our team? Send a message &mdash; we read every one.</p>
-				</div>
-			</header>
-			<div class="content style4 featured">
-				<div class="container medium">
-					<form method="post" action="#">
-						<div class="row gtr-50">
-							<div class="col-6 col-12-mobile"><input type="text" placeholder="Name" /></div>
-							<div class="col-6 col-12-mobile"><input type="text" placeholder="Email" /></div>
-							<div class="col-12"><textarea name="message" placeholder="Message"></textarea></div>
-							<div class="col-12">
-								<ul class="actions special">
-									<li><input type="submit" class="button" value="Send Message" /></li>
-									<li><input type="reset" class="button alt" value="Clear Form" /></li>
-								</ul>
-							</div>
-						</div>
-					</form>
 				</div>
 			</div>
 		</section>
@@ -470,13 +461,29 @@
 				</div>
 			</div>
 		</section>
+		<!-- Fourth -->
+		<section id="fourth" class="main">
+			<header>
+				<div class="container">
+					<h2>Get In Touch</h2>
+					<p>Questions about joining ISE, contributing to our journal, or partnering with our team? Email us &mdash; we read every one.</p>
+				</div>
+			</header>
+			<div class="content style4 featured">
+				<div class="container medium">
+					<ul class="actions special">
+						<li><a href="mailto:iseofficialjournal@gmail.com" class="button">Email Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</section>
 		<!-- Footer -->
 		<section id="footer">
 			<ul class="icons">
-				<!-- TODO: replace each href="#" with the real social URL, or delete the <li> if unused -->
-				<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-				<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-				<li><a href="mailto:contact@example.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+				<li><a href="https://www.instagram.com/cams.ise.official/" class="icon brands fa-instagram" target="_blank" rel="noopener"><span class="label">Instagram</span></a></li>
+				<li><a href="https://github.com/ShreyaSutar-engi" class="icon brands fa-github" target="_blank" rel="noopener"><span class="label">GitHub (Shreya)</span></a></li>
+				<li><a href="https://github.com/ayxsh-10" class="icon brands fa-github" target="_blank" rel="noopener"><span class="label">GitHub (Ayush)</span></a></li>
+				<li><a href="mailto:iseofficialjournal@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 			</ul>
 			<div class="copyright">
 				<ul class="menu">
