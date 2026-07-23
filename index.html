@@ -276,29 +276,6 @@
 			.content.style3 { padding: 2rem 0; }
 			.content.style4 { background: linear-gradient(180deg, #101010 0%, #1a1a1a 100%); padding: 4rem 0; }
 
-			/* ---- Image grids ----------------------------------------- */
-			.image.fit { display: block; overflow: hidden; }
-			.image.fit img {
-				display: block;
-				width: 100%; height: auto;
-				border: 1px solid var(--c-border);
-				filter: grayscale(100%) contrast(1.05) brightness(0.82);
-				transition: filter .5s ease, transform .6s ease;
-			}
-			.image.fit:hover img {
-				filter: grayscale(20%) contrast(1.0) brightness(1.0);
-				transform: scale(1.05);
-			}
-			.image.featured {
-				display: block;
-				margin-bottom: 3rem;
-				border: 1px solid var(--c-border);
-			}
-			.image.featured img {
-				width: 100%; height: auto; display: block;
-				filter: grayscale(35%) contrast(1.05);
-			}
-
 			/* ---- Forms ----------------------------------------------- */
 			input[type="text"],
 			input[type="email"],
@@ -545,15 +522,17 @@
 
 			/* ---- Research section ------------------------------------- */
 			#second .content { padding: 0 !important; }
-			#second .col-4 > section h3 {
-				font-size: 1.55rem;
-				margin-bottom: 1rem;
-				line-height: 1.25;
+			.students-block {
+				padding: 1rem 0 2rem;
 			}
-			#second .col-4 > section p { color: var(--c-text-dim); line-height: 1.8; }
-			#second .col-4 > section footer { margin-top: 2rem; }
-			.image-mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-			.image-mosaic .image.fit { overflow: hidden; }
+			.students-block p {
+				color: var(--c-text-dim);
+				font-size: 1.05rem;
+				line-height: 1.85;
+				margin-bottom: 1.25rem;
+				max-width: 60ch;
+			}
+			.students-block .button { margin-top: 1rem; }
 
 			/* ---- Featured publication --------------------------------- */
 			#third .coming-soon-block {
@@ -683,28 +662,11 @@
 				</div>
 			</header>
 			<div class="content dark style2">
-				<div class="container">
-					<div class="row">
-						<div class="col-4 col-12-narrow">
-							<section class="reveal">
-								<h3>Built by students,<br>for students</h3>
-								<p>ISE exists because we believe that high school students are capable of producing real, rigorous research — not just learning about it. Every member chooses a question they care about and is paired with peers and mentors who help them sharpen it into something publishable.</p>
-								<p>We take submissions seriously. Every piece that enters the journal is reviewed for clarity, methodology, and contribution before it ever sees publication.</p>
-								<footer>
-									<a href="#third" class="button scrolly">Featured Work</a>
-								</footer>
-							</section>
-						</div>
-						<div class="col-8 col-12-narrow reveal reveal-delay-2">
-							<div class="image-mosaic">
-								<span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
-								<span class="image fit"><img src="images/pic02.jpg" alt="" /></span>
-								<span class="image fit"><img src="images/pic03.jpg" alt="" /></span>
-								<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-								<span class="image fit"><img src="images/pic05.jpg" alt="" /></span>
-								<span class="image fit"><img src="images/pic06.jpg" alt="" /></span>
-							</div>
-						</div>
+				<div class="container medium reveal">
+					<div class="students-block">
+						<p>ISE exists because we believe that high school students are capable of producing real, rigorous research — not just learning about it. Every member chooses a question they care about and is paired with peers and mentors who help them sharpen it into something publishable.</p>
+						<p>We take submissions seriously. Every piece that enters the journal is reviewed for clarity, methodology, and contribution before it ever sees publication.</p>
+						<a href="#third" class="button scrolly">Featured Work</a>
 					</div>
 				</div>
 			</div>
@@ -723,7 +685,7 @@
 					<div class="coming-soon-block reveal">
 						<span class="coming-soon-label">Coming Soon</span>
 						<p class="coming-soon-text">Our first featured publication is coming soon — check back once ISE's inaugural journal cycle wraps.</p>
-						<a href="#fourth" class="button scrolly">Get In Touch</a>
+						<a href="mailto:iseofficialjournal@gmail.com?subject=ISE%20Journal%20Submission" class="button">Submit Your Paper</a>
 					</div>
 				</div>
 			</div>
@@ -800,7 +762,6 @@
 		<script src="assets/js/main.js"></script>
 
 		<script>
-			// Scroll reveal
 			const observer = new IntersectionObserver((entries) => {
 				entries.forEach(e => {
 					if (e.isIntersecting) {
