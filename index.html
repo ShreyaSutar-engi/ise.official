@@ -281,11 +281,7 @@
 			}
 			#footer .copyright a { color: var(--c-silver); }
 
-			/* ---- Kill template's leftover light/colorful backgrounds --
-			   main.css still ships base rules (.main > header, .main >
-			   .content.styleN) that are more specific than the rules
-			   above, so they were winning and showing the original
-			   template's white panels + purple/mauve gradients through. */
+			/* ---- Kill template's leftover light/colorful backgrounds -- */
 			.main > header { background: transparent !important; }
 			.main > .content.dark,
 			.main > .content.style1,
@@ -294,14 +290,132 @@
 			.main > .content.style1.featured { background: linear-gradient(180deg, #0d0d0d 0%, #181818 100%) !important; }
 			.main > .content.style4 { background: linear-gradient(180deg, #101010 0%, #1a1a1a 100%) !important; }
 
-			/* ---- Section 1 intro -------------------------------------- */
-			#first > header h2 { letter-spacing: 0.15em; font-size: 1rem; color: var(--c-silver); text-transform: uppercase; font-family: var(--ff-sans); font-weight: 500; }
-			#first > header h2::after { display: none; }
-			#first > header p { font-family: var(--ff-serif); font-size: 1.35rem; font-style: italic; color: var(--c-text); max-width: 55ch; }
-
 			/* ---- Spacing tweaks --------------------------------------- */
 			.container { padding-left: 1.5rem; padding-right: 1.5rem; }
 			.row > * { margin-bottom: 1.5rem; }
+
+			/* ---- EST. founding strip ---------------------------------- */
+			#first {
+				padding: 5rem 0;
+				border-top: 1px solid var(--c-border);
+				border-bottom: 1px solid var(--c-border);
+			}
+			#first .founding-strip {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+			}
+			.founding-eyebrow {
+				font-family: var(--ff-sans);
+				font-size: 0.72rem;
+				font-weight: 500;
+				letter-spacing: 0.22em;
+				text-transform: uppercase;
+				color: var(--c-silver);
+				display: block;
+				margin-bottom: 1.5rem;
+			}
+			.founding-text {
+				font-family: var(--ff-serif);
+				font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+				font-style: italic;
+				color: var(--c-text);
+				max-width: 54ch;
+				margin: 0 auto;
+				line-height: 1.65;
+			}
+
+			/* ---- Publish With Us — editorial layout ------------------- */
+			#publish {
+				padding: 0;
+				border-bottom: 1px solid var(--c-border);
+			}
+			.pub-editorial {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				min-height: 560px;
+			}
+			.pub-left {
+				background: #000;
+				padding: 6rem 4rem 6rem 5vw;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				border-right: 1px solid var(--c-border);
+			}
+			.pub-eyebrow {
+				font-family: var(--ff-sans);
+				font-size: 0.72rem;
+				font-weight: 500;
+				letter-spacing: 0.22em;
+				text-transform: uppercase;
+				color: var(--c-silver);
+				display: block;
+				margin-bottom: 1.5rem;
+			}
+			.pub-heading {
+				font-size: clamp(2.8rem, 5vw, 4.5rem);
+				line-height: 1.05;
+				margin: 0 0 1.75rem;
+				background: linear-gradient(160deg, #ffffff 0%, #a0a0a0 100%);
+				-webkit-background-clip: text;
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+			.pub-body {
+				color: var(--c-text-dim);
+				font-size: 1rem;
+				line-height: 1.8;
+				max-width: 48ch;
+				margin: 0 0 2.5rem;
+			}
+			.pub-actions {
+				display: flex;
+				gap: 1rem;
+				flex-wrap: wrap;
+			}
+			.pub-right {
+				background: var(--c-bg-2);
+				padding: 6rem 5vw 6rem 4rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				gap: 0;
+			}
+			.pub-credential {
+				padding: 1.75rem 0;
+				border-bottom: 1px solid var(--c-border);
+				display: flex;
+				flex-direction: column;
+				gap: 0.25rem;
+			}
+			.pub-credential:first-child { border-top: 1px solid var(--c-border); }
+			.cred-label {
+				font-family: var(--ff-sans);
+				font-size: 0.68rem;
+				font-weight: 500;
+				letter-spacing: 0.18em;
+				text-transform: uppercase;
+				color: var(--c-silver);
+			}
+			.cred-value {
+				font-family: var(--ff-serif);
+				font-size: 1.3rem;
+				color: var(--c-silver-bright);
+				line-height: 1.2;
+			}
+			.cred-sub {
+				font-size: 0.85rem;
+				color: var(--c-text-mute);
+				font-style: italic;
+			}
+
+			@media (max-width: 768px) {
+				.pub-editorial { grid-template-columns: 1fr; }
+				.pub-left { padding: 4rem 1.5rem; border-right: none; border-bottom: 1px solid var(--c-border); }
+				.pub-right { padding: 3rem 1.5rem; }
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -319,85 +433,44 @@
 
 		<!-- First -->
 		<section id="first" class="main">
-			<header>
-				<div class="container">
-					<h2>EST. July 2025</h2>
-					<p>ISE was founded by two 10th grade students, Shreya Sutar and Ayush Kumar, to create an opportunity for CAMS students to explore their interests and conduct real scientific research.</p>
-				</div>
-			</header>
-			<div class="content dark style1 featured">
-				<div class="container">
-					<div class="row">
-						<div class="col-4 col-12-narrow">
-							<section>
-								<span class="feature-icon"><span class="icon fa-clock"></span></span>
-								<header><h3>When We Meet</h3></header>
-								<p>We meet at the California Academy of Mathematics and Science on Tuesdays after school from 3:45&ndash;4:45 in room 2005. Meetings are used to debrief progress and review deliverables for the week.</p>
-							</section>
-						</div>
-						<div class="col-4 col-12-narrow">
-							<section>
-								<span class="feature-icon"><span class="icon solid fa-bolt"></span></span>
-								<header><h3>What We Do</h3></header>
-								<p>Members work on independent research projects and have the opportunity to publish in a certified ISSN journal. We are also building a MIT InvenTeam to collaborate on a grant proposal and, if advanced, present at MIT.</p>
-							</section>
-						</div>
-						<div class="col-4 col-12-narrow">
-							<section>
-								<span class="feature-icon"><span class="icon solid fa-trophy"></span></span>
-								<header><h3>How We Compete</h3></header>
-								<p>In our very first year, 11 ISE members qualified for the California Invention Convention, with several advancing to the later stages of MIT BWAT &mdash; early proof of what focused, student-led research can do.</p>
-							</section>
-						</div>
-						<div class="col-12">
-							<footer>
-								<a href="#second" class="button scrolly">Learn More</a>
-							</footer>
-						</div>
-					</div>
-				</div>
+			<div class="founding-strip container">
+				<span class="founding-eyebrow">Est. July 2025</span>
+				<p class="founding-text">ISE was founded by two 10th grade students, Shreya Sutar and Ayush Kumar, to create an opportunity for CAMS students to explore their interests and conduct real scientific research.</p>
 			</div>
 		</section>
 
 		<!-- Publish With Us -->
-		<section id="publish" class="main">
-			<header>
-				<div class="container">
-					<h2>Publish With Us</h2>
-					<p>ISE is an ISSN-certified research journal open to high school students with original research to share.</p>
+		<section id="publish">
+			<div class="pub-editorial">
+				<div class="pub-left">
+					<span class="pub-eyebrow">Research Journal</span>
+					<h2 class="pub-heading">Publish<br>With Us</h2>
+					<p class="pub-body">ISE is an ISSN-certified publication open to any high school student with original research to share. Papers are reviewed by MIT professors and evaluated on clarity, methodology, and contribution — not school, name, or prior experience.</p>
+					<div class="pub-actions">
+						<a href="publish.html" class="button">Submission Info &amp; Templates</a>
+						<a href="mailto:iseofficialjournal@gmail.com?subject=ISE%20Journal%20Submission" class="button alt">Submit a Paper</a>
+					</div>
 				</div>
-			</header>
-			<div class="content dark style1 featured">
-				<div class="container">
-					<div class="row">
-						<div class="col-4 col-12-narrow">
-							<section>
-								<span class="feature-icon"><span class="icon solid fa-user-graduate"></span></span>
-								<header><h3>Professor-Reviewed</h3></header>
-								<p>All submissions are reviewed by Dr. Ellen Roche, Associate Professor of Mechanical Engineering at MIT, along with a panel of faculty who evaluate each paper for clarity, methodology, and contribution.</p>
-							</section>
-						</div>
-						<div class="col-4 col-12-narrow">
-							<section>
-								<span class="feature-icon"><span class="icon solid fa-landmark"></span></span>
-								<header><h3>Supported by MIT</h3></header>
-								<p>ISE operates with direct guidance from MIT professors, giving student researchers access to mentorship that reflects real academic and scientific standards.</p>
-							</section>
-						</div>
-						<div class="col-4 col-12-narrow">
-							<section>
-								<span class="feature-icon"><span class="icon solid fa-file-alt"></span></span>
-								<header><h3>Who Can Submit</h3></header>
-								<p>Any high school student with an original research project is eligible. We welcome work across all STEM disciplines &mdash; no prior publication experience required.</p>
-							</section>
-						</div>
-						<div class="col-12">
-							<footer>
-								<a href="publish.html" class="button">Submission Info &amp; Templates</a>
-								&nbsp;&nbsp;&nbsp;
-								<a href="mailto:iseofficialjournal@gmail.com?subject=ISE%20Journal%20Submission" class="button alt">Submit</a>
-							</footer>
-						</div>
+				<div class="pub-right">
+					<div class="pub-credential">
+						<span class="cred-label">Reviewed By</span>
+						<span class="cred-value">Dr. Ellen Roche</span>
+						<span class="cred-sub">Associate Professor of Mechanical Engineering, MIT</span>
+					</div>
+					<div class="pub-credential">
+						<span class="cred-label">Certification</span>
+						<span class="cred-value">ISSN Certified</span>
+						<span class="cred-sub">Indexed and formally registered</span>
+					</div>
+					<div class="pub-credential">
+						<span class="cred-label">Open To</span>
+						<span class="cred-value">All High School Students</span>
+						<span class="cred-sub">Grades 9–12 · All STEM disciplines</span>
+					</div>
+					<div class="pub-credential">
+						<span class="cred-label">Experience Required</span>
+						<span class="cred-value">None</span>
+						<span class="cred-sub">Solo or co-authored · Any paper type</span>
 					</div>
 				</div>
 			</div>
