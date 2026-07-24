@@ -13,967 +13,658 @@
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* ===== ISE Design System v2 ========================================= */
+    /* ===== ISE Design System v3 — Navy & Gold ============================= */
     :root {
-      --ink:        #0D1B2A;
-      --ink-2:      #152437;
-      --ink-3:      #1D324A;
-      --paper:      #F7F9FC;
-      --paper-2:    #EDF2F7;
-      --paper-3:    #E3EBF2;
-      --blue:       #1865A0;
-      --blue-lt:    #3B9DC8;
-      --blue-dim:   rgba(24,101,160,0.12);
-      --gold:       #C09030;
-      --text-d:     #E4EDF5;
-      --text-d2:    #7FA0B8;
-      --text-d3:    #3E5A70;
-      --text-l:     #0D1B2A;
-      --text-l2:    #4A6A84;
-      --text-l3:    #8AAAB8;
-      --border-d:   rgba(120,170,210,0.13);
-      --border-l:   rgba(20,60,100,0.11);
+      --navy:       #080F1A;
+      --navy-2:     #0C1623;
+      --navy-3:     #101E2D;
+      --navy-4:     #152438;
+      --gold:       #C4A028;
+      --gold-lt:    #D4B545;
+      --gold-dim:   rgba(196,160,40,0.15);
+      --text:       #E8EEF5;
+      --text-2:     #8FA8C0;
+      --text-3:     #4A6478;
+      --border:     rgba(255,255,255,0.06);
+      --border-g:   rgba(196,160,40,0.2);
       --ff-serif:   'Cormorant Garamond', Georgia, 'Times New Roman', serif;
       --ff-sans:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --max-w:      1200px;
-      --mid-w:      820px;
+      --max-w:      1140px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body, body.is-preload {
-      background: var(--ink);
-      color: var(--text-d);
-      font-family: var(--ff-sans);
+      background: var(--navy);
+      color: var(--text);
+      font-family: var(--ff-serif);
       font-weight: 400;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    h1, h2, h3, h4, h5, h6 {
-      font-family: var(--ff-serif);
-      font-weight: 500;
-      line-height: 1.1;
-      text-wrap: balance;
-    }
-
     a { text-decoration: none; transition: color .2s, opacity .2s; }
     img { display: block; max-width: 100%; }
 
-    /* ── Layout ─────────────────────────────────────────────────────────── */
-    .wrap     { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 2.5rem; }
-    .wrap-mid { width: 100%; max-width: var(--mid-w); margin: 0 auto; padding: 0 2.5rem; }
-    .wrap-sm  { width: 100%; max-width: 620px; margin: 0 auto; padding: 0 2.5rem; }
+    .wrap    { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 2.5rem; }
+    .wrap-sm { width: 100%; max-width: 700px; margin: 0 auto; padding: 0 2.5rem; }
 
-    /* ── Scroll reveal ───────────────────────────────────────────────────── */
     .rv {
       opacity: 0;
-      transform: translateY(22px);
-      transition: opacity .72s cubic-bezier(.22,.68,0,1.15), transform .72s cubic-bezier(.22,.68,0,1.15);
+      transform: translateY(18px);
+      transition: opacity .75s ease, transform .75s ease;
     }
     .rv.in { opacity: 1; transform: none; }
-    .rv-d1 { transition-delay: .09s; }
-    .rv-d2 { transition-delay: .2s; }
-    .rv-d3 { transition-delay: .31s; }
-    .rv-d4 { transition-delay: .42s; }
+    .rv-d1 { transition-delay: .1s; }
+    .rv-d2 { transition-delay: .22s; }
+    .rv-d3 { transition-delay: .34s; }
 
-    /* ── Eyebrow label ───────────────────────────────────────────────────── */
-    .eyebrow {
-      display: block;
-      font-family: var(--ff-sans);
-      font-size: .68rem;
-      font-weight: 600;
-      letter-spacing: .24em;
-      text-transform: uppercase;
-    }
-    .eyebrow-lt { color: var(--blue-lt); }
-    .eyebrow-dk { color: var(--blue); }
-    .eyebrow-muted { color: rgba(255,255,255,.5); }
-
-    /* ── Buttons ─────────────────────────────────────────────────────────── */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      font-family: var(--ff-sans);
-      font-size: .76rem;
-      font-weight: 600;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      padding: .88rem 2.1rem;
-      cursor: pointer;
-      transition: all .22s ease;
-      text-decoration: none;
-      white-space: nowrap;
-      border: 1px solid transparent;
-    }
-    .btn-blue {
-      background: var(--blue);
-      color: #fff;
-      border-color: var(--blue);
-    }
-    .btn-blue:hover {
-      background: var(--blue-lt);
-      border-color: var(--blue-lt);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-    .btn-white {
-      background: #fff;
-      color: var(--blue);
-      border-color: #fff;
-    }
-    .btn-white:hover {
-      background: var(--paper-2);
-      border-color: var(--paper-2);
-      color: var(--blue);
-      transform: translateY(-2px);
-    }
-    .btn-ghost-white {
-      background: transparent;
-      color: #fff;
-      border-color: rgba(255,255,255,.38);
-    }
-    .btn-ghost-white:hover {
-      background: rgba(255,255,255,.12);
-      border-color: rgba(255,255,255,.7);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-    .btn-ghost-ink {
-      background: transparent;
-      color: var(--text-l);
-      border-color: rgba(13,27,42,.25);
-    }
-    .btn-ghost-ink:hover {
-      background: var(--blue);
-      border-color: var(--blue);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-    /* compatibility alias for template .scrolly links */
-    .button {
-      display: inline-flex;
-      align-items: center;
-      font-family: var(--ff-sans);
-      font-size: .76rem;
-      font-weight: 600;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      padding: .88rem 2.1rem;
-      cursor: pointer;
-      transition: all .22s ease;
-      text-decoration: none;
-      background: transparent;
-      color: var(--text-d);
-      border: 1px solid rgba(232,239,245,.3);
-    }
-    .button:hover {
-      background: rgba(255,255,255,.1);
-      border-color: rgba(232,239,245,.65);
-      color: #fff;
-    }
-
-    /* ── Grain overlay ───────────────────────────────────────────────────── */
-    body::after {
-      content: '';
-      position: fixed; inset: 0;
-      pointer-events: none; z-index: 9999;
-      opacity: .022;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 180px;
-    }
-
-    /* ── Kill template leftover bg rules ─────────────────────────────────── */
     .main { background: transparent !important; padding: 0 !important; }
     .main > header { background: transparent !important; }
     .content, .content.dark, .content.style1, .content.style2,
     .content.style3, .content.style4 { background: transparent !important; }
 
-    /* ===================================================================== */
-    /* NAV                                                                    */
-    /* ===================================================================== */
+    .label {
+      font-family: var(--ff-sans);
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--ff-sans);
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      padding: .9rem 2rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all .22s ease;
+      text-decoration: none;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+    .btn-gold:hover {
+      background: var(--gold-lt);
+      border-color: var(--gold-lt);
+      color: var(--navy);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border-color: rgba(255,255,255,.2);
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .btn-outline-gold {
+      background: transparent;
+      color: var(--gold);
+      border-color: var(--border-g);
+    }
+    .btn-outline-gold:hover {
+      background: var(--gold-dim);
+      border-color: var(--gold);
+      color: var(--gold-lt);
+      transform: translateY(-2px);
+    }
+    .button {
+      display: inline-flex; align-items: center;
+      font-family: var(--ff-sans); font-size: .7rem; font-weight: 500;
+      letter-spacing: .2em; text-transform: uppercase; padding: .9rem 2rem;
+      border: 1px solid rgba(255,255,255,.18); color: var(--text);
+      background: transparent; text-decoration: none;
+      transition: all .22s ease;
+    }
+    .button:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* NAV */
     #site-nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 200;
+      top: 0; left: 0; right: 0; z-index: 200;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 2.5rem;
-      background: rgba(13,27,42,.88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border-d);
+      padding: 1.1rem 2.5rem;
+      background: rgba(8,15,26,.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
       transition: background .3s;
     }
-    #site-nav.scrolled { background: rgba(13,27,42,.98); }
+    #site-nav.scrolled { background: rgba(8,15,26,.98); }
     .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: .7rem;
-      color: var(--text-d);
-      font-family: var(--ff-serif);
-      font-size: 1.05rem;
-      font-weight: 500;
-      letter-spacing: .01em;
+      display: flex; align-items: center; gap: .8rem;
+      color: var(--text);
+      font-family: var(--ff-serif); font-size: 1rem; font-weight: 400; letter-spacing: .02em;
     }
-    .nav-brand img { width: 26px; height: 26px; object-fit: contain; opacity: .85; }
+    .nav-brand img { width: 28px; height: 28px; object-fit: contain; }
     .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.75rem;
-      list-style: none;
+      display: flex; align-items: center; gap: 2rem; list-style: none;
     }
     .nav-links a {
-      font-family: var(--ff-sans);
-      font-size: .77rem;
-      font-weight: 500;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--text-d2);
+      font-family: var(--ff-sans); font-size: .68rem; font-weight: 400;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--text-2);
       transition: color .2s;
     }
-    .nav-links a:hover { color: var(--text-d); }
+    .nav-links a:hover { color: var(--text); }
     .nav-links .nav-cta {
-      color: #fff !important;
-      background: var(--blue);
-      padding: .52rem 1.1rem;
-      font-size: .73rem;
-      letter-spacing: .12em;
-      transition: background .2s, transform .2s;
+      color: var(--gold) !important;
+      border: 1px solid var(--border-g);
+      padding: .45rem 1rem;
+      transition: background .2s, color .2s;
     }
     .nav-links .nav-cta:hover {
-      background: var(--blue-lt) !important;
-      color: #fff !important;
-      transform: translateY(-1px);
+      background: var(--gold-dim);
+      color: var(--gold-lt) !important;
     }
-    @media (max-width: 660px) {
+    @media (max-width: 620px) {
       .nav-hide { display: none; }
-      #site-nav { padding: .9rem 1.5rem; }
+      #site-nav { padding: 1rem 1.5rem; }
     }
 
-    /* ===================================================================== */
-    /* HERO                                                                   */
-    /* ===================================================================== */
+    /* HERO */
     #hero {
-      position: relative;
       min-height: 100vh;
-      display: grid;
-      place-items: center;
-      background: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2.5rem 6rem;
+      background: var(--navy);
+      position: relative;
       overflow: hidden;
-      padding: 9rem 2.5rem 7rem;
     }
     #hero::before {
       content: '';
       position: absolute; inset: 0;
-      background-image: url('images/header.jpg');
-      background-size: cover;
-      background-position: center 30%;
-      opacity: .12;
-      filter: grayscale(70%) contrast(1.25);
-      animation: hero-drift 30s ease-in-out infinite alternate;
+      background: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(196,160,40,.07) 0%, transparent 70%);
+      pointer-events: none;
     }
-    @keyframes hero-drift {
-      from { transform: scale(1.04) translateX(0); }
-      to   { transform: scale(1.07) translateX(-10px); }
+    .hero-logo {
+      width: 100px; height: 100px;
+      object-fit: contain;
+      margin: 0 auto 2.5rem;
+      opacity: .92;
+      animation: fade-in .9s .1s both;
     }
-    #hero::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 110% 90% at 50% 50%, rgba(13,27,42,0) 0%, rgba(13,27,42,.92) 75%);
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: .92; transform: none; }
     }
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 860px;
-    }
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .8rem;
-      margin-bottom: 2.25rem;
-      animation: fade-up .8s .1s both;
-    }
-    .hero-eyebrow::before,
-    .hero-eyebrow::after {
-      content: '';
+    .hero-label {
       display: block;
-      width: 28px; height: 1px;
-      background: var(--blue-lt);
-      opacity: .55;
-    }
-    @keyframes fade-up {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: none; }
+      font-family: var(--ff-sans);
+      font-size: .65rem;
+      font-weight: 400;
+      letter-spacing: .38em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      animation: fade-in .9s .2s both;
     }
     .hero-title {
-      font-size: clamp(3rem, 8.5vw, 7rem);
+      font-family: var(--ff-serif);
+      font-size: clamp(2.4rem, 6vw, 5rem);
       font-weight: 300;
-      line-height: 1.03;
-      letter-spacing: -.025em;
-      color: #fff;
-      margin-bottom: 1.75rem;
-      animation: fade-up .95s .22s both;
+      line-height: 1.12;
+      letter-spacing: -.015em;
+      color: var(--text);
+      margin-bottom: .75rem;
+      animation: fade-in .9s .3s both;
     }
     .hero-title em {
       font-style: italic;
-      color: var(--text-d2);
+      color: var(--text-2);
     }
-    .hero-subtitle {
+    .hero-divider {
+      display: block;
+      width: 1px; height: 48px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      margin: 1.75rem auto;
+      animation: fade-in .9s .4s both;
+    }
+    .hero-sub {
       font-family: var(--ff-serif);
       font-style: italic;
-      font-size: clamp(1.05rem, 2.5vw, 1.4rem);
-      color: var(--text-d2);
-      max-width: 52ch;
-      margin: 0 auto 3rem;
-      line-height: 1.6;
-      animation: fade-up .95s .38s both;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--text-2);
+      max-width: 48ch;
+      margin: 0 auto 2.75rem;
+      line-height: 1.72;
+      animation: fade-in .9s .45s both;
     }
     .hero-actions {
+      display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap;
+      animation: fade-in .9s .55s both;
+    }
+    .hero-credentials {
+      margin-top: 4rem;
       display: flex;
-      gap: 1rem;
+      align-items: center;
       justify-content: center;
+      gap: 2.5rem;
       flex-wrap: wrap;
-      animation: fade-up .95s .52s both;
+      animation: fade-in .9s .65s both;
     }
-    .hero-scroll {
-      position: absolute;
-      bottom: 2.5rem; left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .5rem;
-      opacity: 0;
-      animation: cue-in .8s 1.4s forwards;
+    .hero-cred {
+      display: flex; flex-direction: column; align-items: center; gap: .25rem;
+      border-left: 1px solid var(--border);
+      padding-left: 2.5rem;
     }
-    @keyframes cue-in { to { opacity: .38; } }
-    .hero-scroll span {
-      font-size: .6rem;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: var(--text-d2);
+    .hero-cred:first-child { border-left: none; padding-left: 0; }
+    .hero-cred-val {
+      font-family: var(--ff-serif); font-size: 1.3rem; font-weight: 500; color: var(--text);
     }
-    .hero-scroll-line {
-      width: 1px; height: 38px;
-      background: linear-gradient(to bottom, var(--blue-lt), transparent);
-      animation: line-pulse 2.2s ease-in-out infinite;
-    }
-    @keyframes line-pulse {
-      0%, 100% { opacity: .4; transform: scaleY(1); }
-      50% { opacity: .9; transform: scaleY(1.12); }
+    .hero-cred-lbl {
+      font-family: var(--ff-sans); font-size: .6rem; font-weight: 400;
+      letter-spacing: .2em; text-transform: uppercase; color: var(--text-3);
     }
 
-    /* ===================================================================== */
-    /* CREDENTIAL RIBBON                                                      */
-    /* ===================================================================== */
-    #ribbon {
-      background: var(--paper);
-      border-bottom: 1px solid var(--border-l);
-    }
-    .ribbon-row {
-      display: flex;
-      align-items: stretch;
-    }
-    .ribbon-cell {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2.4rem 1.5rem;
+    /* FOUNDERS */
+    #founders {
+      background: var(--navy-2);
+      padding: 7rem 2.5rem;
       text-align: center;
-      border-right: 1px solid var(--border-l);
-      gap: .4rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
-    .ribbon-cell:last-child { border-right: none; }
-    .ribbon-val {
-      font-family: var(--ff-serif);
-      font-size: 1.65rem;
-      font-weight: 600;
-      color: var(--text-l);
-      line-height: 1;
-    }
-    .ribbon-lbl {
-      font-size: .67rem;
-      font-weight: 500;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--text-l2);
-    }
-    .ribbon-badge {
-      display: inline-flex;
-      align-items: center;
-      background: var(--blue);
-      color: #fff;
-      font-family: var(--ff-sans);
-      font-size: .62rem;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      padding: .28rem .75rem;
-    }
-    @media (max-width: 680px) {
-      .ribbon-row { flex-wrap: wrap; }
-      .ribbon-cell { flex: 0 0 50%; border-bottom: 1px solid var(--border-l); }
-      .ribbon-cell:nth-child(2) { border-right: none; }
-      .ribbon-cell:nth-last-child(-n+2) { border-bottom: none; }
-    }
-
-    /* ===================================================================== */
-    /* FOUNDING STATEMENT                                                     */
-    /* ===================================================================== */
-    #founding {
-      background: var(--ink-2);
-      padding: 8rem 2.5rem;
-      text-align: center;
-      border-top: 1px solid var(--border-d);
-      border-bottom: 1px solid var(--border-d);
-    }
-    .founding-inner {
-      max-width: 680px;
-      margin: 0 auto;
-    }
-    .founding-text {
+    .founders-inner { max-width: 680px; margin: 0 auto; }
+    .founders-text {
       font-family: var(--ff-serif);
       font-style: italic;
-      font-size: clamp(1.35rem, 3vw, 2rem);
-      color: var(--text-d);
-      line-height: 1.65;
-      font-weight: 400;
+      font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+      color: var(--text);
+      line-height: 1.75;
+      font-weight: 300;
+      margin-top: 1.75rem;
     }
-    .founding-text strong {
-      font-style: normal;
-      font-weight: 600;
-      color: #fff;
+    .founders-text strong {
+      font-style: normal; font-weight: 500; color: var(--text);
     }
-    .founding-meta {
+    .founders-meta {
       margin-top: 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      color: var(--text-d3);
-    }
-    .founding-meta span {
-      font-size: .72rem;
-      font-weight: 500;
-      letter-spacing: .14em;
+      font-family: var(--ff-sans);
+      font-size: .62rem;
+      font-weight: 400;
+      letter-spacing: .22em;
       text-transform: uppercase;
-    }
-    .founding-meta .sep {
-      width: 4px; height: 4px;
-      border-radius: 50%;
-      background: var(--text-d3);
-      display: inline-block;
-      letter-spacing: 0;
+      color: var(--text-3);
     }
 
-    /* ===================================================================== */
-    /* PUBLISH — split panel                                                  */
-    /* ===================================================================== */
-    #publish-panel {
+    /* PUBLISH WITH US */
+    #publish {
+      background: var(--navy);
+      padding: 7rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .publish-card {
+      max-width: 860px;
+      margin: 0 auto;
+      border: 1px solid var(--border);
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
-    .pub-left {
-      background: var(--blue);
-      padding: 8rem 5vw 8rem 5vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .publish-left {
+      padding: 4rem 3.5rem;
+      border-right: 1px solid var(--border);
     }
-    .pub-left .eyebrow-muted { margin-bottom: 2rem; }
-    .pub-heading {
+    .publish-left .label { margin-bottom: 1.5rem; display: block; }
+    .publish-h2 {
       font-family: var(--ff-serif);
-      font-size: clamp(3rem, 5.5vw, 5.5rem);
+      font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 300;
-      color: #fff;
-      line-height: .98;
-      letter-spacing: -.025em;
-      margin-bottom: 1.85rem;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 1.4rem;
     }
-    .pub-heading em { font-style: italic; }
-    .pub-body {
-      color: rgba(255,255,255,.72);
-      font-size: .97rem;
+    .publish-h2 em { font-style: italic; }
+    .publish-body {
+      font-family: var(--ff-serif);
+      font-size: .98rem;
+      color: var(--text-2);
       line-height: 1.85;
-      max-width: 42ch;
-      margin-bottom: 2.75rem;
+      margin-bottom: 2.25rem;
     }
-    .pub-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .pub-right {
-      background: var(--paper);
-      padding: 8rem 5vw;
+    .publish-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
+    .publish-right {
+      padding: 4rem 3rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-    .credential {
-      padding: 1.7rem 0;
-      border-bottom: 1px solid var(--border-l);
-      display: flex;
-      flex-direction: column;
-      gap: .32rem;
-      transition: padding-left .25s ease;
+    .cred-row {
+      padding: 1.3rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: .2rem;
     }
-    .credential:first-child { border-top: 1px solid var(--border-l); }
-    .credential:hover { padding-left: .5rem; }
+    .cred-row:first-child { padding-top: 0; }
+    .cred-row:last-child { border-bottom: none; padding-bottom: 0; }
     .cred-lbl {
-      font-size: .63rem;
-      font-weight: 600;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--blue);
+      font-family: var(--ff-sans); font-size: .58rem; font-weight: 500;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--gold);
     }
     .cred-val {
-      font-family: var(--ff-serif);
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: var(--text-l);
+      font-family: var(--ff-serif); font-size: 1.1rem; font-weight: 500; color: var(--text);
     }
-    .cred-sub {
-      font-size: .82rem;
-      color: var(--text-l2);
-      font-style: italic;
-    }
-    @media (max-width: 820px) {
-      #publish-panel { grid-template-columns: 1fr; }
-      .pub-left { padding: 5.5rem 2rem; }
-      .pub-right { padding: 4.5rem 2rem; }
+    .cred-sub { font-family: var(--ff-serif); font-style: italic; font-size: .88rem; color: var(--text-2); }
+    @media (max-width: 700px) {
+      .publish-card { grid-template-columns: 1fr; }
+      .publish-left { border-right: none; border-bottom: 1px solid var(--border); padding: 3rem 2rem; }
+      .publish-right { padding: 3rem 2rem; }
     }
 
-    /* ===================================================================== */
-    /* MENTOR                                                                 */
-    /* ===================================================================== */
-    #mentor-section {
-      background: var(--paper-2);
-      padding: 8rem 2.5rem;
-      border-top: 1px solid var(--border-l);
-      border-bottom: 1px solid var(--border-l);
+    /* MENTOR */
+    #mentor {
+      background: var(--navy-3);
+      padding: 7rem 2.5rem;
+      border-bottom: 1px solid var(--border);
     }
     .mentor-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 5rem;
-      align-items: center;
+      max-width: 820px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: center;
     }
-    .mentor-id {
-      text-align: right;
-      border-right: 1px solid var(--border-l);
-      padding-right: 5rem;
-      flex-shrink: 0;
-    }
+    .mentor-id { border-right: 1px solid var(--border); padding-right: 5rem; }
     .mentor-tag {
-      display: block;
-      font-size: .64rem;
-      font-weight: 600;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: .85rem;
+      font-family: var(--ff-sans); font-size: .62rem; font-weight: 500;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 1rem;
     }
     .mentor-name {
-      font-family: var(--ff-serif);
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      color: var(--text-l);
-      line-height: 1.1;
-      margin-bottom: .6rem;
+      font-family: var(--ff-serif); font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 400; color: var(--text); line-height: 1.1; margin-bottom: .5rem;
     }
     .mentor-role {
-      font-size: .82rem;
-      color: var(--text-l2);
-      line-height: 1.55;
+      font-family: var(--ff-serif); font-style: italic;
+      font-size: .92rem; color: var(--text-2); line-height: 1.6;
     }
     .mentor-quote {
-      font-family: var(--ff-serif);
-      font-style: italic;
-      font-size: clamp(1rem, 2.2vw, 1.25rem);
-      color: var(--text-l);
-      line-height: 1.78;
+      font-family: var(--ff-serif); font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.2rem); color: var(--text-2); line-height: 1.85;
     }
-    @media (max-width: 700px) {
+    @media (max-width: 650px) {
       .mentor-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .mentor-id { text-align: left; border-right: none; border-bottom: 1px solid var(--border-l); padding-right: 0; padding-bottom: 2.5rem; }
+      .mentor-id { border-right: none; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 2.5rem; }
     }
 
-    /* ===================================================================== */
-    /* RESEARCH & COMMUNITY                                                   */
-    /* ===================================================================== */
-    #research-section {
-      background: var(--ink);
-      padding: 8rem 2.5rem;
-      border-top: 1px solid var(--border-d);
-    }
-    .section-header {
+    /* COMMUNITY */
+    #community {
+      background: var(--navy-2);
+      padding: 7rem 2.5rem;
+      border-bottom: 1px solid var(--border);
       text-align: center;
-      margin-bottom: 5rem;
     }
-    .section-header .eyebrow { margin-bottom: 1.4rem; }
-    .section-h2 {
-      font-family: var(--ff-serif);
-      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-      font-weight: 400;
-      margin-bottom: .9rem;
+    .community-inner { max-width: 600px; margin: 0 auto; }
+    .community-h2 {
+      font-family: var(--ff-serif); font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 300; color: var(--text); margin: 1.5rem 0 1.25rem;
     }
-    .section-h2-d { color: var(--text-d); }
-    .section-h2-l { color: var(--text-l); }
-    .section-sub {
-      font-family: var(--ff-serif);
-      font-style: italic;
-      font-size: 1.1rem;
-      max-width: 54ch;
-      margin: 0 auto;
+    .community-body {
+      font-family: var(--ff-serif); font-style: italic;
+      font-size: 1.05rem; color: var(--text-2); line-height: 1.85;
+      margin-bottom: 2.5rem;
     }
-    .section-sub-d { color: var(--text-d2); }
-    .section-sub-l { color: var(--text-l2); }
-    .research-body {
-      max-width: 640px;
-      margin: 0 auto;
-    }
-    .research-body p {
-      font-size: 1.04rem;
-      color: var(--text-d2);
-      line-height: 1.88;
-      margin-bottom: 1.5rem;
-    }
-    .research-body .btn { margin-top: .75rem; }
 
-    /* ===================================================================== */
-    /* FEATURED PUBLICATION                                                   */
-    /* ===================================================================== */
-    #featured-section {
-      background: var(--paper);
-      padding: 8rem 2.5rem;
-      border-top: 1px solid var(--border-l);
-      border-bottom: 1px solid var(--border-l);
+    /* FEATURED */
+    #featured {
+      background: var(--navy);
+      padding: 7rem 2.5rem;
       text-align: center;
+      border-bottom: 1px solid var(--border);
     }
-    .featured-inner {
-      max-width: 580px;
-      margin: 0 auto;
-    }
-    .featured-inner .eyebrow { margin-bottom: 1.4rem; }
+    .featured-inner { max-width: 520px; margin: 0 auto; }
     .featured-h2 {
-      font-family: var(--ff-serif);
-      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-      color: var(--text-l);
-      margin-bottom: 1.25rem;
+      font-family: var(--ff-serif); font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 300; color: var(--text); margin: 1.5rem 0 1rem;
     }
     .featured-pill {
       display: inline-block;
-      background: var(--blue);
-      color: #fff;
-      font-family: var(--ff-sans);
-      font-size: .64rem;
-      font-weight: 700;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      padding: .32rem .95rem;
-      margin-bottom: 2rem;
+      border: 1px solid var(--border-g);
+      color: var(--gold);
+      font-family: var(--ff-sans); font-size: .6rem; font-weight: 500;
+      letter-spacing: .22em; text-transform: uppercase;
+      padding: .3rem .9rem; margin-bottom: 1.5rem;
     }
-    .featured-text {
-      font-family: var(--ff-serif);
-      font-style: italic;
-      font-size: 1.15rem;
-      color: var(--text-l2);
-      line-height: 1.72;
-      max-width: 44ch;
-      margin: 0 auto 2.5rem;
+    .featured-body {
+      font-family: var(--ff-serif); font-style: italic;
+      font-size: 1.05rem; color: var(--text-2); line-height: 1.85;
+      margin-bottom: 2.25rem;
     }
 
-    /* ===================================================================== */
-    /* SPONSORS                                                               */
-    /* ===================================================================== */
-    #sponsors-section {
-      background: var(--ink-2);
-      padding: 8rem 2.5rem;
-      border-top: 1px solid var(--border-d);
+    /* SPONSORS */
+    #sponsors {
+      background: var(--navy-2);
+      padding: 7rem 2.5rem;
+      border-bottom: 1px solid var(--border);
     }
-    .sponsors-hdr {
-      text-align: center;
-      margin-bottom: 4rem;
+    .sponsors-hdr { text-align: center; margin-bottom: 3.5rem; }
+    .sponsors-h2 {
+      font-family: var(--ff-serif); font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 300; color: var(--text); margin: 1.25rem 0 .75rem;
     }
-    .sponsors-hdr .eyebrow { margin-bottom: 1.4rem; }
+    .sponsors-sub {
+      font-family: var(--ff-serif); font-style: italic;
+      font-size: .98rem; color: var(--text-2); max-width: 48ch; margin: 0 auto;
+    }
     .sponsor-card {
-      max-width: 780px;
-      margin: 0 auto;
-      border: 1px solid var(--border-d);
-      padding: 3rem;
+      max-width: 780px; margin: 0 auto;
+      border: 1px solid var(--border); padding: 3rem;
     }
     .sponsor-mark {
-      display: block;
-      font-size: .63rem;
-      font-weight: 600;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--blue-lt);
-      margin-bottom: .9rem;
+      font-family: var(--ff-sans); font-size: .6rem; font-weight: 500;
+      letter-spacing: .24em; text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: .9rem;
     }
     .sponsor-name {
-      font-family: var(--ff-serif);
-      font-size: clamp(1.5rem, 3vw, 2.1rem);
-      color: var(--text-d);
-      margin-bottom: 1.4rem;
+      font-family: var(--ff-serif); font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+      font-weight: 400; color: var(--text); margin-bottom: 1.25rem;
     }
     .sponsor-quote {
-      font-family: var(--ff-serif);
-      font-style: italic;
-      font-size: 1.05rem;
-      color: var(--text-d2);
-      line-height: 1.72;
-      border-left: 2px solid var(--blue-lt);
-      padding-left: 1.3rem;
-      margin: 0 0 2.25rem;
-      max-width: 52ch;
+      font-family: var(--ff-serif); font-style: italic;
+      font-size: .98rem; color: var(--text-2); line-height: 1.75;
+      border-left: 1px solid var(--gold); padding-left: 1.25rem;
+      margin: 0 0 2rem; max-width: 52ch;
     }
     .sponsor-pdf-wrap {
-      margin-bottom: 2rem;
-      border: 1px solid var(--border-d);
-      overflow: hidden;
+      margin-bottom: 2rem; border: 1px solid var(--border); overflow: hidden;
     }
     .sponsor-pdf-wrap object,
-    .sponsor-pdf-wrap embed {
-      width: 100%; height: 500px; display: block;
-    }
+    .sponsor-pdf-wrap embed { width: 100%; height: 480px; display: block; }
     .sponsor-pdf-fallback {
-      padding: 2rem; text-align: center;
-      font-size: .9rem; color: var(--text-d2);
+      padding: 2rem; text-align: center; font-size: .9rem; color: var(--text-2);
     }
-    .sponsor-pdf-fallback a { color: var(--blue-lt); }
-    .sponsor-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .sponsor-pdf-fallback a { color: var(--gold); }
+    .sponsor-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
 
-    /* ===================================================================== */
-    /* CONTACT                                                                */
-    /* ===================================================================== */
-    #contact-section {
-      background: var(--ink);
-      padding: 9rem 2.5rem;
+    /* CONTACT */
+    #contact {
+      background: var(--navy);
+      padding: 8rem 2.5rem;
       text-align: center;
-      border-top: 1px solid var(--border-d);
+      border-bottom: 1px solid var(--border);
     }
     .contact-h2 {
-      font-family: var(--ff-serif);
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 300;
-      color: #fff;
-      margin-bottom: 1rem;
+      font-family: var(--ff-serif); font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 300; color: var(--text); margin: 1.25rem 0 .9rem;
     }
     .contact-sub {
-      font-family: var(--ff-serif);
-      font-style: italic;
-      font-size: 1.18rem;
-      color: var(--text-d2);
-      max-width: 46ch;
-      margin: 0 auto 3rem;
-      line-height: 1.6;
+      font-family: var(--ff-serif); font-style: italic;
+      font-size: 1.1rem; color: var(--text-2); max-width: 46ch; margin: 0 auto 2.75rem;
+      line-height: 1.72;
     }
 
-    /* ===================================================================== */
-    /* FOOTER                                                                 */
-    /* ===================================================================== */
+    /* FOOTER */
     #site-footer {
-      background: #070F18;
-      padding: 3rem 2.5rem;
-      border-top: 1px solid var(--border-d);
+      background: #050C15;
+      padding: 2.75rem 2.5rem;
+      border-top: 1px solid var(--border);
     }
     .footer-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      flex-wrap: wrap;
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
     }
     .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: .7rem;
-      font-family: var(--ff-serif);
-      font-size: .98rem;
-      color: var(--text-d3);
+      display: flex; align-items: center; gap: .75rem;
+      font-family: var(--ff-serif); font-size: .95rem; color: var(--text-3);
     }
-    .footer-brand img { width: 22px; height: 22px; object-fit: contain; opacity: .5; }
-    .footer-copy {
-      font-size: .76rem;
-      color: var(--text-d3);
-      letter-spacing: .04em;
-    }
-    .footer-icons {
-      display: flex;
-      gap: 1.4rem;
-      list-style: none;
-      align-items: center;
-    }
+    .footer-brand img { width: 20px; height: 20px; object-fit: contain; opacity: .4; }
+    .footer-copy { font-family: var(--ff-sans); font-size: .68rem; color: var(--text-3); letter-spacing: .05em; }
+    .footer-icons { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
     .footer-icons a {
-      color: var(--text-d3);
-      font-size: .95rem;
-      transition: color .2s, transform .2s;
-      display: inline-block;
+      color: var(--text-3); font-size: .9rem;
+      transition: color .2s, transform .2s; display: inline-block;
     }
-    .footer-icons a:hover { color: var(--text-d2); transform: translateY(-2px); }
-    @media (max-width: 580px) {
-      .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+    .footer-icons a:hover { color: var(--gold); transform: translateY(-2px); }
+    @media (max-width: 560px) {
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
     }
   </style>
 </head>
 <body class="is-preload">
 
-  <!-- ── Nav ─────────────────────────────────────────────────────────────── -->
   <nav id="site-nav">
     <a href="index.html" class="nav-brand">
       <img src="images/ISE_image.png" alt="ISE Logo">
       ISE Research Journal
     </a>
     <ul class="nav-links">
-      <li class="nav-hide"><a href="#publish-panel" class="scrolly">Publish</a></li>
-      <li class="nav-hide"><a href="#mentor-section" class="scrolly">Mentor</a></li>
+      <li class="nav-hide"><a href="#publish" class="scrolly">Publish</a></li>
+      <li class="nav-hide"><a href="#mentor" class="scrolly">Mentor</a></li>
       <li><a href="publish.html">Submit</a></li>
       <li><a href="mailto:iseofficialjournal@gmail.com" class="nav-cta">Email Us</a></li>
     </ul>
   </nav>
 
-  <!-- ── Hero ─────────────────────────────────────────────────────────────── -->
   <section id="hero">
-    <div class="hero-inner">
-      <span class="hero-eyebrow eyebrow eyebrow-lt">ISE Official Research Journal</span>
-      <h1 class="hero-title">High school students.<br><em>Real research.</em></h1>
-      <p class="hero-subtitle">A student-founded STEM journal at CAMS — peer-reviewed by MIT professors, ISSN-certified, and open to every high school student.</p>
-      <div class="hero-actions">
-        <a href="https://drive.google.com/file/d/1ZbXNEr56wgRQEBzD4_aUhIesoJZzXqxv/view?usp=sharing" class="btn btn-blue" target="_blank" rel="noopener">Read the Journal</a>
-        <a href="publish.html" class="btn btn-ghost-white">Submit Your Paper</a>
-      </div>
+    <img src="images/ISE_image.png" alt="ISE Logo" class="hero-logo">
+    <span class="hero-label">ISE Official Research Journal</span>
+    <h1 class="hero-title">High school students.<br><em>Real research.</em></h1>
+    <span class="hero-divider"></span>
+    <p class="hero-sub">A student-founded STEM journal at CAMS &mdash; peer-reviewed by MIT professors, ISSN-certified, and open to every high school student.</p>
+    <div class="hero-actions">
+      <a href="https://drive.google.com/file/d/1ZbXNEr56wgRQEBzD4_aUhIesoJZzXqxv/view?usp=sharing" class="btn btn-gold" target="_blank" rel="noopener">Read the Journal</a>
+      <a href="publish.html" class="btn btn-outline">Submit Your Paper</a>
     </div>
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="hero-scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- ── Credential Ribbon ─────────────────────────────────────────────────── -->
-  <div id="ribbon">
-    <div class="ribbon-row">
-      <div class="ribbon-cell rv">
-        <span class="ribbon-badge">ISSN Certified</span>
-        <span class="ribbon-lbl">Formally Indexed</span>
+    <div class="hero-credentials">
+      <div class="hero-cred">
+        <span class="hero-cred-val">ISSN</span>
+        <span class="hero-cred-lbl">Certified</span>
       </div>
-      <div class="ribbon-cell rv rv-d1">
-        <span class="ribbon-val">MIT</span>
-        <span class="ribbon-lbl">Faculty Review Panel</span>
+      <div class="hero-cred">
+        <span class="hero-cred-val">MIT</span>
+        <span class="hero-cred-lbl">Faculty Review</span>
       </div>
-      <div class="ribbon-cell rv rv-d2">
-        <span class="ribbon-val">9&ndash;12</span>
-        <span class="ribbon-lbl">All Grade Levels Welcome</span>
+      <div class="hero-cred">
+        <span class="hero-cred-val">9 &ndash; 12</span>
+        <span class="hero-cred-lbl">All Grades Welcome</span>
       </div>
-      <div class="ribbon-cell rv rv-d3">
-        <span class="ribbon-val">Est. 2025</span>
-        <span class="ribbon-lbl">Student-Founded at CAMS</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── Founding Statement ─────────────────────────────────────────────────── -->
-  <section id="founding">
-    <div class="founding-inner rv">
-      <p class="founding-text">ISE was founded by <strong>Shreya Sutar and Ayush Kumar</strong> &mdash; two 10th graders &mdash; to give CAMS students a real chance to explore their interests and conduct <strong>genuine scientific research.</strong> Not a simulation. Not a club project. A real journal.</p>
-      <div class="founding-meta">
-        <span>Est. July 2025</span>
-        <span class="sep"></span>
-        <span>California Academy of Mathematics and Science</span>
+      <div class="hero-cred">
+        <span class="hero-cred-val">2025</span>
+        <span class="hero-cred-lbl">Est. at CAMS</span>
       </div>
     </div>
   </section>
 
-  <!-- ── Publish With Us ───────────────────────────────────────────────────── -->
-  <section id="publish-panel">
-    <div class="pub-left rv">
-      <span class="eyebrow eyebrow-muted">Research Journal</span>
-      <h2 class="pub-heading">Publish<br><em>with us.</em></h2>
-      <p class="pub-body">ISE is an ISSN-certified publication open to any high school student with original research to share. Papers are reviewed by MIT professors and evaluated on clarity, methodology, and contribution &mdash; not school, name, or prior experience.</p>
-      <div class="pub-ctas">
-        <a href="publish.html" class="btn btn-white">Templates &amp; Info</a>
-        <a href="mailto:iseofficialjournal@gmail.com?subject=ISE%20Journal%20Submission" class="btn btn-ghost-white">Submit a Paper</a>
-      </div>
+  <section id="founders">
+    <div class="founders-inner rv">
+      <span class="label">Our Story</span>
+      <p class="founders-text">ISE was founded by <strong>Shreya Sutar and Ayush Kumar</strong> &mdash; two 10th graders at CAMS &mdash; to give high school students a real chance to explore their interests and conduct genuine scientific research. Not a simulation. Not a club project. A real journal, reviewed by real professors.</p>
+      <p class="founders-meta">Est. July 2025 &nbsp;&middot;&nbsp; California Academy of Mathematics and Science</p>
     </div>
-    <div class="pub-right rv rv-d2">
-      <div class="credential">
-        <span class="cred-lbl">Reviewed By</span>
-        <span class="cred-val">Dr. Ellen Roche</span>
-        <span class="cred-sub">Associate Professor of Mechanical Engineering, MIT</span>
-      </div>
-      <div class="credential">
-        <span class="cred-lbl">Certification</span>
-        <span class="cred-val">ISSN Certified</span>
-        <span class="cred-sub">Indexed and formally registered</span>
-      </div>
-      <div class="credential">
-        <span class="cred-lbl">Open To</span>
-        <span class="cred-val">All High School Students</span>
-        <span class="cred-sub">Grades 9&ndash;12 &middot; All STEM disciplines</span>
-      </div>
-      <div class="credential">
-        <span class="cred-lbl">Experience Required</span>
-        <span class="cred-val">None</span>
-        <span class="cred-sub">Solo or co-authored &middot; Any paper type</span>
+  </section>
+
+  <section id="publish">
+    <div class="wrap rv">
+      <div class="publish-card">
+        <div class="publish-left">
+          <span class="label">Research Journal</span>
+          <h2 class="publish-h2">Publish<br><em>with us.</em></h2>
+          <p class="publish-body">ISE is an ISSN-certified publication open to any high school student with original research to share. Papers are reviewed by MIT professors and evaluated on clarity, methodology, and contribution &mdash; not school, name, or prior experience.</p>
+          <div class="publish-actions">
+            <a href="publish.html" class="btn btn-gold">Templates &amp; Info</a>
+            <a href="mailto:iseofficialjournal@gmail.com?subject=ISE%20Journal%20Submission" class="btn btn-outline">Submit a Paper</a>
+          </div>
+        </div>
+        <div class="publish-right rv rv-d2">
+          <div class="cred-row">
+            <span class="cred-lbl">Reviewed By</span>
+            <span class="cred-val">Dr. Ellen Roche</span>
+            <span class="cred-sub">Associate Professor of Mechanical Engineering, MIT</span>
+          </div>
+          <div class="cred-row">
+            <span class="cred-lbl">Certification</span>
+            <span class="cred-val">ISSN Certified</span>
+            <span class="cred-sub">Indexed and formally registered</span>
+          </div>
+          <div class="cred-row">
+            <span class="cred-lbl">Open To</span>
+            <span class="cred-val">All High School Students</span>
+            <span class="cred-sub">Grades 9&ndash;12 &middot; All STEM disciplines</span>
+          </div>
+          <div class="cred-row">
+            <span class="cred-lbl">Experience Required</span>
+            <span class="cred-val">None</span>
+            <span class="cred-sub">Solo or co-authored &middot; Any paper type</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Mentor ────────────────────────────────────────────────────────────── -->
-  <section id="mentor-section">
-    <div class="mentor-inner">
+  <section id="mentor">
+    <div class="mentor-inner wrap">
       <div class="mentor-id rv">
         <span class="mentor-tag">Faculty Mentor</span>
         <h3 class="mentor-name">Dr. Ellen<br>Roche</h3>
-        <p class="mentor-role">Associate Professor of<br>Mechanical Engineering<br>MIT</p>
+        <p class="mentor-role">Associate Professor of Mechanical Engineering<br>MIT</p>
       </div>
       <p class="mentor-quote rv rv-d2">Dr. Roche mentors ISE's founders, Ayush Kumar and Shreya Sutar, offering guidance on reading academic papers and drawing on her deep experience in the research sector to give meaningful advice as the organization grows.</p>
     </div>
   </section>
 
-  <!-- ── Research & Community ──────────────────────────────────────────────── -->
-  <section id="research-section">
-    <div class="section-header wrap-mid rv">
-      <span class="eyebrow eyebrow-lt">Research, Mentorship &amp; Community</span>
-      <h2 class="section-h2 section-h2-d">Built by students,<br>for students.</h2>
-      <p class="section-sub section-sub-d">From an early idea to a peer-reviewed paper &mdash; members move through every stage of the research process.</p>
-    </div>
-    <div class="research-body wrap rv rv-d2">
-      <p>ISE exists because we believe that high school students are capable of producing real, rigorous research &mdash; not just learning about it. Every member chooses a question they care about and is paired with peers and mentors who help them sharpen it into something publishable.</p>
-      <p>We take submissions seriously. Every piece that enters the journal is reviewed for clarity, methodology, and contribution before it ever sees publication.</p>
-      <a href="#featured-section" class="btn btn-ghost-white scrolly">Featured Work</a>
+  <section id="community">
+    <div class="community-inner rv">
+      <span class="label">Built by Students, For Students</span>
+      <h2 class="community-h2">Research, Mentorship &amp; Community</h2>
+      <p class="community-body">ISE exists because we believe high school students are capable of producing real, rigorous research &mdash; not just learning about it. Every member chooses a question they care about and is guided through every stage of the research process, from question to publication.</p>
+      <a href="#featured" class="btn btn-outline-gold scrolly">Featured Work</a>
     </div>
   </section>
 
-  <!-- ── Featured Publication ──────────────────────────────────────────────── -->
-  <section id="featured-section">
+  <section id="featured">
     <div class="featured-inner rv">
-      <span class="eyebrow eyebrow-dk">Featured Publication</span>
+      <span class="label">Featured Publication</span>
       <h2 class="featured-h2">First Issue</h2>
       <span class="featured-pill">Coming Soon</span>
-      <p class="featured-text">Our first featured publication is on its way &mdash; check back once ISE's inaugural journal cycle wraps.</p>
-      <a href="#contact-section" class="btn btn-ghost-ink scrolly">Get In Touch</a>
+      <p class="featured-body">Our first featured publication is on its way &mdash; check back once ISE's inaugural journal cycle wraps.</p>
+      <a href="#contact" class="btn btn-outline scrolly">Get In Touch</a>
     </div>
   </section>
 
-  <!-- ── Sponsors ──────────────────────────────────────────────────────────── -->
-  <section id="sponsors-section">
+  <section id="sponsors">
     <div class="sponsors-hdr rv">
-      <span class="eyebrow eyebrow-lt">Our Sponsors</span>
-      <h2 class="section-h2 section-h2-d">Supporting Real Research</h2>
-      <p class="section-sub section-sub-d">ISE is proudly supported by organizations that share our commitment to research, education, and community impact.</p>
+      <span class="label">Our Sponsors</span>
+      <h2 class="sponsors-h2">Supporting Real Research</h2>
+      <p class="sponsors-sub">ISE is proudly supported by organizations that share our commitment to research, education, and community impact.</p>
     </div>
     <div class="wrap rv rv-d1">
       <div class="sponsor-card">
@@ -987,23 +678,22 @@
           </object>
         </div>
         <div class="sponsor-actions">
-          <a href="assets/pdf/west-basin-sponsorship.pdf" class="btn btn-ghost-white" target="_blank" rel="noopener">Open Full PDF</a>
-          <a href="https://www.westbasinca.gov" class="btn btn-ghost-white" target="_blank" rel="noopener">Visit WestBasinCA.gov</a>
+          <a href="assets/pdf/west-basin-sponsorship.pdf" class="btn btn-outline" target="_blank" rel="noopener">Open Full PDF</a>
+          <a href="https://www.westbasinca.gov" class="btn btn-outline" target="_blank" rel="noopener">Visit WestBasinCA.gov</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Contact ───────────────────────────────────────────────────────────── -->
-  <section id="contact-section">
+  <section id="contact">
     <div class="wrap-sm rv">
+      <span class="label">Contact</span>
       <h2 class="contact-h2">Get in touch.</h2>
       <p class="contact-sub">Questions about joining ISE, contributing to our journal, or partnering with our team? We read every message.</p>
-      <a href="mailto:iseofficialjournal@gmail.com" class="btn btn-blue">Email Us</a>
+      <a href="mailto:iseofficialjournal@gmail.com" class="btn btn-gold">Email Us</a>
     </div>
   </section>
 
-  <!-- ── Footer ────────────────────────────────────────────────────────────── -->
   <footer id="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -1019,28 +709,21 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/jquery.scrolly.min.js"></script>
   <script src="assets/js/browser.min.js"></script>
   <script src="assets/js/breakpoints.min.js"></script>
   <script src="assets/js/util.js"></script>
   <script src="assets/js/main.js"></script>
-
   <script>
-    // Scroll reveal
     const ro = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
     document.querySelectorAll('.rv').forEach(el => ro.observe(el));
-
-    // Nav scroll state
     const nav = document.getElementById('site-nav');
-    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 50);
-    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50), { passive: true });
   </script>
-
 </body>
 </html>

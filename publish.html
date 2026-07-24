@@ -9,581 +9,144 @@
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* ===== ISE Design System v2 ========================================= */
     :root {
-      --ink:        #0D1B2A;
-      --ink-2:      #152437;
-      --ink-3:      #1D324A;
-      --paper:      #F7F9FC;
-      --paper-2:    #EDF2F7;
-      --paper-3:    #E3EBF2;
-      --blue:       #1865A0;
-      --blue-lt:    #3B9DC8;
-      --blue-dim:   rgba(24,101,160,0.12);
-      --gold:       #C09030;
-      --text-d:     #E4EDF5;
-      --text-d2:    #7FA0B8;
-      --text-d3:    #3E5A70;
-      --text-l:     #0D1B2A;
-      --text-l2:    #4A6A84;
-      --text-l3:    #8AAAB8;
-      --border-d:   rgba(120,170,210,0.13);
-      --border-l:   rgba(20,60,100,0.11);
+      --navy:       #080F1A;
+      --navy-2:     #0C1623;
+      --navy-3:     #101E2D;
+      --navy-4:     #152438;
+      --gold:       #C4A028;
+      --gold-lt:    #D4B545;
+      --gold-dim:   rgba(196,160,40,0.15);
+      --text:       #E8EEF5;
+      --text-2:     #8FA8C0;
+      --text-3:     #4A6478;
+      --border:     rgba(255,255,255,0.06);
+      --border-g:   rgba(196,160,40,0.2);
       --ff-serif:   'Cormorant Garamond', Georgia, 'Times New Roman', serif;
       --ff-sans:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --max-w:      1200px;
-      --mid-w:      820px;
+      --max-w:      1140px;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
     body, body.is-preload {
-      background: var(--ink);
-      color: var(--text-d);
-      font-family: var(--ff-sans);
-      font-weight: 400;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+      background: var(--navy); color: var(--text);
+      font-family: var(--ff-serif); font-weight: 400; line-height: 1.7;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
     }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: var(--ff-serif);
-      font-weight: 500;
-      line-height: 1.1;
-      text-wrap: balance;
-    }
-
     a { text-decoration: none; transition: color .2s, opacity .2s; }
     img { display: block; max-width: 100%; }
-
-    /* ── Layout ─────────────────────────────────────────────────────────── */
-    .wrap     { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 2.5rem; }
-    .wrap-mid { width: 100%; max-width: var(--mid-w); margin: 0 auto; padding: 0 2.5rem; }
-    .wrap-sm  { width: 100%; max-width: 620px; margin: 0 auto; padding: 0 2.5rem; }
-
-    /* ── Scroll reveal ───────────────────────────────────────────────────── */
-    .rv {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity .72s cubic-bezier(.22,.68,0,1.15), transform .72s cubic-bezier(.22,.68,0,1.15);
-    }
+    .wrap    { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 2.5rem; }
+    .wrap-sm { width: 100%; max-width: 700px; margin: 0 auto; padding: 0 2.5rem; }
+    .rv { opacity: 0; transform: translateY(18px); transition: opacity .75s ease, transform .75s ease; }
     .rv.in { opacity: 1; transform: none; }
-    .rv-d1 { transition-delay: .09s; }
-    .rv-d2 { transition-delay: .2s; }
-    .rv-d3 { transition-delay: .31s; }
-    .rv-d4 { transition-delay: .42s; }
-
-    /* ── Eyebrow ─────────────────────────────────────────────────────────── */
-    .eyebrow {
-      display: block;
-      font-family: var(--ff-sans);
-      font-size: .68rem;
-      font-weight: 600;
-      letter-spacing: .24em;
-      text-transform: uppercase;
-    }
-    .eyebrow-lt   { color: var(--blue-lt); }
-    .eyebrow-dk   { color: var(--blue); }
-    .eyebrow-muted { color: rgba(255,255,255,.5); }
-
-    /* ── Buttons ─────────────────────────────────────────────────────────── */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      font-family: var(--ff-sans);
-      font-size: .76rem;
-      font-weight: 600;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      padding: .88rem 2.1rem;
-      cursor: pointer;
-      transition: all .22s ease;
-      text-decoration: none;
-      white-space: nowrap;
-      border: 1px solid transparent;
-    }
-    .btn-blue {
-      background: var(--blue); color: #fff; border-color: var(--blue);
-    }
-    .btn-blue:hover {
-      background: var(--blue-lt); border-color: var(--blue-lt); color: #fff; transform: translateY(-2px);
-    }
-    .btn-white {
-      background: #fff; color: var(--blue); border-color: #fff;
-    }
-    .btn-white:hover {
-      background: var(--paper-2); border-color: var(--paper-2); color: var(--blue); transform: translateY(-2px);
-    }
-    .btn-ghost-white {
-      background: transparent; color: #fff; border-color: rgba(255,255,255,.38);
-    }
-    .btn-ghost-white:hover {
-      background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.7); color: #fff; transform: translateY(-2px);
-    }
-    .btn-ghost-ink {
-      background: transparent; color: var(--text-l); border-color: rgba(13,27,42,.25);
-    }
-    .btn-ghost-ink:hover {
-      background: var(--blue); border-color: var(--blue); color: #fff; transform: translateY(-2px);
-    }
-    /* template compat alias */
-    .button {
-      display: inline-flex; align-items: center;
-      font-family: var(--ff-sans); font-size: .76rem; font-weight: 600;
-      letter-spacing: .16em; text-transform: uppercase; padding: .88rem 2.1rem;
-      cursor: pointer; transition: all .22s ease; text-decoration: none;
-      background: transparent; color: var(--text-d); border: 1px solid rgba(232,239,245,.3);
-    }
-    .button:hover { background: rgba(255,255,255,.1); border-color: rgba(232,239,245,.65); color: #fff; }
-
-    /* ── Grain overlay ───────────────────────────────────────────────────── */
-    body::after {
-      content: '';
-      position: fixed; inset: 0;
-      pointer-events: none; z-index: 9999;
-      opacity: .022;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 180px;
-    }
-
-    /* ── Kill template leftover bg rules ─────────────────────────────────── */
+    .rv-d1 { transition-delay: .1s; }
+    .rv-d2 { transition-delay: .22s; }
     .main { background: transparent !important; padding: 0 !important; }
     .main > header { background: transparent !important; }
-    .content, .content.dark, .content.style1, .content.style2,
-    .content.style3, .content.style4 { background: transparent !important; }
+    .content, .content.dark, .content.style1, .content.style2, .content.style3, .content.style4 { background: transparent !important; }
+    .label { font-family: var(--ff-sans); font-size: .65rem; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); display: block; }
+    .btn { display: inline-flex; align-items: center; gap: .5rem; font-family: var(--ff-sans); font-size: .7rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; padding: .9rem 2rem; border: 1px solid transparent; cursor: pointer; transition: all .22s ease; text-decoration: none; }
+    .btn-gold { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+    .btn-gold:hover { background: var(--gold-lt); border-color: var(--gold-lt); color: var(--navy); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--text); border-color: rgba(255,255,255,.2); }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+    .btn-outline-gold { background: transparent; color: var(--gold); border-color: var(--border-g); }
+    .btn-outline-gold:hover { background: var(--gold-dim); border-color: var(--gold); color: var(--gold-lt); transform: translateY(-2px); }
+    .button { display: inline-flex; align-items: center; font-family: var(--ff-sans); font-size: .7rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; padding: .9rem 2rem; border: 1px solid rgba(255,255,255,.18); color: var(--text); background: transparent; text-decoration: none; transition: all .22s ease; }
+    .button:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* ===================================================================== */
-    /* NAV                                                                    */
-    /* ===================================================================== */
-    #site-nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2.5rem;
-      background: rgba(13,27,42,.88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border-d);
-      transition: background .3s;
-    }
-    #site-nav.scrolled { background: rgba(13,27,42,.98); }
-    .nav-brand {
-      display: flex; align-items: center; gap: .7rem;
-      color: var(--text-d);
-      font-family: var(--ff-serif); font-size: 1.05rem; font-weight: 500; letter-spacing: .01em;
-    }
-    .nav-brand img { width: 26px; height: 26px; object-fit: contain; opacity: .85; }
-    .nav-links {
-      display: flex; align-items: center; gap: 1.75rem; list-style: none;
-    }
-    .nav-links a {
-      font-family: var(--ff-sans); font-size: .77rem; font-weight: 500;
-      letter-spacing: .1em; text-transform: uppercase; color: var(--text-d2); transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--text-d); }
-    .nav-links .nav-cta {
-      color: #fff !important; background: var(--blue);
-      padding: .52rem 1.1rem; font-size: .73rem; letter-spacing: .12em;
-      transition: background .2s, transform .2s;
-    }
-    .nav-links .nav-cta:hover {
-      background: var(--blue-lt) !important; color: #fff !important; transform: translateY(-1px);
-    }
-    @media (max-width: 660px) {
-      .nav-hide { display: none; }
-      #site-nav { padding: .9rem 1.5rem; }
-    }
+    #site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 2.5rem; background: rgba(8,15,26,.9); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); transition: background .3s; }
+    #site-nav.scrolled { background: rgba(8,15,26,.98); }
+    .nav-brand { display: flex; align-items: center; gap: .8rem; color: var(--text); font-family: var(--ff-serif); font-size: 1rem; font-weight: 400; letter-spacing: .02em; }
+    .nav-brand img { width: 28px; height: 28px; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: var(--ff-sans); font-size: .68rem; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--text-2); transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links .nav-cta { color: var(--gold) !important; border: 1px solid var(--border-g); padding: .45rem 1rem; transition: background .2s, color .2s; }
+    .nav-links .nav-cta:hover { background: var(--gold-dim); color: var(--gold-lt) !important; }
+    @media (max-width: 620px) { .nav-hide { display: none; } #site-nav { padding: 1rem 1.5rem; } }
 
-    /* ===================================================================== */
-    /* PAGE HERO                                                              */
-    /* ===================================================================== */
-    #page-hero {
-      background: var(--ink);
-      padding: 10rem 2.5rem 7rem;
-      text-align: center;
-      border-bottom: 1px solid var(--border-d);
-      position: relative;
-      overflow: hidden;
-    }
-    #page-hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 100%, var(--blue-dim), transparent 70%);
-      pointer-events: none;
-    }
-    .page-hero-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
-    .page-hero-inner .eyebrow { margin-bottom: 1.75rem; }
-    .page-hero-h1 {
-      font-family: var(--ff-serif);
-      font-size: clamp(2.8rem, 6.5vw, 5rem);
-      font-weight: 300;
-      color: #fff;
-      line-height: 1.0;
-      letter-spacing: -.025em;
-      margin-bottom: 1.5rem;
-    }
-    .page-hero-h1 em { font-style: italic; color: var(--text-d2); }
-    .page-hero-sub {
-      font-family: var(--ff-serif);
-      font-style: italic;
-      font-size: clamp(1rem, 2.2vw, 1.25rem);
-      color: var(--text-d2);
-      line-height: 1.65;
-      max-width: 50ch;
-      margin: 0 auto 2.75rem;
-    }
-    .page-hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    #page-hero { background: var(--navy); padding: 9rem 2.5rem 6rem; text-align: center; border-bottom: 1px solid var(--border); position: relative; }
+    #page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 55% at 50% 100%, rgba(196,160,40,.06) 0%, transparent 70%); pointer-events: none; }
+    .page-hero-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+    .page-hero-back { display: inline-block; margin-bottom: 2.5rem; font-family: var(--ff-sans); font-size: .62rem; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; color: var(--text-3); transition: color .2s; }
+    .page-hero-back:hover { color: var(--gold); }
+    .page-hero-inner .label { margin-bottom: 1.5rem; }
+    .page-hero-h1 { font-family: var(--ff-serif); font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 300; color: var(--text); line-height: 1.08; letter-spacing: -.015em; margin-bottom: 1.25rem; }
+    .page-hero-h1 em { font-style: italic; color: var(--text-2); }
+    .page-hero-sub { font-family: var(--ff-serif); font-style: italic; font-size: 1.1rem; color: var(--text-2); line-height: 1.72; max-width: 50ch; margin: 0 auto 2.5rem; }
+    .page-hero-actions { display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; }
 
-    /* ── breadcrumb ─── */
-    .breadcrumb {
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      margin-bottom: 2.25rem;
-      font-size: .7rem;
-      font-weight: 500;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--text-d3);
-    }
-    .breadcrumb a { color: var(--text-d3); transition: color .2s; }
-    .breadcrumb a:hover { color: var(--text-d2); }
-    .breadcrumb .sep { opacity: .4; }
-
-    /* ===================================================================== */
-    /* WHAT WE PUBLISH — light section                                        */
-    /* ===================================================================== */
-    #what-section {
-      background: var(--paper);
-      padding: 8rem 2.5rem;
-      border-bottom: 1px solid var(--border-l);
-    }
-    .what-inner {
-      max-width: var(--mid-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
-    .what-left .eyebrow { margin-bottom: 1.4rem; }
-    .what-h2 {
-      font-family: var(--ff-serif);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 400;
-      color: var(--text-l);
-      margin-bottom: 1.5rem;
-    }
-    .what-body {
-      font-size: 1rem;
-      color: var(--text-l2);
-      line-height: 1.88;
-    }
+    #what-section { background: var(--navy-2); padding: 7rem 2.5rem; border-bottom: 1px solid var(--border); }
+    .what-inner { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .what-left .label { margin-bottom: 1.5rem; }
+    .what-h2 { font-family: var(--ff-serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 300; color: var(--text); margin-bottom: 1.4rem; }
+    .what-body { font-size: 1rem; color: var(--text-2); line-height: 1.85; font-family: var(--ff-serif); }
     .what-body p + p { margin-top: 1.2rem; }
-    .disciplines {
-      list-style: none;
-      margin-top: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-    }
-    .disciplines li {
-      display: flex;
-      align-items: center;
-      gap: .85rem;
-      font-size: .9rem;
-      color: var(--text-l2);
-      padding: .55rem 0;
-      border-bottom: 1px solid var(--border-l);
-    }
+    .disciplines { list-style: none; margin-top: 2rem; }
+    .disciplines li { display: flex; align-items: center; gap: .75rem; font-family: var(--ff-serif); font-size: .95rem; color: var(--text-2); padding: .65rem 0; border-bottom: 1px solid var(--border); }
     .disciplines li:last-child { border-bottom: none; }
-    .disc-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--blue);
-      flex-shrink: 0;
-    }
-    @media (max-width: 700px) {
-      .what-inner { grid-template-columns: 1fr; gap: 3rem; }
-    }
+    .disc-mark { width: 1px; height: 10px; background: var(--gold); flex-shrink: 0; opacity: .6; }
+    @media (max-width: 680px) { .what-inner { grid-template-columns: 1fr; gap: 3rem; } }
 
-    /* ===================================================================== */
-    /* ELIGIBILITY — dark section                                             */
-    /* ===================================================================== */
-    #elig-section {
-      background: var(--ink-2);
-      padding: 8rem 2.5rem;
-      border-top: 1px solid var(--border-d);
-      border-bottom: 1px solid var(--border-d);
-    }
-    .elig-inner {
-      max-width: var(--mid-w);
-      margin: 0 auto;
-    }
-    .elig-inner .eyebrow { margin-bottom: 1.4rem; }
-    .elig-h2 {
-      font-family: var(--ff-serif);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 400;
-      color: var(--text-d);
-      margin-bottom: 3rem;
-    }
-    .elig-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border-d);
-      border: 1px solid var(--border-d);
-    }
-    .elig-item {
-      background: var(--ink-2);
-      padding: 1.75rem 2rem;
-      display: flex;
-      gap: 1.25rem;
-      align-items: flex-start;
-      transition: background .25s;
-    }
-    .elig-item:hover { background: var(--ink-3); }
-    .elig-num {
-      font-family: var(--ff-serif);
-      font-size: 1.3rem;
-      color: var(--blue-lt);
-      opacity: .55;
-      flex-shrink: 0;
-      line-height: 1;
-      margin-top: .15rem;
-    }
-    .elig-text {
-      font-size: .93rem;
-      color: var(--text-d2);
-      line-height: 1.65;
-    }
-    @media (max-width: 580px) {
-      .elig-list { grid-template-columns: 1fr; }
-    }
+    #elig-section { background: var(--navy); padding: 7rem 2.5rem; border-bottom: 1px solid var(--border); }
+    .elig-inner { max-width: 860px; margin: 0 auto; }
+    .elig-inner .label { margin-bottom: 1.5rem; }
+    .elig-h2 { font-family: var(--ff-serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 300; color: var(--text); margin-bottom: 3rem; }
+    .elig-list { list-style: none; }
+    .elig-item { display: flex; gap: 2rem; align-items: flex-start; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+    .elig-item:first-child { border-top: 1px solid var(--border); }
+    .elig-num { font-family: var(--ff-serif); font-size: 1rem; color: var(--gold); opacity: .5; flex-shrink: 0; min-width: 1.75rem; margin-top: .1rem; }
+    .elig-text { font-family: var(--ff-serif); font-size: 1rem; color: var(--text-2); line-height: 1.7; }
 
-    /* ===================================================================== */
-    /* PROCESS — light section                                                */
-    /* ===================================================================== */
-    #process-section {
-      background: var(--paper-2);
-      padding: 8rem 2.5rem;
-      border-top: 1px solid var(--border-l);
-      border-bottom: 1px solid var(--border-l);
-    }
-    .process-inner {
-      max-width: var(--mid-w);
-      margin: 0 auto;
-    }
-    .process-inner .eyebrow { margin-bottom: 1.4rem; }
-    .process-h2 {
-      font-family: var(--ff-serif);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 400;
-      color: var(--text-l);
-      margin-bottom: 3.5rem;
-    }
-    .steps {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .step {
-      display: grid;
-      grid-template-columns: 3rem 1fr;
-      gap: 2rem;
-      align-items: stretch;
-      padding: 2.25rem 0;
-      border-top: 1px solid var(--border-l);
-    }
-    .step:last-child { border-bottom: 1px solid var(--border-l); }
-    .step-num-col {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .step-num {
-      width: 2.75rem; height: 2.75rem;
-      border: 1px solid var(--border-l);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--ff-serif);
-      font-size: 1.1rem;
-      color: var(--blue);
-      flex-shrink: 0;
-      background: var(--paper);
-    }
-    .step-line {
-      flex: 1;
-      width: 1px;
-      background: var(--border-l);
-      margin: .5rem auto 0;
-    }
-    .step:last-child .step-line { display: none; }
-    .step-content { padding-bottom: .5rem; }
-    .step-title {
-      font-family: var(--ff-serif);
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: var(--text-l);
-      margin-bottom: .5rem;
-    }
-    .step-desc {
-      font-size: .95rem;
-      color: var(--text-l2);
-      line-height: 1.75;
-    }
-    .step-desc a { color: var(--blue); }
-    .step-desc a:hover { color: var(--blue-lt); }
+    #process-section { background: var(--navy-2); padding: 7rem 2.5rem; border-bottom: 1px solid var(--border); }
+    .process-inner { max-width: 680px; margin: 0 auto; }
+    .process-inner .label { margin-bottom: 1.5rem; }
+    .process-h2 { font-family: var(--ff-serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 300; color: var(--text); margin-bottom: 3.5rem; }
+    .steps { list-style: none; }
+    .step { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1.5rem; padding: 2rem 0; border-top: 1px solid var(--border); }
+    .step:last-child { border-bottom: 1px solid var(--border); }
+    .step-num { font-family: var(--ff-serif); font-size: 1.15rem; color: var(--gold); opacity: .55; line-height: 1; margin-top: .25rem; }
+    .step-title { font-family: var(--ff-serif); font-size: 1.2rem; font-weight: 500; color: var(--text); margin-bottom: .5rem; }
+    .step-desc { font-family: var(--ff-serif); font-size: .95rem; color: var(--text-2); line-height: 1.78; }
+    .step-desc a { color: var(--gold); }
+    .step-desc a:hover { color: var(--gold-lt); }
 
-    /* ===================================================================== */
-    /* TEMPLATES — dark section                                               */
-    /* ===================================================================== */
-    #templates-section {
-      background: var(--ink);
-      padding: 8rem 2.5rem;
-      border-top: 1px solid var(--border-d);
-    }
-    .templates-hdr {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .templates-hdr .eyebrow { margin-bottom: 1.4rem; }
-    .templates-h2 {
-      font-family: var(--ff-serif);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 400;
-      color: var(--text-d);
-      margin-bottom: .9rem;
-    }
-    .templates-sub {
-      font-family: var(--ff-serif);
-      font-style: italic;
-      font-size: 1.05rem;
-      color: var(--text-d2);
-      max-width: 50ch;
-      margin: 0 auto;
-      line-height: 1.65;
-    }
-    .template-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1px;
-      background: var(--border-d);
-      border: 1px solid var(--border-d);
-      max-width: var(--max-w);
-      margin: 0 auto;
-    }
-    .template-card {
-      background: var(--ink-2);
-      padding: 2.5rem 2rem;
-      display: flex;
-      flex-direction: column;
-      transition: background .25s;
-    }
-    .template-card:hover { background: var(--ink-3); }
-    .template-tag {
-      font-size: .62rem;
-      font-weight: 600;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--blue-lt);
-      margin-bottom: .85rem;
-    }
-    .template-title {
-      font-family: var(--ff-serif);
-      font-size: 1.35rem;
-      font-weight: 500;
-      color: var(--text-d);
-      margin-bottom: .75rem;
-    }
-    .template-desc {
-      font-size: .88rem;
-      color: var(--text-d2);
-      line-height: 1.7;
-      flex: 1;
-      margin-bottom: 2rem;
-    }
-    .template-card .btn-ghost-white { font-size: .7rem; padding: .75rem 1.5rem; }
+    #templates-section { background: var(--navy); padding: 7rem 2.5rem; border-bottom: 1px solid var(--border); }
+    .templates-hdr { text-align: center; margin-bottom: 4rem; }
+    .templates-hdr .label { margin-bottom: 1.5rem; }
+    .templates-h2 { font-family: var(--ff-serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 300; color: var(--text); margin-bottom: .75rem; }
+    .templates-sub { font-family: var(--ff-serif); font-style: italic; font-size: 1rem; color: var(--text-2); max-width: 50ch; margin: 0 auto; line-height: 1.72; }
+    .template-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); max-width: var(--max-w); margin: 0 auto; }
+    .template-card { background: var(--navy-2); padding: 2.5rem 2rem; display: flex; flex-direction: column; transition: background .25s; }
+    .template-card:hover { background: var(--navy-3); }
+    .template-tag { font-family: var(--ff-sans); font-size: .6rem; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: .85rem; display: block; }
+    .template-title { font-family: var(--ff-serif); font-size: 1.3rem; font-weight: 500; color: var(--text); margin-bottom: .75rem; }
+    .template-desc { font-family: var(--ff-serif); font-size: .9rem; color: var(--text-2); line-height: 1.72; flex: 1; margin-bottom: 2rem; }
 
-    /* ===================================================================== */
-    /* CTA BAR — blue section                                                 */
-    /* ===================================================================== */
-    #cta-bar {
-      background: var(--blue);
-      padding: 8rem 2.5rem;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,.1);
-    }
-    .cta-bar-inner { max-width: 560px; margin: 0 auto; }
-    .cta-bar-inner .eyebrow { margin-bottom: 1.75rem; }
-    .cta-h2 {
-      font-family: var(--ff-serif);
-      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-      font-weight: 300;
-      color: #fff;
-      line-height: 1.1;
-      letter-spacing: -.02em;
-      margin-bottom: 1rem;
-    }
-    .cta-sub {
-      font-family: var(--ff-serif);
-      font-style: italic;
-      font-size: 1.1rem;
-      color: rgba(255,255,255,.72);
-      margin-bottom: 2.75rem;
-      line-height: 1.6;
-    }
-    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    #cta-section { background: var(--navy-3); padding: 7rem 2.5rem; text-align: center; border-bottom: 1px solid var(--border); }
+    .cta-inner { max-width: 540px; margin: 0 auto; }
+    .cta-inner .label { margin-bottom: 1.5rem; }
+    .cta-h2 { font-family: var(--ff-serif); font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 300; color: var(--text); margin-bottom: .9rem; }
+    .cta-sub { font-family: var(--ff-serif); font-style: italic; font-size: 1.05rem; color: var(--text-2); margin-bottom: 2.5rem; line-height: 1.72; }
+    .cta-actions { display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; }
 
-    /* ===================================================================== */
-    /* FOOTER                                                                 */
-    /* ===================================================================== */
-    #site-footer {
-      background: #070F18;
-      padding: 3rem 2.5rem;
-      border-top: 1px solid var(--border-d);
-    }
-    .footer-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-    .footer-brand {
-      display: flex; align-items: center; gap: .7rem;
-      font-family: var(--ff-serif); font-size: .98rem; color: var(--text-d3);
-    }
-    .footer-brand img { width: 22px; height: 22px; object-fit: contain; opacity: .5; }
-    .footer-copy { font-size: .76rem; color: var(--text-d3); letter-spacing: .04em; }
-    .footer-icons {
-      display: flex; gap: 1.4rem; list-style: none; align-items: center;
-    }
-    .footer-icons a {
-      color: var(--text-d3); font-size: .95rem;
-      transition: color .2s, transform .2s; display: inline-block;
-    }
-    .footer-icons a:hover { color: var(--text-d2); transform: translateY(-2px); }
-    @media (max-width: 580px) {
-      .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-    }
+    #site-footer { background: #050C15; padding: 2.75rem 2.5rem; border-top: 1px solid var(--border); }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .footer-brand { display: flex; align-items: center; gap: .75rem; font-family: var(--ff-serif); font-size: .95rem; color: var(--text-3); }
+    .footer-brand img { width: 20px; height: 20px; object-fit: contain; opacity: .4; }
+    .footer-copy { font-family: var(--ff-sans); font-size: .68rem; color: var(--text-3); letter-spacing: .05em; }
+    .footer-icons { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+    .footer-icons a { color: var(--text-3); font-size: .9rem; transition: color .2s, transform .2s; display: inline-block; }
+    .footer-icons a:hover { color: var(--gold); transform: translateY(-2px); }
+    @media (max-width: 560px) { .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; } }
   </style>
 </head>
 <body class="is-preload">
 
-  <!-- ── Nav ─────────────────────────────────────────────────────────────── -->
   <nav id="site-nav">
     <a href="index.html" class="nav-brand">
       <img src="images/ISE_image.png" alt="ISE Logo">
@@ -597,25 +160,23 @@
     </ul>
   </nav>
 
-  <!-- ── Page Hero ──────────────────────────────────────────────────────── -->
   <section id="page-hero">
     <div class="page-hero-inner">
-      <span class="breadcrumb"><a href="index.html">ISE</a><span class="sep">/</span>Publish</span>
-      <span class="eyebrow eyebrow-lt">Research Journal</span>
+      <a href="index.html" class="page-hero-back">&larr; &nbsp; Back to ISE</a>
+      <span class="label">Research Journal</span>
       <h1 class="page-hero-h1">Publish<br><em>with us.</em></h1>
       <p class="page-hero-sub">Open to all high school students. Reviewed by MIT professors. ISSN-certified and formally indexed.</p>
       <div class="page-hero-actions">
-        <a href="mailto:iseofficialjournal@gmail.com?subject=ISE%20Journal%20Submission" class="btn btn-blue">Submit a Paper</a>
-        <a href="#templates-section" class="btn btn-ghost-white scrolly">Download Templates</a>
+        <a href="mailto:iseofficialjournal@gmail.com?subject=ISE%20Journal%20Submission" class="btn btn-gold">Submit a Paper</a>
+        <a href="#templates-section" class="btn btn-outline scrolly">Download Templates</a>
       </div>
     </div>
   </section>
 
-  <!-- ── What We Publish ───────────────────────────────────────────────────── -->
   <section id="what-section">
-    <div class="what-inner wrap">
-      <div class="what-left rv">
-        <span class="eyebrow eyebrow-dk">The Journal</span>
+    <div class="what-inner rv">
+      <div class="what-left">
+        <span class="label">The Journal</span>
         <h2 class="what-h2">What We Publish</h2>
         <div class="what-body">
           <p>ISE's journal is an ISSN-certified publication dedicated to original research by high school students. We publish across all STEM disciplines &mdash; from biology and chemistry to engineering, computer science, mathematics, and environmental science.</p>
@@ -624,96 +185,64 @@
       </div>
       <div class="rv rv-d2">
         <ul class="disciplines">
-          <li><span class="disc-dot"></span>Biology &amp; Life Sciences</li>
-          <li><span class="disc-dot"></span>Chemistry &amp; Biochemistry</li>
-          <li><span class="disc-dot"></span>Physics &amp; Astronomy</li>
-          <li><span class="disc-dot"></span>Computer Science &amp; AI</li>
-          <li><span class="disc-dot"></span>Mathematics &amp; Statistics</li>
-          <li><span class="disc-dot"></span>Engineering &amp; Design</li>
-          <li><span class="disc-dot"></span>Environmental Science</li>
-          <li><span class="disc-dot"></span>Psychology &amp; Neuroscience</li>
-          <li><span class="disc-dot"></span>Other STEM Fields</li>
+          <li><span class="disc-mark"></span>Biology &amp; Life Sciences</li>
+          <li><span class="disc-mark"></span>Chemistry &amp; Biochemistry</li>
+          <li><span class="disc-mark"></span>Physics &amp; Astronomy</li>
+          <li><span class="disc-mark"></span>Computer Science &amp; AI</li>
+          <li><span class="disc-mark"></span>Mathematics &amp; Statistics</li>
+          <li><span class="disc-mark"></span>Engineering &amp; Design</li>
+          <li><span class="disc-mark"></span>Environmental Science</li>
+          <li><span class="disc-mark"></span>Psychology &amp; Neuroscience</li>
+          <li><span class="disc-mark"></span>Other STEM Fields</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ── Eligibility ──────────────────────────────────────────────────────────── -->
   <section id="elig-section">
     <div class="elig-inner rv">
-      <span class="eyebrow eyebrow-lt">Who Can Submit</span>
+      <span class="label">Who Can Submit</span>
       <h2 class="elig-h2">Eligibility</h2>
       <ul class="elig-list">
-        <li class="elig-item rv">
-          <span class="elig-num">01</span>
-          <span class="elig-text">Currently enrolled high school student (grades 9&ndash;12)</span>
-        </li>
-        <li class="elig-item rv rv-d1">
-          <span class="elig-num">02</span>
-          <span class="elig-text">Original, unpublished research or literature review</span>
-        </li>
-        <li class="elig-item rv rv-d2">
-          <span class="elig-num">03</span>
-          <span class="elig-text">All STEM fields accepted &mdash; biology, chemistry, physics, CS, math, environmental science, engineering, and more</span>
-        </li>
-        <li class="elig-item rv rv-d3">
-          <span class="elig-num">04</span>
-          <span class="elig-text">Solo or co-authored submissions welcome</span>
-        </li>
-        <li class="elig-item rv rv-d1">
-          <span class="elig-num">05</span>
-          <span class="elig-text">No prior publication experience required</span>
-        </li>
-        <li class="elig-item rv rv-d2">
-          <span class="elig-num">06</span>
-          <span class="elig-text">Students outside CAMS are welcome &mdash; open to all high schools</span>
-        </li>
+        <li class="elig-item"><span class="elig-num">01</span><span class="elig-text">Currently enrolled high school student (grades 9&ndash;12)</span></li>
+        <li class="elig-item"><span class="elig-num">02</span><span class="elig-text">Original, unpublished research or literature review</span></li>
+        <li class="elig-item"><span class="elig-num">03</span><span class="elig-text">All STEM fields &mdash; biology, chemistry, physics, CS, math, environmental science, engineering, and more</span></li>
+        <li class="elig-item"><span class="elig-num">04</span><span class="elig-text">Solo or co-authored submissions welcome</span></li>
+        <li class="elig-item"><span class="elig-num">05</span><span class="elig-text">No prior publication experience required</span></li>
+        <li class="elig-item"><span class="elig-num">06</span><span class="elig-text">Students outside CAMS are welcome &mdash; open to all high schools</span></li>
       </ul>
     </div>
   </section>
 
-  <!-- ── Submission Process ──────────────────────────────────────────────────── -->
   <section id="process-section">
     <div class="process-inner rv">
-      <span class="eyebrow eyebrow-dk">How It Works</span>
+      <span class="label">How It Works</span>
       <h2 class="process-h2">Submission Process</h2>
       <ol class="steps">
         <li class="step">
-          <div class="step-num-col">
-            <div class="step-num">1</div>
-            <div class="step-line"></div>
-          </div>
-          <div class="step-content">
+          <span class="step-num">1</span>
+          <div>
             <h3 class="step-title">Download a Template</h3>
-            <p class="step-desc">Choose the template below that matches your paper type &mdash; Original Research, Literature Review, Engineering/Design, or Computational/CS &mdash; and format your submission accordingly.</p>
+            <p class="step-desc">Choose the template below that matches your paper type and format your submission accordingly before sending it in.</p>
           </div>
         </li>
         <li class="step">
-          <div class="step-num-col">
-            <div class="step-num">2</div>
-            <div class="step-line"></div>
-          </div>
-          <div class="step-content">
+          <span class="step-num">2</span>
+          <div>
             <h3 class="step-title">Email Your Submission</h3>
-            <p class="step-desc">Send your formatted paper to <a href="mailto:iseofficialjournal@gmail.com">iseofficialjournal@gmail.com</a> with the subject line <strong>"ISE Journal Submission &mdash; [Your Name]"</strong>. Attach your paper as a .docx or PDF file.</p>
+            <p class="step-desc">Send your formatted paper to <a href="mailto:iseofficialjournal@gmail.com">iseofficialjournal@gmail.com</a> with the subject line <em>"ISE Journal Submission &mdash; [Your Name]"</em>. Attach your paper as a .docx or PDF.</p>
           </div>
         </li>
         <li class="step">
-          <div class="step-num-col">
-            <div class="step-num">3</div>
-            <div class="step-line"></div>
-          </div>
-          <div class="step-content">
+          <span class="step-num">3</span>
+          <div>
             <h3 class="step-title">Review</h3>
-            <p class="step-desc">Your paper enters our review process, led by Dr. Ellen Roche and our faculty panel. We may reach out with revision requests or clarifying questions during this stage.</p>
+            <p class="step-desc">Your paper enters our review process, led by Dr. Ellen Roche and our faculty panel. We may reach out with revision requests during this stage.</p>
           </div>
         </li>
         <li class="step">
-          <div class="step-num-col">
-            <div class="step-num">4</div>
-            <div class="step-line"></div>
-          </div>
-          <div class="step-content">
+          <span class="step-num">4</span>
+          <div>
             <h3 class="step-title">Decision &amp; Publication</h3>
             <p class="step-desc">You'll receive a decision by email. Accepted papers are published in ISE's next journal cycle and formally indexed under the journal's ISSN.</p>
           </div>
@@ -722,10 +251,9 @@
     </div>
   </section>
 
-  <!-- ── Templates ───────────────────────────────────────────────────────────── -->
   <section id="templates-section">
     <div class="templates-hdr rv">
-      <span class="eyebrow eyebrow-lt">Templates</span>
+      <span class="label">Templates</span>
       <h2 class="templates-h2">Download a Template</h2>
       <p class="templates-sub">Format your paper using one of the templates below before submitting. Unsure which fits? Email us and we'll help.</p>
     </div>
@@ -733,44 +261,42 @@
       <div class="template-card">
         <span class="template-tag">Experimental</span>
         <h3 class="template-title">Original Research</h3>
-        <p class="template-desc">For experimental or observational studies with a defined hypothesis, methodology, results, and discussion section.</p>
-        <a href="templates/ISEJ_Research_Paper_Template.docx" class="btn btn-ghost-white" download>Download Template</a>
+        <p class="template-desc">For experimental or observational studies with a defined hypothesis, methodology, results, and discussion.</p>
+        <a href="templates/ISEJ_Research_Paper_Template.docx" class="btn btn-outline-gold" download>Download Template</a>
       </div>
       <div class="template-card">
         <span class="template-tag">Review</span>
         <h3 class="template-title">Literature Review</h3>
         <p class="template-desc">For comprehensive reviews of existing research on a scientific topic, synthesizing findings across multiple sources.</p>
-        <a href="templates/ISEJ_Literature_Review_Template.docx" class="btn btn-ghost-white" download>Download Template</a>
+        <a href="templates/ISEJ_Literature_Review_Template.docx" class="btn btn-outline-gold" download>Download Template</a>
       </div>
       <div class="template-card">
         <span class="template-tag">Engineering</span>
         <h3 class="template-title">Engineering / Design</h3>
-        <p class="template-desc">For projects centered on building, iterating, or testing a device, system, or solution to a defined engineering problem.</p>
-        <a href="templates/ISEJ_Engineering_Paper_Template.docx" class="btn btn-ghost-white" download>Download Template</a>
+        <p class="template-desc">For projects centered on building, iterating, or testing a device, system, or solution to a defined problem.</p>
+        <a href="templates/ISEJ_Engineering_Paper_Template.docx" class="btn btn-outline-gold" download>Download Template</a>
       </div>
       <div class="template-card">
         <span class="template-tag">CS / Data</span>
         <h3 class="template-title">Computational / CS</h3>
         <p class="template-desc">For research involving algorithms, models, data analysis, simulations, or machine learning applications.</p>
-        <a href="templates/ISEJ_Computational_CS_Template.docx" class="btn btn-ghost-white" download>Download Template</a>
+        <a href="templates/ISEJ_Computational_CS_Template.docx" class="btn btn-outline-gold" download>Download Template</a>
       </div>
     </div>
   </section>
 
-  <!-- ── CTA Bar ───────────────────────────────────────────────────────────── -->
-  <section id="cta-bar">
-    <div class="cta-bar-inner rv">
-      <span class="eyebrow eyebrow-muted">Ready?</span>
+  <section id="cta-section">
+    <div class="cta-inner rv">
+      <span class="label">Ready?</span>
       <h2 class="cta-h2">Submit your paper.</h2>
       <p class="cta-sub">Email your formatted paper and we'll take it from there. Every message gets read.</p>
       <div class="cta-actions">
-        <a href="mailto:iseofficialjournal@gmail.com?subject=ISE%20Journal%20Submission" class="btn btn-white">Submit a Paper</a>
-        <a href="mailto:iseofficialjournal@gmail.com?subject=ISE%20Submission%20Question" class="btn btn-ghost-white">Ask a Question</a>
+        <a href="mailto:iseofficialjournal@gmail.com?subject=ISE%20Journal%20Submission" class="btn btn-gold">Submit a Paper</a>
+        <a href="mailto:iseofficialjournal@gmail.com?subject=ISE%20Submission%20Question" class="btn btn-outline">Ask a Question</a>
       </div>
     </div>
   </section>
 
-  <!-- ── Footer ────────────────────────────────────────────────────────────── -->
   <footer id="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -786,28 +312,21 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/jquery.scrolly.min.js"></script>
   <script src="assets/js/browser.min.js"></script>
   <script src="assets/js/breakpoints.min.js"></script>
   <script src="assets/js/util.js"></script>
   <script src="assets/js/main.js"></script>
-
   <script>
-    // Scroll reveal
     const ro = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
     document.querySelectorAll('.rv').forEach(el => ro.observe(el));
-
-    // Nav scroll state
     const nav = document.getElementById('site-nav');
-    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 50);
-    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50), { passive: true });
   </script>
-
 </body>
 </html>
