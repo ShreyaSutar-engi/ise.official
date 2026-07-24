@@ -1,0 +1,440 @@
+<!DOCTYPE HTML>
+<!--
+	ISE Official STEM Journal — Publish With Us
+-->
+<html>
+	<head>
+		<title>Publish With Us — ISE Research Journal</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Submit your research to the ISE Official STEM Journal. Professor-reviewed, ISSN-certified, and open to all high school students." />
+		<link rel="icon" type="image/png" href="images/ISE_image.png" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+		<style>
+			/* === ISE Theme — Black / White / Silver / Gray ============ */
+			:root {
+				--c-bg:            #0a0a0a;
+				--c-bg-2:          #121212;
+				--c-bg-3:          #1a1a1a;
+				--c-bg-elev:       #222222;
+				--c-border:        rgba(192,192,192,0.14);
+				--c-border-strong: rgba(192,192,192,0.38);
+				--c-text:          #ececec;
+				--c-text-dim:      #a8a8a8;
+				--c-text-mute:     #7a7a7a;
+				--c-silver:        #c0c0c0;
+				--c-silver-bright: #ebebeb;
+				--c-silver-dark:   #8a8a8a;
+				--c-accent:        #6a9ab8;
+				--c-accent-dim:    rgba(106,154,184,0.15);
+				--ff-serif:        'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+				--ff-sans:         'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			}
+
+			html, body, body.is-preload {
+				background: var(--c-bg);
+				color: var(--c-text);
+				font-family: var(--ff-sans);
+				font-weight: 300;
+				letter-spacing: 0.005em;
+				line-height: 1.65;
+			}
+
+			h1, h2, h3, h4, h5, h6 {
+				font-family: var(--ff-serif);
+				font-weight: 500;
+				letter-spacing: -0.01em;
+				color: var(--c-silver-bright);
+			}
+
+			a { color: var(--c-silver-bright); transition: color .2s ease; }
+			a:hover { color: #fff; }
+
+			/* ---- Page header ------------------------------------------ */
+			#page-header {
+				background: #000;
+				padding: 6rem 1.5rem 4rem;
+				text-align: center;
+				border-bottom: 1px solid var(--c-border);
+			}
+			#page-header .back-link {
+				display: inline-block;
+				font-family: var(--ff-sans);
+				font-size: 0.78rem;
+				font-weight: 500;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: var(--c-text-mute);
+				margin-bottom: 2.5rem;
+				transition: color .2s ease;
+			}
+			#page-header .back-link:hover { color: var(--c-silver-bright); }
+			#page-header h1 {
+				font-size: clamp(2rem, 5vw, 3.5rem);
+				line-height: 1.15;
+				background: linear-gradient(180deg, #ffffff 0%, #b8b8b8 100%);
+				-webkit-background-clip: text;
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+				margin-bottom: 1rem;
+			}
+			#page-header p {
+				color: var(--c-text-dim);
+				font-family: var(--ff-serif);
+				font-style: italic;
+				font-size: 1.15rem;
+				max-width: 55ch;
+				margin: 0 auto;
+			}
+
+			/* ---- Buttons ---------------------------------------------- */
+			.button,
+			input[type="submit"] {
+				display: inline-block;
+				background: transparent !important;
+				border: 1px solid var(--c-silver) !important;
+				color: var(--c-silver-bright) !important;
+				text-transform: uppercase;
+				letter-spacing: 0.2em;
+				font-family: var(--ff-sans) !important;
+				font-size: 0.78rem !important;
+				font-weight: 500 !important;
+				padding: 1rem 2.25rem !important;
+				border-radius: 0 !important;
+				box-shadow: none !important;
+				text-shadow: none !important;
+				transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+				cursor: pointer;
+				text-decoration: none;
+			}
+			.button:hover {
+				background: var(--c-silver-bright) !important;
+				color: #000 !important;
+				border-color: var(--c-silver-bright) !important;
+				transform: translateY(-1px);
+			}
+			.button.alt {
+				border-color: var(--c-silver-dark) !important;
+				color: var(--c-text-dim) !important;
+			}
+			.button.primary {
+				background: var(--c-silver-bright) !important;
+				color: #000 !important;
+				border-color: var(--c-silver-bright) !important;
+			}
+			.button.primary:hover {
+				background: #fff !important;
+				border-color: #fff !important;
+			}
+
+			/* ---- Layout ------------------------------------------------ */
+			.container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+			.container.medium { max-width: 800px; }
+
+			/* ---- Sections ---------------------------------------------- */
+			.publish-section {
+				padding: 5rem 0;
+				border-bottom: 1px solid var(--c-border);
+			}
+			.publish-section:last-child { border-bottom: none; }
+
+			.section-label {
+				font-family: var(--ff-sans);
+				font-size: 0.75rem;
+				font-weight: 500;
+				letter-spacing: 0.18em;
+				text-transform: uppercase;
+				color: var(--c-accent);
+				display: block;
+				margin-bottom: 1rem;
+			}
+			.section-title {
+				font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+				margin-bottom: 1.25rem;
+			}
+			.section-title::after {
+				content: '';
+				display: block;
+				width: 50px; height: 1px;
+				background: var(--c-accent);
+				margin-top: 1.25rem;
+			}
+			.section-body {
+				color: var(--c-text-dim);
+				max-width: 62ch;
+				font-size: 1rem;
+				line-height: 1.75;
+			}
+
+			/* ---- Process steps ---------------------------------------- */
+			.steps {
+				list-style: none;
+				padding: 0; margin: 2.5rem 0 0;
+				display: flex;
+				flex-direction: column;
+				gap: 1.75rem;
+			}
+			.steps li {
+				display: flex;
+				gap: 1.5rem;
+				align-items: flex-start;
+			}
+			.step-num {
+				flex-shrink: 0;
+				width: 2.25rem; height: 2.25rem;
+				border: 1px solid var(--c-silver);
+				display: flex; align-items: center; justify-content: center;
+				font-family: var(--ff-serif);
+				font-size: 1rem;
+				color: var(--c-silver-bright);
+			}
+			.step-body h4 {
+				font-size: 1.05rem;
+				margin-bottom: 0.3rem;
+				color: var(--c-silver-bright);
+			}
+			.step-body p {
+				font-size: 0.93rem;
+				color: var(--c-text-dim);
+				margin: 0;
+			}
+
+			/* ---- Template cards --------------------------------------- */
+			.template-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 1.5rem;
+				margin-top: 2.5rem;
+			}
+			.template-card {
+				background: var(--c-bg-3);
+				border: 1px solid var(--c-border);
+				padding: 2rem 1.75rem;
+				transition: border-color .3s ease, background .3s ease, transform .3s ease;
+				display: flex;
+				flex-direction: column;
+			}
+			.template-card:hover {
+				border-color: var(--c-border-strong);
+				background: var(--c-bg-elev);
+				transform: translateY(-3px);
+			}
+			.template-card h3 {
+				font-size: 1.25rem;
+				margin-bottom: 0.5rem;
+			}
+			.template-card p {
+				font-size: 0.88rem;
+				color: var(--c-text-dim);
+				margin-bottom: 1.5rem;
+				line-height: 1.65;
+				flex: 1;
+			}
+			.template-card .button {
+				align-self: flex-start;
+			}
+
+			/* ---- Eligibility table ------------------------------------ */
+			.elig-list {
+				list-style: none;
+				padding: 0; margin: 2rem 0 0;
+				display: flex;
+				flex-direction: column;
+				gap: 0.85rem;
+			}
+			.elig-list li {
+				display: flex;
+				gap: 1rem;
+				align-items: flex-start;
+				font-size: 0.95rem;
+				color: var(--c-text-dim);
+			}
+			.elig-list li::before {
+				content: '—';
+				color: var(--c-silver);
+				flex-shrink: 0;
+			}
+
+			/* ---- CTA bar ----------------------------------------------- */
+			.cta-bar {
+				background: #000;
+				padding: 5rem 1.5rem;
+				text-align: center;
+				border-top: 1px solid var(--c-border);
+			}
+			.cta-bar h2 {
+				font-size: clamp(1.6rem, 3vw, 2.4rem);
+				margin-bottom: 1rem;
+			}
+			.cta-bar p {
+				color: var(--c-text-dim);
+				font-family: var(--ff-serif);
+				font-style: italic;
+				font-size: 1.1rem;
+				margin-bottom: 2.5rem;
+			}
+			.cta-buttons {
+				display: flex;
+				justify-content: center;
+				gap: 1.25rem;
+				flex-wrap: wrap;
+			}
+
+			/* ---- Footer ----------------------------------------------- */
+			#footer {
+				background: #000;
+				padding: 3rem 1.5rem;
+				text-align: center;
+				border-top: 1px solid var(--c-border);
+			}
+			#footer .copyright {
+				color: var(--c-text-mute);
+				font-size: 0.85rem;
+				letter-spacing: 0.05em;
+			}
+			#footer .copyright a { color: var(--c-silver); }
+
+			/* ---- Kill template leftover bg rules ---------------------- */
+			.main > header { background: transparent !important; }
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Header -->
+		<section id="page-header">
+			<a href="index.html" class="back-link">&#8592; &nbsp; Back to ISE</a>
+			<h1>Publish With Us</h1>
+			<p>Open to all high school students. Reviewed by MIT professors. Certified and indexed.</p>
+		</section>
+
+		<!-- About the Journal -->
+		<section class="publish-section">
+			<div class="container medium">
+				<span class="section-label">The Journal</span>
+				<h2 class="section-title">What We Publish</h2>
+				<p class="section-body">
+					ISE's journal is an ISSN-certified publication dedicated to original research by high school students. We publish across all STEM disciplines — from biology and chemistry to engineering, computer science, mathematics, and environmental science.
+				</p>
+				<p class="section-body" style="margin-top: 1rem;">
+					Every submission goes through a structured review process led by Dr. Ellen Roche, Associate Professor of Mechanical Engineering at MIT, and supported by a panel of professors. We look at clarity of question, rigor of methodology, and quality of writing — not name, school, or prior experience.
+				</p>
+			</div>
+		</section>
+
+		<!-- Eligibility -->
+		<section class="publish-section" style="background: var(--c-bg-2);">
+			<div class="container medium">
+				<span class="section-label">Eligibility</span>
+				<h2 class="section-title">Who Can Submit</h2>
+				<ul class="elig-list">
+					<li>Currently enrolled high school student (grades 9–12)</li>
+					<li>Original, unpublished research or literature review</li>
+					<li>All STEM fields accepted — biology, chemistry, physics, CS, math, environmental science, engineering, and more</li>
+					<li>Solo or co-authored submissions accepted</li>
+					<li>No prior publication experience required</li>
+					<li>Students outside CAMS are welcome to submit</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- Submission Process -->
+		<section class="publish-section">
+			<div class="container medium">
+				<span class="section-label">How It Works</span>
+				<h2 class="section-title">Submission Process</h2>
+				<ol class="steps">
+					<li>
+						<div class="step-num">1</div>
+						<div class="step-body">
+							<h4>Download a Template</h4>
+							<p>Choose the template that matches your paper type below and format your submission accordingly before sending it in.</p>
+						</div>
+					</li>
+					<li>
+						<div class="step-num">2</div>
+						<div class="step-body">
+							<h4>Email Your Submission</h4>
+							<p>Send your formatted paper to <a href="mailto:iseofficialjournal@gmail.com">iseofficialjournal@gmail.com</a> with the subject line "ISE Journal Submission — [Your Name]".</p>
+						</div>
+					</li>
+					<li>
+						<div class="step-num">3</div>
+						<div class="step-body">
+							<h4>Review</h4>
+							<p>Your paper will be reviewed by Dr. Roche and our faculty panel. We may reach out with revision requests or questions during this stage.</p>
+						</div>
+					</li>
+					<li>
+						<div class="step-num">4</div>
+						<div class="step-body">
+							<h4>Decision &amp; Publication</h4>
+							<p>You'll receive a decision by email. Accepted papers are published in ISE's next journal cycle and indexed under the journal's ISSN.</p>
+						</div>
+					</li>
+				</ol>
+			</div>
+		</section>
+
+		<!-- Templates -->
+		<section class="publish-section" style="background: var(--c-bg-2);">
+			<div class="container">
+				<span class="section-label">Templates</span>
+				<h2 class="section-title">Download a Template</h2>
+				<p class="section-body">Format your paper using one of the templates below before submitting. If you're unsure which applies to your work, email us and we'll help you decide.</p>
+				<div class="template-grid">
+					<div class="template-card">
+						<h3>Original Research</h3>
+						<p>For experimental or observational studies with a defined hypothesis, methodology, results, and discussion.</p>
+						<a href="templates/ISEJ_Research_Paper_Template.docx" class="button" download>Download Template</a>
+					</div>
+					<div class="template-card">
+						<h3>Literature Review</h3>
+						<p>For comprehensive reviews of existing research on a scientific topic, synthesizing findings across multiple sources.</p>
+						<a href="templates/ISEJ_Literature_Review_Template.docx" class="button" download>Download Template</a>
+					</div>
+					<div class="template-card">
+						<h3>Engineering / Design</h3>
+						<p>For projects centered on building, iterating, or testing a device, system, or solution to a defined problem.</p>
+						<a href="templates/ISEJ_Engineering_Paper_Template.docx" class="button" download>Download Template</a>
+					</div>
+					<div class="template-card">
+						<h3>Computational / CS</h3>
+						<p>For research involving algorithms, models, data analysis, simulations, or machine learning applications.</p>
+						<a href="templates/ISEJ_Computational_CS_Template.docx" class="button" download>Download Template</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA -->
+		<div class="cta-bar">
+			<h2>Ready to Submit?</h2>
+			<p>Email your formatted paper and we'll take it from there.</p>
+			<div class="cta-buttons">
+				<a href="mailto:iseofficialjournal@gmail.com?subject=ISE%20Journal%20Submission" class="button primary">Submit Your Paper</a>
+				<a href="mailto:iseofficialjournal@gmail.com?subject=ISE%20Submission%20Question" class="button alt">Ask a Question</a>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<section id="footer">
+			<div class="copyright">
+				<ul class="menu" style="list-style:none; padding:0;">
+					<li>&copy; 2026 ISE Research Journal. All rights reserved.</li>
+					<li>California Academy of Mathematics and Science</li>
+				</ul>
+			</div>
+		</section>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
