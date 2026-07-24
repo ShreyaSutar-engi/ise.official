@@ -1,1046 +1,505 @@
 <!DOCTYPE HTML>
-<html lang="en">
-<head>
-  <title>ISE Official Research Journal &amp; Competition-Based Organization</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="ISE is a student-founded research journal at CAMS, giving high school students the opportunity to conduct and publish real scientific research — reviewed by MIT professors and ISSN-certified." />
-  <link rel="icon" type="image/png" href="images/ISE_image.png" />
-  <meta property="og:title" content="ISE Official Research Journal" />
-  <meta property="og:description" content="High school students doing real, peer-reviewed research." />
-  <meta property="og:image" content="images/header.jpg" />
-  <meta property="og:type" content="website" />
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<!--
+	ISE Official STEM Journal
+	Base template: html5up.net (CCA 3.0) | Theme override: ISE black/silver
+-->
+<html>
+	<head>
+		<title>ISE Official STEM Journal</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="ISE is a student-founded research journal and competition-based organization at the California Academy of Mathematics and Science, giving high school students the opportunity to conduct and publish real scientific research." />
+		<link rel="icon" type="image/png" href="images/ISE_image.png" />
+		<meta property="og:title" content="ISE Official Research Journal & Competition-Based Organization" />
+		<meta property="og:description" content="A group of high school students discovering what it truly means to be researchers." />
+		<meta property="og:image" content="images/header.jpg" />
+		<meta property="og:type" content="website" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <style>
-    /* ===== ISE Design System v2 ========================================= */
-    :root {
-      --ink:        #0D1B2A;
-      --ink-2:      #152437;
-      --ink-3:      #1D324A;
-      --paper:      #F7F9FC;
-      --paper-2:    #EDF2F7;
-      --paper-3:    #E3EBF2;
-      --blue:       #1865A0;
-      --blue-lt:    #3B9DC8;
-      --blue-dim:   rgba(24,101,160,0.12);
-      --gold:       #C09030;
-      --text-d:     #E4EDF5;
-      --text-d2:    #7FA0B8;
-      --text-d3:    #3E5A70;
-      --text-l:     #0D1B2A;
-      --text-l2:    #4A6A84;
-      --text-l3:    #8AAAB8;
-      --border-d:   rgba(120,170,210,0.13);
-      --border-l:   rgba(20,60,100,0.11);
-      --ff-serif:   'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-      --ff-sans:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --max-w:      1200px;
-      --mid-w:      820px;
-    }
+		<style>
+			/* === ISE Theme — Black / White / Silver / Gray ============ */
+			:root {
+				--c-bg:            #0a0a0a;
+				--c-bg-2:          #121212;
+				--c-bg-3:          #1a1a1a;
+				--c-bg-elev:       #222222;
+				--c-border:        rgba(192,192,192,0.14);
+				--c-border-strong: rgba(192,192,192,0.38);
+				--c-text:          #ececec;
+				--c-text-dim:      #a8a8a8;
+				--c-text-mute:     #7a7a7a;
+				--c-silver:        #c0c0c0;
+				--c-silver-bright: #ebebeb;
+				--c-silver-dark:   #8a8a8a;
+				--ff-serif:        'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+				--ff-sans:         'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+			html, body, body.is-preload {
+				background: var(--c-bg);
+				color: var(--c-text);
+				font-family: var(--ff-sans);
+				font-weight: 300;
+				letter-spacing: 0.005em;
+				line-height: 1.65;
+			}
 
-    html { scroll-behavior: smooth; }
+			h1, h2, h3, h4, h5, h6 {
+				font-family: var(--ff-serif);
+				font-weight: 500;
+				letter-spacing: -0.01em;
+				color: var(--c-silver-bright);
+			}
 
-    body, body.is-preload {
-      background: var(--ink);
-      color: var(--text-d);
-      font-family: var(--ff-sans);
-      font-weight: 400;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+			a { color: var(--c-silver-bright); transition: color .2s ease; }
+			a:hover { color: #fff; }
 
-    h1, h2, h3, h4, h5, h6 {
-      font-family: var(--ff-serif);
-      font-weight: 500;
-      line-height: 1.1;
-      text-wrap: balance;
-    }
+			/* ---- Hero -------------------------------------------------- */
+			#header {
+				position: relative;
+				min-height: 100vh;
+				display: flex; flex-direction: column;
+				align-items: center; justify-content: center;
+				text-align: center;
+				padding: 5rem 1.5rem;
+				background: #000;
+				overflow: hidden;
+			}
+			#header::before {
+				content: '';
+				position: absolute; inset: 0;
+				background-image: var(--hero-image, none);
+				background-size: cover;
+				background-position: center;
+				opacity: 0.40;
+				filter: grayscale(100%) contrast(1.05);
+				z-index: 0;
+			}
+			#header::after {
+				content: '';
+				position: absolute; inset: 0;
+				background:
+					radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.92) 75%),
+					linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.85));
+				z-index: 1;
+			}
+			#header > * { position: relative; z-index: 2; }
 
-    a { text-decoration: none; transition: color .2s, opacity .2s; }
-    img { display: block; max-width: 100%; }
+			#header header h1 {
+				font-size: clamp(2.1rem, 5vw, 3.8rem);
+				line-height: 1.15;
+				max-width: 22ch;
+				margin: 0 auto 1.25rem;
+				background: linear-gradient(180deg, #ffffff 0%, #b8b8b8 100%);
+				-webkit-background-clip: text;
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+			#header header p {
+				font-size: 1.1rem;
+				color: var(--c-text-dim);
+				max-width: 60ch;
+				margin: 0 auto 2.5rem;
+				font-style: italic;
+				font-family: var(--ff-serif);
+			}
+			#header footer { margin-top: 1rem; }
 
-    /* ── Layout ─────────────────────────────────────────────────────────── */
-    .wrap     { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 2.5rem; }
-    .wrap-mid { width: 100%; max-width: var(--mid-w); margin: 0 auto; padding: 0 2.5rem; }
-    .wrap-sm  { width: 100%; max-width: 620px; margin: 0 auto; padding: 0 2.5rem; }
+			/* ---- Buttons ---------------------------------------------- */
+			.button,
+			input[type="submit"],
+			input[type="reset"] {
+				display: inline-block;
+				background: transparent !important;
+				border: 1px solid var(--c-silver) !important;
+				color: var(--c-silver-bright) !important;
+				text-transform: uppercase;
+				letter-spacing: 0.2em;
+				font-family: var(--ff-sans) !important;
+				font-size: 0.78rem !important;
+				font-weight: 500 !important;
+				padding: 1rem 2.25rem !important;
+				border-radius: 0 !important;
+				box-shadow: none !important;
+				text-shadow: none !important;
+				transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+				cursor: pointer;
+			}
+			.button:hover,
+			input[type="submit"]:hover,
+			input[type="reset"]:hover {
+				background: var(--c-silver-bright) !important;
+				color: #000 !important;
+				border-color: var(--c-silver-bright) !important;
+				transform: translateY(-1px);
+			}
+			.button.alt,
+			input[type="reset"] {
+				border-color: var(--c-silver-dark) !important;
+				color: var(--c-text-dim) !important;
+			}
 
-    /* ── Scroll reveal ───────────────────────────────────────────────────── */
-    .rv {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity .72s cubic-bezier(.22,.68,0,1.15), transform .72s cubic-bezier(.22,.68,0,1.15);
-    }
-    .rv.in { opacity: 1; transform: none; }
-    .rv-d1 { transition-delay: .09s; }
-    .rv-d2 { transition-delay: .2s; }
-    .rv-d3 { transition-delay: .31s; }
-    .rv-d4 { transition-delay: .42s; }
+			/* ---- Main sections --------------------------------------- */
+			.main {
+				background: var(--c-bg);
+				padding: 6rem 0;
+			}
+			.main + .main { border-top: 1px solid var(--c-border); }
 
-    /* ── Eyebrow label ───────────────────────────────────────────────────── */
-    .eyebrow {
-      display: block;
-      font-family: var(--ff-sans);
-      font-size: .68rem;
-      font-weight: 600;
-      letter-spacing: .24em;
-      text-transform: uppercase;
-    }
-    .eyebrow-lt { color: var(--blue-lt); }
-    .eyebrow-dk { color: var(--blue); }
-    .eyebrow-muted { color: rgba(255,255,255,.5); }
+			.main > header { text-align: center; margin-bottom: 4rem; padding: 0 1.5rem; }
+			.main > header h2 {
+				font-size: clamp(1.8rem, 4vw, 2.8rem);
+				margin-bottom: 1rem;
+				display: inline-block;
+				position: relative;
+			}
+			.main > header h2::after {
+				content: '';
+				display: block;
+				width: 60px; height: 1px;
+				background: var(--c-silver);
+				margin: 1.25rem auto 0;
+			}
+			.main > header p {
+				color: var(--c-text-dim);
+				max-width: 65ch;
+				margin: 0 auto;
+				font-size: 1.02rem;
+			}
 
-    /* ── Buttons ─────────────────────────────────────────────────────────── */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      font-family: var(--ff-sans);
-      font-size: .76rem;
-      font-weight: 600;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      padding: .88rem 2.1rem;
-      cursor: pointer;
-      transition: all .22s ease;
-      text-decoration: none;
-      white-space: nowrap;
-      border: 1px solid transparent;
-    }
-    .btn-blue {
-      background: var(--blue);
-      color: #fff;
-      border-color: var(--blue);
-    }
-    .btn-blue:hover {
-      background: var(--blue-lt);
-      border-color: var(--blue-lt);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-    .btn-white {
-      background: #fff;
-      color: var(--blue);
-      border-color: #fff;
-    }
-    .btn-white:hover {
-      background: var(--paper-2);
-      border-color: var(--paper-2);
-      color: var(--blue);
-      transform: translateY(-2px);
-    }
-    .btn-ghost-white {
-      background: transparent;
-      color: #fff;
-      border-color: rgba(255,255,255,.38);
-    }
-    .btn-ghost-white:hover {
-      background: rgba(255,255,255,.12);
-      border-color: rgba(255,255,255,.7);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-    .btn-ghost-ink {
-      background: transparent;
-      color: var(--text-l);
-      border-color: rgba(13,27,42,.25);
-    }
-    .btn-ghost-ink:hover {
-      background: var(--blue);
-      border-color: var(--blue);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-    /* compatibility alias for template .scrolly links */
-    .button {
-      display: inline-flex;
-      align-items: center;
-      font-family: var(--ff-sans);
-      font-size: .76rem;
-      font-weight: 600;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      padding: .88rem 2.1rem;
-      cursor: pointer;
-      transition: all .22s ease;
-      text-decoration: none;
-      background: transparent;
-      color: var(--text-d);
-      border: 1px solid rgba(232,239,245,.3);
-    }
-    .button:hover {
-      background: rgba(255,255,255,.1);
-      border-color: rgba(232,239,245,.65);
-      color: #fff;
-    }
+			/* ---- Content blocks -------------------------------------- */
+			.content.dark { background: transparent; color: var(--c-text); }
+			.content.style1.featured { background: linear-gradient(180deg, #0d0d0d 0%, #181818 100%); padding: 4rem 0; }
+			.content.style2 { padding: 2rem 0; }
+			.content.style3 { padding: 2rem 0; }
+			.content.style4 { background: linear-gradient(180deg, #101010 0%, #1a1a1a 100%); padding: 4rem 0; }
 
-    /* ── Grain overlay ───────────────────────────────────────────────────── */
-    body::after {
-      content: '';
-      position: fixed; inset: 0;
-      pointer-events: none; z-index: 9999;
-      opacity: .022;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 180px;
-    }
+			/* ---- Feature cards (section 1) --------------------------- */
+			.content.style1 .col-4 > section {
+				background: var(--c-bg-3);
+				border: 1px solid var(--c-border);
+				padding: 2.75rem 2rem;
+				height: 100%;
+				text-align: center;
+				transition: transform .3s ease, border-color .3s ease, background .3s ease;
+			}
+			.content.style1 .col-4 > section:hover {
+				transform: translateY(-4px);
+				border-color: var(--c-border-strong);
+				background: var(--c-bg-elev);
+			}
+			.feature-icon {
+				display: inline-flex;
+				align-items: center; justify-content: center;
+				width: 68px; height: 68px;
+				border-radius: 50%;
+				border: 1px solid var(--c-silver);
+				margin-bottom: 1.5rem;
+				background: rgba(255,255,255,0.02);
+			}
+			.feature-icon .icon { color: var(--c-silver-bright); font-size: 1.4rem; }
+			.content.style1 .col-4 h3 {
+				font-size: 1.5rem;
+				margin: 0 0 0.75rem;
+				letter-spacing: 0.02em;
+			}
+			.content.style1 .col-4 p { color: var(--c-text-dim); font-size: 0.96rem; }
 
-    /* ── Kill template leftover bg rules ─────────────────────────────────── */
-    .main { background: transparent !important; padding: 0 !important; }
-    .main > header { background: transparent !important; }
-    .content, .content.dark, .content.style1, .content.style2,
-    .content.style3, .content.style4 { background: transparent !important; }
+			/* ---- Image grids ----------------------------------------- */
+			.image.fit { display: block; overflow: hidden; }
+			.image.fit img {
+				display: block;
+				width: 100%; height: auto;
+				border: 1px solid var(--c-border);
+				filter: grayscale(100%) contrast(1.05) brightness(0.88);
+				transition: filter .4s ease, transform .5s ease;
+			}
+			.image.fit:hover img {
+				filter: grayscale(0%) contrast(1.0) brightness(1.0);
+				transform: scale(1.03);
+			}
+			.image.featured {
+				display: block;
+				margin-bottom: 3rem;
+				border: 1px solid var(--c-border);
+			}
+			.image.featured img {
+				width: 100%; height: auto; display: block;
+				filter: grayscale(35%) contrast(1.05);
+			}
 
-    /* ===================================================================== */
-    /* NAV                                                                    */
-    /* ===================================================================== */
-    #site-nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2.5rem;
-      background: rgba(13,27,42,.88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border-d);
-      transition: background .3s;
-    }
-    #site-nav.scrolled { background: rgba(13,27,42,.98); }
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: .7rem;
-      color: var(--text-d);
-      font-family: var(--ff-serif);
-      font-size: 1.05rem;
-      font-weight: 500;
-      letter-spacing: .01em;
-    }
-    .nav-brand img { width: 26px; height: 26px; object-fit: contain; opacity: .85; }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.75rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-family: var(--ff-sans);
-      font-size: .77rem;
-      font-weight: 500;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--text-d2);
-      transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--text-d); }
-    .nav-links .nav-cta {
-      color: #fff !important;
-      background: var(--blue);
-      padding: .52rem 1.1rem;
-      font-size: .73rem;
-      letter-spacing: .12em;
-      transition: background .2s, transform .2s;
-    }
-    .nav-links .nav-cta:hover {
-      background: var(--blue-lt) !important;
-      color: #fff !important;
-      transform: translateY(-1px);
-    }
-    @media (max-width: 660px) {
-      .nav-hide { display: none; }
-      #site-nav { padding: .9rem 1.5rem; }
-    }
+			/* ---- Forms ----------------------------------------------- */
+			input[type="text"],
+			input[type="email"],
+			textarea,
+			select {
+				background: rgba(255,255,255,0.03) !important;
+				border: 1px solid var(--c-border) !important;
+				color: var(--c-text) !important;
+				border-radius: 0 !important;
+				padding: 1rem 1.1rem !important;
+				font-family: var(--ff-sans) !important;
+				font-size: 0.95rem !important;
+				box-shadow: none !important;
+				transition: border-color .2s ease, background .2s ease;
+			}
+			input[type="text"]:focus,
+			input[type="email"]:focus,
+			textarea:focus,
+			select:focus {
+				border-color: var(--c-silver) !important;
+				background: rgba(255,255,255,0.05) !important;
+				outline: none !important;
+			}
+			::placeholder { color: var(--c-text-mute) !important; }
+			textarea { min-height: 180px; }
 
-    /* ===================================================================== */
-    /* HERO                                                                   */
-    /* ===================================================================== */
-    #hero {
-      position: relative;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      background: var(--ink);
-      overflow: hidden;
-      padding: 9rem 2.5rem 7rem;
-    }
-    #hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: url('images/header.jpg');
-      background-size: cover;
-      background-position: center 30%;
-      opacity: .12;
-      filter: grayscale(70%) contrast(1.25);
-      animation: hero-drift 30s ease-in-out infinite alternate;
-    }
-    @keyframes hero-drift {
-      from { transform: scale(1.04) translateX(0); }
-      to   { transform: scale(1.07) translateX(-10px); }
-    }
-    #hero::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 110% 90% at 50% 50%, rgba(13,27,42,0) 0%, rgba(13,27,42,.92) 75%);
-    }
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 860px;
-    }
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .8rem;
-      margin-bottom: 2.25rem;
-      animation: fade-up .8s .1s both;
-    }
-    .hero-eyebrow::before,
-    .hero-eyebrow::after {
-      content: '';
-      display: block;
-      width: 28px; height: 1px;
-      background: var(--blue-lt);
-      opacity: .55;
-    }
-    @keyframes fade-up {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: none; }
-    }
-    .hero-title {
-      font-size: clamp(3rem, 8.5vw, 7rem);
-      font-weight: 300;
-      line-height: 1.03;
-      letter-spacing: -.025em;
-      color: #fff;
-      margin-bottom: 1.75rem;
-      animation: fade-up .95s .22s both;
-    }
-    .hero-title em {
-      font-style: italic;
-      color: var(--text-d2);
-    }
-    .hero-subtitle {
-      font-family: var(--ff-serif);
-      font-style: italic;
-      font-size: clamp(1.05rem, 2.5vw, 1.4rem);
-      color: var(--text-d2);
-      max-width: 52ch;
-      margin: 0 auto 3rem;
-      line-height: 1.6;
-      animation: fade-up .95s .38s both;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      animation: fade-up .95s .52s both;
-    }
-    .hero-scroll {
-      position: absolute;
-      bottom: 2.5rem; left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .5rem;
-      opacity: 0;
-      animation: cue-in .8s 1.4s forwards;
-    }
-    @keyframes cue-in { to { opacity: .38; } }
-    .hero-scroll span {
-      font-size: .6rem;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: var(--text-d2);
-    }
-    .hero-scroll-line {
-      width: 1px; height: 38px;
-      background: linear-gradient(to bottom, var(--blue-lt), transparent);
-      animation: line-pulse 2.2s ease-in-out infinite;
-    }
-    @keyframes line-pulse {
-      0%, 100% { opacity: .4; transform: scaleY(1); }
-      50% { opacity: .9; transform: scaleY(1.12); }
-    }
+			/* ---- Footer ---------------------------------------------- */
+			#footer {
+				background: #000;
+				padding: 3.5rem 1.5rem;
+				text-align: center;
+				border-top: 1px solid var(--c-border);
+			}
+			#footer .icons { margin-bottom: 1.25rem; }
+			#footer .icons li a {
+				color: var(--c-silver) !important;
+				transition: color .25s ease, transform .25s ease;
+				display: inline-block;
+			}
+			#footer .icons li a:hover {
+				color: #fff !important;
+				transform: translateY(-2px);
+			}
+			#footer .copyright {
+				color: var(--c-text-mute);
+				font-size: 0.85rem;
+				letter-spacing: 0.05em;
+			}
+			#footer .copyright a { color: var(--c-silver); }
 
-    /* ===================================================================== */
-    /* CREDENTIAL RIBBON                                                      */
-    /* ===================================================================== */
-    #ribbon {
-      background: var(--paper);
-      border-bottom: 1px solid var(--border-l);
-    }
-    .ribbon-row {
-      display: flex;
-      align-items: stretch;
-    }
-    .ribbon-cell {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2.4rem 1.5rem;
-      text-align: center;
-      border-right: 1px solid var(--border-l);
-      gap: .4rem;
-    }
-    .ribbon-cell:last-child { border-right: none; }
-    .ribbon-val {
-      font-family: var(--ff-serif);
-      font-size: 1.65rem;
-      font-weight: 600;
-      color: var(--text-l);
-      line-height: 1;
-    }
-    .ribbon-lbl {
-      font-size: .67rem;
-      font-weight: 500;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--text-l2);
-    }
-    .ribbon-badge {
-      display: inline-flex;
-      align-items: center;
-      background: var(--blue);
-      color: #fff;
-      font-family: var(--ff-sans);
-      font-size: .62rem;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      padding: .28rem .75rem;
-    }
-    @media (max-width: 680px) {
-      .ribbon-row { flex-wrap: wrap; }
-      .ribbon-cell { flex: 0 0 50%; border-bottom: 1px solid var(--border-l); }
-      .ribbon-cell:nth-child(2) { border-right: none; }
-      .ribbon-cell:nth-last-child(-n+2) { border-bottom: none; }
-    }
+			/* ---- Kill template's leftover light/colorful backgrounds --
+			   main.css still ships base rules (.main > header, .main >
+			   .content.styleN) that are more specific than the rules
+			   above, so they were winning and showing the original
+			   template's white panels + purple/mauve gradients through. */
+			.main > header { background: transparent !important; }
+			.main > .content.dark,
+			.main > .content.style1,
+			.main > .content.style2,
+			.main > .content.style3 { background: var(--c-bg) !important; }
+			.main > .content.style1.featured { background: linear-gradient(180deg, #0d0d0d 0%, #181818 100%) !important; }
+			.main > .content.style4 { background: linear-gradient(180deg, #101010 0%, #1a1a1a 100%) !important; }
 
-    /* ===================================================================== */
-    /* FOUNDING STATEMENT                                                     */
-    /* ===================================================================== */
-    #founding {
-      background: var(--ink-2);
-      padding: 8rem 2.5rem;
-      text-align: center;
-      border-top: 1px solid var(--border-d);
-      border-bottom: 1px solid var(--border-d);
-    }
-    .founding-inner {
-      max-width: 680px;
-      margin: 0 auto;
-    }
-    .founding-text {
-      font-family: var(--ff-serif);
-      font-style: italic;
-      font-size: clamp(1.35rem, 3vw, 2rem);
-      color: var(--text-d);
-      line-height: 1.65;
-      font-weight: 400;
-    }
-    .founding-text strong {
-      font-style: normal;
-      font-weight: 600;
-      color: #fff;
-    }
-    .founding-meta {
-      margin-top: 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      color: var(--text-d3);
-    }
-    .founding-meta span {
-      font-size: .72rem;
-      font-weight: 500;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-    .founding-meta .sep {
-      width: 4px; height: 4px;
-      border-radius: 50%;
-      background: var(--text-d3);
-      display: inline-block;
-      letter-spacing: 0;
-    }
+			/* ---- Section 1 intro -------------------------------------- */
+			#first > header h2 { letter-spacing: 0.15em; font-size: 1rem; color: var(--c-silver); text-transform: uppercase; font-family: var(--ff-sans); font-weight: 500; }
+			#first > header h2::after { display: none; }
+			#first > header p { font-family: var(--ff-serif); font-size: 1.35rem; font-style: italic; color: var(--c-text); max-width: 55ch; }
 
-    /* ===================================================================== */
-    /* PUBLISH — split panel                                                  */
-    /* ===================================================================== */
-    #publish-panel {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-    .pub-left {
-      background: var(--blue);
-      padding: 8rem 5vw 8rem 5vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .pub-left .eyebrow-muted { margin-bottom: 2rem; }
-    .pub-heading {
-      font-family: var(--ff-serif);
-      font-size: clamp(3rem, 5.5vw, 5.5rem);
-      font-weight: 300;
-      color: #fff;
-      line-height: .98;
-      letter-spacing: -.025em;
-      margin-bottom: 1.85rem;
-    }
-    .pub-heading em { font-style: italic; }
-    .pub-body {
-      color: rgba(255,255,255,.72);
-      font-size: .97rem;
-      line-height: 1.85;
-      max-width: 42ch;
-      margin-bottom: 2.75rem;
-    }
-    .pub-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .pub-right {
-      background: var(--paper);
-      padding: 8rem 5vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .credential {
-      padding: 1.7rem 0;
-      border-bottom: 1px solid var(--border-l);
-      display: flex;
-      flex-direction: column;
-      gap: .32rem;
-      transition: padding-left .25s ease;
-    }
-    .credential:first-child { border-top: 1px solid var(--border-l); }
-    .credential:hover { padding-left: .5rem; }
-    .cred-lbl {
-      font-size: .63rem;
-      font-weight: 600;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--blue);
-    }
-    .cred-val {
-      font-family: var(--ff-serif);
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: var(--text-l);
-    }
-    .cred-sub {
-      font-size: .82rem;
-      color: var(--text-l2);
-      font-style: italic;
-    }
-    @media (max-width: 820px) {
-      #publish-panel { grid-template-columns: 1fr; }
-      .pub-left { padding: 5.5rem 2rem; }
-      .pub-right { padding: 4.5rem 2rem; }
-    }
+			/* ---- Spacing tweaks --------------------------------------- */
+			.container { padding-left: 1.5rem; padding-right: 1.5rem; }
+			.row > * { margin-bottom: 1.5rem; }
+		</style>
+	</head>
+	<body class="is-preload">
 
-    /* ===================================================================== */
-    /* MENTOR                                                                 */
-    /* ===================================================================== */
-    #mentor-section {
-      background: var(--paper-2);
-      padding: 8rem 2.5rem;
-      border-top: 1px solid var(--border-l);
-      border-bottom: 1px solid var(--border-l);
-    }
-    .mentor-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-    .mentor-id {
-      text-align: right;
-      border-right: 1px solid var(--border-l);
-      padding-right: 5rem;
-      flex-shrink: 0;
-    }
-    .mentor-tag {
-      display: block;
-      font-size: .64rem;
-      font-weight: 600;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: .85rem;
-    }
-    .mentor-name {
-      font-family: var(--ff-serif);
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      color: var(--text-l);
-      line-height: 1.1;
-      margin-bottom: .6rem;
-    }
-    .mentor-role {
-      font-size: .82rem;
-      color: var(--text-l2);
-      line-height: 1.55;
-    }
-    .mentor-quote {
-      font-family: var(--ff-serif);
-      font-style: italic;
-      font-size: clamp(1rem, 2.2vw, 1.25rem);
-      color: var(--text-l);
-      line-height: 1.78;
-    }
-    @media (max-width: 700px) {
-      .mentor-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .mentor-id { text-align: left; border-right: none; border-bottom: 1px solid var(--border-l); padding-right: 0; padding-bottom: 2.5rem; }
-    }
+		<section id="header" class="dark" style="--hero-image: url('images/header.jpg');">
+			<img src="images/ISE_image.png" alt="ISE" class="hero-logo" />
+			<header>
+				<h1>ISE Official Research Journal &amp; Competition-Based Organization</h1>
+				<p>A group of high school students discovering what it truly means to be researchers.</p>
+			</header>
+			<footer>
+				<a href="https://drive.google.com/file/d/1ZbXNEr56wgRQEBzD4_aUhIesoJZzXqxv/view?usp=sharing" class="button" target="_blank" rel="noopener">Read the Journal</a>
+			</footer>
+		</section>
 
-    /* ===================================================================== */
-    /* RESEARCH & COMMUNITY                                                   */
-    /* ===================================================================== */
-    #research-section {
-      background: var(--ink);
-      padding: 8rem 2.5rem;
-      border-top: 1px solid var(--border-d);
-    }
-    .section-header {
-      text-align: center;
-      margin-bottom: 5rem;
-    }
-    .section-header .eyebrow { margin-bottom: 1.4rem; }
-    .section-h2 {
-      font-family: var(--ff-serif);
-      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-      font-weight: 400;
-      margin-bottom: .9rem;
-    }
-    .section-h2-d { color: var(--text-d); }
-    .section-h2-l { color: var(--text-l); }
-    .section-sub {
-      font-family: var(--ff-serif);
-      font-style: italic;
-      font-size: 1.1rem;
-      max-width: 54ch;
-      margin: 0 auto;
-    }
-    .section-sub-d { color: var(--text-d2); }
-    .section-sub-l { color: var(--text-l2); }
-    .research-body {
-      max-width: 640px;
-      margin: 0 auto;
-    }
-    .research-body p {
-      font-size: 1.04rem;
-      color: var(--text-d2);
-      line-height: 1.88;
-      margin-bottom: 1.5rem;
-    }
-    .research-body .btn { margin-top: .75rem; }
+		<!-- First -->
+		<section id="first" class="main">
+			<header>
+				<div class="container">
+					<h2>EST. July 2025</h2>
+					<p>ISE was founded by two 10th grade students, Shreya Sutar and Ayush Kumar, to create an opportunity for CAMS students to explore their interests and conduct real scientific research.</p>
+				</div>
+			</header>
+			<div class="content dark style1 featured">
+				<div class="container">
+					<div class="row">
+						<div class="col-4 col-12-narrow">
+							<section>
+								<span class="feature-icon"><span class="icon fa-clock"></span></span>
+								<header><h3>When We Meet</h3></header>
+								<p>We meet at the California Academy of Mathematics and Science on Tuesdays after school from 3:45&ndash;4:45 in room 2005. Meetings are used to debrief progress and review deliverables for the week.</p>
+							</section>
+						</div>
+						<div class="col-4 col-12-narrow">
+							<section>
+								<span class="feature-icon"><span class="icon solid fa-bolt"></span></span>
+								<header><h3>What We Do</h3></header>
+								<p>Members work on independent research projects and have the opportunity to publish in a certified ISSN journal. We are also building a MIT InvenTeam to collaborate on a grant proposal and, if advanced, present at MIT.</p>
+							</section>
+						</div>
+						<div class="col-4 col-12-narrow">
+							<section>
+								<span class="feature-icon"><span class="icon solid fa-trophy"></span></span>
+								<header><h3>How We Compete</h3></header>
+								<p>In our very first year, 11 ISE members qualified for the California Invention Convention, with several advancing to the later stages of MIT BWAT &mdash; early proof of what focused, student-led research can do.</p>
+							</section>
+						</div>
+						<div class="col-12">
+							<footer>
+								<a href="#second" class="button scrolly">Learn More</a>
+							</footer>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    /* ===================================================================== */
-    /* FEATURED PUBLICATION                                                   */
-    /* ===================================================================== */
-    #featured-section {
-      background: var(--paper);
-      padding: 8rem 2.5rem;
-      border-top: 1px solid var(--border-l);
-      border-bottom: 1px solid var(--border-l);
-      text-align: center;
-    }
-    .featured-inner {
-      max-width: 580px;
-      margin: 0 auto;
-    }
-    .featured-inner .eyebrow { margin-bottom: 1.4rem; }
-    .featured-h2 {
-      font-family: var(--ff-serif);
-      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-      color: var(--text-l);
-      margin-bottom: 1.25rem;
-    }
-    .featured-pill {
-      display: inline-block;
-      background: var(--blue);
-      color: #fff;
-      font-family: var(--ff-sans);
-      font-size: .64rem;
-      font-weight: 700;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      padding: .32rem .95rem;
-      margin-bottom: 2rem;
-    }
-    .featured-text {
-      font-family: var(--ff-serif);
-      font-style: italic;
-      font-size: 1.15rem;
-      color: var(--text-l2);
-      line-height: 1.72;
-      max-width: 44ch;
-      margin: 0 auto 2.5rem;
-    }
+		<!-- Mentor -->
+		<section id="mentor" class="main">
+			<header>
+				<div class="container">
+					<h2>Our Mentor</h2>
+					<p>ISE is guided by mentors who help our members think and write like real researchers.</p>
+				</div>
+			</header>
+			<div class="content dark style2">
+				<div class="container medium" style="text-align: center;">
+					<h3>Dr. Ellen Roche</h3>
+					<p style="color: var(--c-text-dim); font-style: italic; margin-bottom: 1.5rem;">Associate Professor of Mechanical Engineering, MIT</p>
+					<p>Dr. Roche mentors ISE's founders, Ayush Kumar and Shreya Sutar, offering guidance on reading academic papers and drawing on her experience in the research sector to give incredible advice as the organization grows.</p>
+				</div>
+			</div>
+		</section>
 
-    /* ===================================================================== */
-    /* SPONSORS                                                               */
-    /* ===================================================================== */
-    #sponsors-section {
-      background: var(--ink-2);
-      padding: 8rem 2.5rem;
-      border-top: 1px solid var(--border-d);
-    }
-    .sponsors-hdr {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .sponsors-hdr .eyebrow { margin-bottom: 1.4rem; }
-    .sponsor-card {
-      max-width: 780px;
-      margin: 0 auto;
-      border: 1px solid var(--border-d);
-      padding: 3rem;
-    }
-    .sponsor-mark {
-      display: block;
-      font-size: .63rem;
-      font-weight: 600;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--blue-lt);
-      margin-bottom: .9rem;
-    }
-    .sponsor-name {
-      font-family: var(--ff-serif);
-      font-size: clamp(1.5rem, 3vw, 2.1rem);
-      color: var(--text-d);
-      margin-bottom: 1.4rem;
-    }
-    .sponsor-quote {
-      font-family: var(--ff-serif);
-      font-style: italic;
-      font-size: 1.05rem;
-      color: var(--text-d2);
-      line-height: 1.72;
-      border-left: 2px solid var(--blue-lt);
-      padding-left: 1.3rem;
-      margin: 0 0 2.25rem;
-      max-width: 52ch;
-    }
-    .sponsor-pdf-wrap {
-      margin-bottom: 2rem;
-      border: 1px solid var(--border-d);
-      overflow: hidden;
-    }
-    .sponsor-pdf-wrap object,
-    .sponsor-pdf-wrap embed {
-      width: 100%; height: 500px; display: block;
-    }
-    .sponsor-pdf-fallback {
-      padding: 2rem; text-align: center;
-      font-size: .9rem; color: var(--text-d2);
-    }
-    .sponsor-pdf-fallback a { color: var(--blue-lt); }
-    .sponsor-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+		<!-- Second -->
+		<section id="second" class="main">
+			<header>
+				<div class="container">
+					<h2>Research, Mentorship &amp; Community</h2>
+					<p>From an early idea to a peer-reviewed paper, members move through every stage of the research process with the support of their peers and mentors.</p>
+				</div>
+			</header>
+			<div class="content dark style2">
+				<div class="container">
+					<div class="row">
+						<div class="col-4 col-12-narrow">
+							<section>
+								<h3>Built by students, for students</h3>
+								<p>ISE exists because we believe that high school students are capable of producing real, rigorous research &mdash; not just learning about it. Every member chooses a question they care about and is paired with peers and mentors who help them sharpen it into something publishable.</p>
+								<p>We take submissions seriously. Every piece that enters the journal is reviewed for clarity, methodology, and contribution before it ever sees publication.</p>
+								<footer>
+									<a href="#third" class="button scrolly">Featured Work</a>
+								</footer>
+							</section>
+						</div>
+						<div class="col-8 col-12-narrow">
+							<div class="row">
+								<div class="col-6"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+								<div class="col-6"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+								<div class="col-6"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+								<div class="col-6"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
+								<div class="col-6"><span class="image fit"><img src="images/pic05.jpg" alt="" /></span></div>
+								<div class="col-6"><span class="image fit"><img src="images/pic06.jpg" alt="" /></span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    /* ===================================================================== */
-    /* CONTACT                                                                */
-    /* ===================================================================== */
-    #contact-section {
-      background: var(--ink);
-      padding: 9rem 2.5rem;
-      text-align: center;
-      border-top: 1px solid var(--border-d);
-    }
-    .contact-h2 {
-      font-family: var(--ff-serif);
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 300;
-      color: #fff;
-      margin-bottom: 1rem;
-    }
-    .contact-sub {
-      font-family: var(--ff-serif);
-      font-style: italic;
-      font-size: 1.18rem;
-      color: var(--text-d2);
-      max-width: 46ch;
-      margin: 0 auto 3rem;
-      line-height: 1.6;
-    }
+		<!-- Third -->
+		<section id="third" class="main">
+			<header>
+				<div class="container">
+					<h2>Featured Publication</h2>
+					<p>Each cycle we'll highlight a student-led project that captures the depth of work coming out of ISE.</p>
+				</div>
+			</header>
+			<div class="content dark style3">
+				<div class="container">
+					<div class="row">
+						<div class="col-12" style="text-align: center;">
+							<p>Our first featured publication is coming soon &mdash; check back once ISE's inaugural journal cycle wraps.</p>
+							<footer>
+								<a href="#fourth" class="button scrolly">Get In Touch</a>
+							</footer>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Sponsors -->
+		<section id="sponsors" class="main">
+			<header>
+				<div class="container">
+					<h2>Our Sponsors</h2>
+					<p>ISE is proudly supported by organizations that share our commitment to research, education, and community impact.</p>
+				</div>
+			</header>
+			<div class="content dark style2">
+				<div class="container medium">
+					<div class="sponsor-card">
+						<div class="sponsor-mark">West Basin</div>
+						<h3 class="sponsor-name">West Basin Municipal Water District</h3>
+						<blockquote class="sponsor-quote">Dedicated to protecting existing water supplies while preparing for the needs of tomorrow.</blockquote>
+						<div class="sponsor-pdf">
+							<object data="assets/pdf/west-basin-sponsorship.pdf" type="application/pdf">
+								<embed src="assets/pdf/west-basin-sponsorship.pdf" type="application/pdf" />
+								<p class="sponsor-pdf-fallback">Your browser can't display the PDF inline. <a href="assets/pdf/west-basin-sponsorship.pdf" target="_blank" rel="noopener">Open the West Basin sponsorship ad</a> in a new tab.</p>
+							</object>
+						</div>
+						<ul class="actions special">
+							<li><a href="assets/pdf/west-basin-sponsorship.pdf" class="button" target="_blank" rel="noopener">Open Full PDF</a></li>
+							<li><a href="https://www.westbasinca.gov" class="button alt" target="_blank" rel="noopener">Visit WestBasinCA.gov</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Fourth -->
+		<section id="fourth" class="main">
+			<header>
+				<div class="container">
+					<h2>Get In Touch</h2>
+					<p>Questions about joining ISE, contributing to our journal, or partnering with our team? Email us &mdash; we read every one.</p>
+				</div>
+			</header>
+			<div class="content style4 featured">
+				<div class="container medium">
+					<ul class="actions special">
+						<li><a href="mailto:iseofficialjournal@gmail.com" class="button">Email Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<!-- Footer -->
+		<section id="footer">
+			<ul class="icons">
+				<li><a href="https://www.instagram.com/cams.ise.official/" class="icon brands fa-instagram" target="_blank" rel="noopener"><span class="label">Instagram</span></a></li>
+				<li><a href="https://github.com/ShreyaSutar-engi" class="icon brands fa-github" target="_blank" rel="noopener"><span class="label">GitHub (Shreya)</span></a></li>
+				<li><a href="https://github.com/ayxsh-10" class="icon brands fa-github" target="_blank" rel="noopener"><span class="label">GitHub (Ayush)</span></a></li>
+				<li><a href="mailto:iseofficialjournal@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+			</ul>
+			<div class="copyright">
+				<ul class="menu">
+					<li>&copy; 2026 ISE Research Journal. All rights reserved.</li>
+					<li>California Academy of Mathematics and Science</li>
+				</ul>
+			</div>
+		</section>
 
-    /* ===================================================================== */
-    /* FOOTER                                                                 */
-    /* ===================================================================== */
-    #site-footer {
-      background: #070F18;
-      padding: 3rem 2.5rem;
-      border-top: 1px solid var(--border-d);
-    }
-    .footer-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: .7rem;
-      font-family: var(--ff-serif);
-      font-size: .98rem;
-      color: var(--text-d3);
-    }
-    .footer-brand img { width: 22px; height: 22px; object-fit: contain; opacity: .5; }
-    .footer-copy {
-      font-size: .76rem;
-      color: var(--text-d3);
-      letter-spacing: .04em;
-    }
-    .footer-icons {
-      display: flex;
-      gap: 1.4rem;
-      list-style: none;
-      align-items: center;
-    }
-    .footer-icons a {
-      color: var(--text-d3);
-      font-size: .95rem;
-      transition: color .2s, transform .2s;
-      display: inline-block;
-    }
-    .footer-icons a:hover { color: var(--text-d2); transform: translateY(-2px); }
-    @media (max-width: 580px) {
-      .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-    }
-  </style>
-</head>
-<body class="is-preload">
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 
-  <!-- ── Nav ─────────────────────────────────────────────────────────────── -->
-  <nav id="site-nav">
-    <a href="index.html" class="nav-brand">
-      <img src="images/ISE_image.png" alt="ISE Logo">
-      ISE Research Journal
-    </a>
-    <ul class="nav-links">
-      <li class="nav-hide"><a href="#publish-panel" class="scrolly">Publish</a></li>
-      <li class="nav-hide"><a href="#mentor-section" class="scrolly">Mentor</a></li>
-      <li><a href="publish.html">Submit</a></li>
-      <li><a href="mailto:iseofficialjournal@gmail.com" class="nav-cta">Email Us</a></li>
-    </ul>
-  </nav>
-
-  <!-- ── Hero ─────────────────────────────────────────────────────────────── -->
-  <section id="hero">
-    <div class="hero-inner">
-      <span class="hero-eyebrow eyebrow eyebrow-lt">ISE Official Research Journal</span>
-      <h1 class="hero-title">High school students.<br><em>Real research.</em></h1>
-      <p class="hero-subtitle">A student-founded STEM journal at CAMS — peer-reviewed by MIT professors, ISSN-certified, and open to every high school student.</p>
-      <div class="hero-actions">
-        <a href="https://drive.google.com/file/d/1ZbXNEr56wgRQEBzD4_aUhIesoJZzXqxv/view?usp=sharing" class="btn btn-blue" target="_blank" rel="noopener">Read the Journal</a>
-        <a href="publish.html" class="btn btn-ghost-white">Submit Your Paper</a>
-      </div>
-    </div>
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="hero-scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- ── Credential Ribbon ─────────────────────────────────────────────────── -->
-  <div id="ribbon">
-    <div class="ribbon-row">
-      <div class="ribbon-cell rv">
-        <span class="ribbon-badge">ISSN Certified</span>
-        <span class="ribbon-lbl">Formally Indexed</span>
-      </div>
-      <div class="ribbon-cell rv rv-d1">
-        <span class="ribbon-val">MIT</span>
-        <span class="ribbon-lbl">Faculty Review Panel</span>
-      </div>
-      <div class="ribbon-cell rv rv-d2">
-        <span class="ribbon-val">9&ndash;12</span>
-        <span class="ribbon-lbl">All Grade Levels Welcome</span>
-      </div>
-      <div class="ribbon-cell rv rv-d3">
-        <span class="ribbon-val">Est. 2025</span>
-        <span class="ribbon-lbl">Student-Founded at CAMS</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── Founding Statement ─────────────────────────────────────────────────── -->
-  <section id="founding">
-    <div class="founding-inner rv">
-      <p class="founding-text">ISE was founded by <strong>Shreya Sutar and Ayush Kumar</strong> &mdash; two 10th graders &mdash; to give CAMS students a real chance to explore their interests and conduct <strong>genuine scientific research.</strong> Not a simulation. Not a club project. A real journal.</p>
-      <div class="founding-meta">
-        <span>Est. July 2025</span>
-        <span class="sep"></span>
-        <span>California Academy of Mathematics and Science</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Publish With Us ───────────────────────────────────────────────────── -->
-  <section id="publish-panel">
-    <div class="pub-left rv">
-      <span class="eyebrow eyebrow-muted">Research Journal</span>
-      <h2 class="pub-heading">Publish<br><em>with us.</em></h2>
-      <p class="pub-body">ISE is an ISSN-certified publication open to any high school student with original research to share. Papers are reviewed by MIT professors and evaluated on clarity, methodology, and contribution &mdash; not school, name, or prior experience.</p>
-      <div class="pub-ctas">
-        <a href="publish.html" class="btn btn-white">Templates &amp; Info</a>
-        <a href="mailto:iseofficialjournal@gmail.com?subject=ISE%20Journal%20Submission" class="btn btn-ghost-white">Submit a Paper</a>
-      </div>
-    </div>
-    <div class="pub-right rv rv-d2">
-      <div class="credential">
-        <span class="cred-lbl">Reviewed By</span>
-        <span class="cred-val">Dr. Ellen Roche</span>
-        <span class="cred-sub">Associate Professor of Mechanical Engineering, MIT</span>
-      </div>
-      <div class="credential">
-        <span class="cred-lbl">Certification</span>
-        <span class="cred-val">ISSN Certified</span>
-        <span class="cred-sub">Indexed and formally registered</span>
-      </div>
-      <div class="credential">
-        <span class="cred-lbl">Open To</span>
-        <span class="cred-val">All High School Students</span>
-        <span class="cred-sub">Grades 9&ndash;12 &middot; All STEM disciplines</span>
-      </div>
-      <div class="credential">
-        <span class="cred-lbl">Experience Required</span>
-        <span class="cred-val">None</span>
-        <span class="cred-sub">Solo or co-authored &middot; Any paper type</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Mentor ────────────────────────────────────────────────────────────── -->
-  <section id="mentor-section">
-    <div class="mentor-inner">
-      <div class="mentor-id rv">
-        <span class="mentor-tag">Faculty Mentor</span>
-        <h3 class="mentor-name">Dr. Ellen<br>Roche</h3>
-        <p class="mentor-role">Associate Professor of<br>Mechanical Engineering<br>MIT</p>
-      </div>
-      <p class="mentor-quote rv rv-d2">Dr. Roche mentors ISE's founders, Ayush Kumar and Shreya Sutar, offering guidance on reading academic papers and drawing on her deep experience in the research sector to give meaningful advice as the organization grows.</p>
-    </div>
-  </section>
-
-  <!-- ── Research & Community ──────────────────────────────────────────────── -->
-  <section id="research-section">
-    <div class="section-header wrap-mid rv">
-      <span class="eyebrow eyebrow-lt">Research, Mentorship &amp; Community</span>
-      <h2 class="section-h2 section-h2-d">Built by students,<br>for students.</h2>
-      <p class="section-sub section-sub-d">From an early idea to a peer-reviewed paper &mdash; members move through every stage of the research process.</p>
-    </div>
-    <div class="research-body wrap rv rv-d2">
-      <p>ISE exists because we believe that high school students are capable of producing real, rigorous research &mdash; not just learning about it. Every member chooses a question they care about and is paired with peers and mentors who help them sharpen it into something publishable.</p>
-      <p>We take submissions seriously. Every piece that enters the journal is reviewed for clarity, methodology, and contribution before it ever sees publication.</p>
-      <a href="#featured-section" class="btn btn-ghost-white scrolly">Featured Work</a>
-    </div>
-  </section>
-
-  <!-- ── Featured Publication ──────────────────────────────────────────────── -->
-  <section id="featured-section">
-    <div class="featured-inner rv">
-      <span class="eyebrow eyebrow-dk">Featured Publication</span>
-      <h2 class="featured-h2">First Issue</h2>
-      <span class="featured-pill">Coming Soon</span>
-      <p class="featured-text">Our first featured publication is on its way &mdash; check back once ISE's inaugural journal cycle wraps.</p>
-      <a href="#contact-section" class="btn btn-ghost-ink scrolly">Get In Touch</a>
-    </div>
-  </section>
-
-  <!-- ── Sponsors ──────────────────────────────────────────────────────────── -->
-  <section id="sponsors-section">
-    <div class="sponsors-hdr rv">
-      <span class="eyebrow eyebrow-lt">Our Sponsors</span>
-      <h2 class="section-h2 section-h2-d">Supporting Real Research</h2>
-      <p class="section-sub section-sub-d">ISE is proudly supported by organizations that share our commitment to research, education, and community impact.</p>
-    </div>
-    <div class="wrap rv rv-d1">
-      <div class="sponsor-card">
-        <span class="sponsor-mark">Sponsor</span>
-        <h3 class="sponsor-name">West Basin Municipal Water District</h3>
-        <blockquote class="sponsor-quote">Dedicated to protecting existing water supplies while preparing for the needs of tomorrow.</blockquote>
-        <div class="sponsor-pdf-wrap">
-          <object data="assets/pdf/west-basin-sponsorship.pdf" type="application/pdf">
-            <embed src="assets/pdf/west-basin-sponsorship.pdf" type="application/pdf">
-            <p class="sponsor-pdf-fallback">Your browser can't display the PDF inline. <a href="assets/pdf/west-basin-sponsorship.pdf" target="_blank" rel="noopener">Open the West Basin sponsorship ad</a> in a new tab.</p>
-          </object>
-        </div>
-        <div class="sponsor-actions">
-          <a href="assets/pdf/west-basin-sponsorship.pdf" class="btn btn-ghost-white" target="_blank" rel="noopener">Open Full PDF</a>
-          <a href="https://www.westbasinca.gov" class="btn btn-ghost-white" target="_blank" rel="noopener">Visit WestBasinCA.gov</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Contact ───────────────────────────────────────────────────────────── -->
-  <section id="contact-section">
-    <div class="wrap-sm rv">
-      <h2 class="contact-h2">Get in touch.</h2>
-      <p class="contact-sub">Questions about joining ISE, contributing to our journal, or partnering with our team? We read every message.</p>
-      <a href="mailto:iseofficialjournal@gmail.com" class="btn btn-blue">Email Us</a>
-    </div>
-  </section>
-
-  <!-- ── Footer ────────────────────────────────────────────────────────────── -->
-  <footer id="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <img src="images/ISE_image.png" alt="ISE">
-        ISE Research Journal
-      </div>
-      <span class="footer-copy">&copy; 2026 ISE &middot; California Academy of Mathematics and Science</span>
-      <ul class="footer-icons">
-        <li><a href="https://www.instagram.com/cams.ise.official/" target="_blank" rel="noopener" aria-label="Instagram" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-        <li><a href="https://github.com/ShreyaSutar-engi" target="_blank" rel="noopener" aria-label="GitHub" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-        <li><a href="mailto:iseofficialjournal@gmail.com" aria-label="Email" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-      </ul>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/jquery.scrolly.min.js"></script>
-  <script src="assets/js/browser.min.js"></script>
-  <script src="assets/js/breakpoints.min.js"></script>
-  <script src="assets/js/util.js"></script>
-  <script src="assets/js/main.js"></script>
-
-  <script>
-    // Scroll reveal
-    const ro = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
-    document.querySelectorAll('.rv').forEach(el => ro.observe(el));
-
-    // Nav scroll state
-    const nav = document.getElementById('site-nav');
-    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 50);
-    window.addEventListener('scroll', onScroll, { passive: true });
-  </script>
-
-</body>
+	</body>
 </html>
