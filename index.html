@@ -34,6 +34,8 @@
 				--c-silver:        #c0c0c0;
 				--c-silver-bright: #ebebeb;
 				--c-silver-dark:   #8a8a8a;
+				--c-accent:        #6a9ab8;
+				--c-accent-dim:    rgba(106,154,184,0.15);
 				--ff-serif:        'Cormorant Garamond', Georgia, 'Times New Roman', serif;
 				--ff-sans:         'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 			}
@@ -148,6 +150,7 @@
 				animation: hero-text-in 1.1s 0.2s cubic-bezier(.22,.68,0,1.2) both;
 			}
 			#header header p {
+				font-size: 1.1rem;
 				color: var(--c-text-dim);
 				max-width: 52ch;
 				margin: 0 auto 2.5rem;
@@ -190,7 +193,7 @@
 			.scroll-cue-line {
 				width: 1px;
 				height: 40px;
-				background: linear-gradient(to bottom, var(--c-silver), transparent);
+				background: linear-gradient(to bottom, var(--c-accent), transparent);
 				animation: line-pulse 2s ease-in-out infinite;
 			}
 			@keyframes line-pulse {
@@ -255,7 +258,7 @@
 				content: '';
 				display: block;
 				width: 40px; height: 1px;
-				background: var(--c-silver);
+				background: var(--c-accent);
 				margin: 1.1rem auto 0;
 				transition: width .4s ease;
 			}
@@ -264,6 +267,7 @@
 				color: var(--c-text-dim);
 				max-width: 60ch;
 				margin: 1rem auto 0;
+				font-size: 1rem;
 				font-family: var(--ff-serif);
 				font-style: italic;
 				font-size: 1.1rem;
@@ -274,7 +278,30 @@
 			.content.style1.featured { background: transparent; padding: 2rem 0; }
 			.content.style2 { padding: 2rem 0; }
 			.content.style3 { padding: 2rem 0; }
-			.content.style4 { background: linear-gradient(180deg, #101010 0%, #1a1a1a 100%); padding: 4rem 0; }
+			.content.style4 { background: transparent; padding: 4rem 0; }
+
+			/* ---- Image grids ----------------------------------------- */
+			.image.fit { display: block; overflow: hidden; }
+			.image.fit img {
+				display: block;
+				width: 100%; height: auto;
+				border: 1px solid var(--c-border);
+				filter: grayscale(100%) contrast(1.05) brightness(0.82);
+				transition: filter .5s ease, transform .6s ease;
+			}
+			.image.fit:hover img {
+				filter: grayscale(20%) contrast(1.0) brightness(1.0);
+				transform: scale(1.05);
+			}
+			.image.featured {
+				display: block;
+				margin-bottom: 3rem;
+				border: 1px solid var(--c-border);
+			}
+			.image.featured img {
+				width: 100%; height: auto; display: block;
+				filter: grayscale(35%) contrast(1.05);
+			}
 
 			/* ---- Forms ----------------------------------------------- */
 			input[type="text"],
@@ -333,7 +360,7 @@
 			.main > .content.style2,
 			.main > .content.style3 { background: var(--c-bg) !important; }
 			.main > .content.style1.featured { background: transparent !important; }
-			.main > .content.style4 { background: linear-gradient(180deg, #101010 0%, #1a1a1a 100%) !important; }
+			.main > .content.style4 { background: transparent !important; }
 
 			/* ---- Spacing tweaks --------------------------------------- */
 			.container { padding-left: 1.5rem; padding-right: 1.5rem; }
@@ -358,7 +385,7 @@
 				font-weight: 500;
 				letter-spacing: 0.24em;
 				text-transform: uppercase;
-				color: var(--c-silver);
+				color: var(--c-accent);
 				display: block;
 				margin-bottom: 1.5rem;
 			}
@@ -396,7 +423,7 @@
 				font-weight: 500;
 				letter-spacing: 0.24em;
 				text-transform: uppercase;
-				color: var(--c-silver);
+				color: var(--c-accent);
 				display: block;
 				margin-bottom: 1.5rem;
 			}
@@ -445,7 +472,7 @@
 				font-weight: 500;
 				letter-spacing: 0.18em;
 				text-transform: uppercase;
-				color: var(--c-silver);
+				color: var(--c-accent);
 			}
 			.cred-value {
 				font-family: var(--ff-serif);
@@ -492,7 +519,7 @@
 				font-weight: 500;
 				letter-spacing: 0.22em;
 				text-transform: uppercase;
-				color: var(--c-silver);
+				color: var(--c-accent);
 				display: block;
 				margin-bottom: 0.75rem;
 			}
@@ -544,7 +571,7 @@
 				font-size: 0.68rem;
 				letter-spacing: 0.22em;
 				text-transform: uppercase;
-				color: var(--c-silver);
+				color: var(--c-accent);
 				display: block;
 				margin-bottom: 1.5rem;
 			}
@@ -563,9 +590,67 @@
 				text-align: center;
 			}
 			#fourth .content.style4 {
-				background: #000 !important;
+				background: transparent !important;
 				padding: 5rem 0 !important;
-				border-top: 1px solid var(--c-border);
+			}
+			.contact-line {
+				font-family: var(--ff-serif);
+				font-style: italic;
+				font-size: 1.1rem;
+				color: var(--c-text-dim);
+				margin-bottom: 2.5rem;
+			}
+
+			/* ---- Sponsor card ----------------------------------------- */
+			.sponsor-card {
+				border: 1px solid var(--c-border);
+				padding: 2.5rem;
+				text-align: center;
+			}
+			.sponsor-mark {
+				font-family: var(--ff-sans);
+				font-size: 0.68rem;
+				font-weight: 500;
+				letter-spacing: 0.22em;
+				text-transform: uppercase;
+				color: var(--c-accent);
+				display: block;
+				margin-bottom: 1rem;
+			}
+			.sponsor-name {
+				font-family: var(--ff-serif);
+				font-size: clamp(1.4rem, 3vw, 1.9rem);
+				color: var(--c-silver-bright);
+				margin: 0 0 1rem;
+			}
+			.sponsor-quote {
+				font-family: var(--ff-serif);
+				font-style: italic;
+				color: var(--c-text-dim);
+				font-size: 1.05rem;
+				line-height: 1.7;
+				border-left: 2px solid var(--c-accent);
+				margin: 0 auto 2rem;
+				padding-left: 1.25rem;
+				text-align: left;
+				max-width: 52ch;
+			}
+			.sponsor-pdf {
+				margin-bottom: 2rem;
+			}
+			.sponsor-pdf object,
+			.sponsor-pdf embed {
+				width: 100%;
+				height: 500px;
+				border: 1px solid var(--c-border);
+				display: block;
+			}
+			.sponsor-pdf-fallback {
+				color: var(--c-text-dim);
+				font-size: 0.9rem;
+				padding: 2rem;
+				border: 1px solid var(--c-border);
+				text-align: center;
 			}
 		</style>
 	</head>
@@ -685,7 +770,7 @@
 					<div class="coming-soon-block reveal">
 						<span class="coming-soon-label">Coming Soon</span>
 						<p class="coming-soon-text">Our first featured publication is coming soon — check back once ISE's inaugural journal cycle wraps.</p>
-						<a href="mailto:iseofficialjournal@gmail.com?subject=ISE%20Journal%20Submission" class="button">Submit Your Paper</a>
+						<a href="#fourth" class="button scrolly">Get In Touch</a>
 					</div>
 				</div>
 			</div>
@@ -762,6 +847,7 @@
 		<script src="assets/js/main.js"></script>
 
 		<script>
+			// Scroll reveal
 			const observer = new IntersectionObserver((entries) => {
 				entries.forEach(e => {
 					if (e.isIntersecting) {
