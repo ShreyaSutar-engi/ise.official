@@ -307,7 +307,7 @@
 	<body class="is-preload">
 
 		<section id="header" class="dark" style="--hero-image: url('images/header.jpg');">
-			<img src="images/ISE_image.png" alt="ISE" class="hero-logo" />
+			<img src="images/ise-logo.png" alt="ISE" class="hero-logo" />
 			<header>
 				<h1>ISE Official Research Journal &amp; Competition-Based Organization</h1>
 				<p>A group of high school students discovering what it truly means to be researchers.</p>
@@ -433,6 +433,87 @@
 				</div>
 			</div>
 		</section>
+		<!-- Publish With Us -->
+		<section id="publish" class="main">
+			<header>
+				<div class="container">
+					<h2>Publish With Us</h2>
+					<p>ISE accepts original research from high school students for publication in our ISSN-registered journal. Every submission is reviewed before it appears in print.</p>
+				</div>
+			</header>
+			<div class="content dark style1">
+				<div class="container">
+					<div class="row">
+						<div class="col-4 col-12-narrow">
+							<div class="publish-point">
+								<h3>Reviewed by researchers</h3>
+								<p>Submissions are read for clarity, methodology, and contribution &mdash; with guidance from our mentor Dr. Ellen Roche of MIT.</p>
+							</div>
+						</div>
+						<div class="col-4 col-12-narrow">
+							<div class="publish-point">
+								<h3>Who can submit</h3>
+								<p>Open to high school students. Work must be original, authored by the student, and not published elsewhere.</p>
+							</div>
+						</div>
+						<div class="col-4 col-12-narrow">
+							<div class="publish-point">
+								<h3>Any STEM field</h3>
+								<p>Biology, engineering, computer science, mathematics, environmental science &mdash; if it's rigorous, we want to read it.</p>
+							</div>
+						</div>
+						<div class="col-12">
+							<ul class="actions special">
+								<li><a href="https://forms.gle/4QiPB6YRAWxoKEqv6" class="button" target="_blank" rel="noopener">Submit Your Paper</a></li>
+								<li><a href="#" class="button alt" data-modal-open="publish-modal">Guidelines &amp; Templates</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Publish modal -->
+		<div class="modal" id="publish-modal" hidden>
+			<div class="modal-backdrop" data-modal-close></div>
+			<div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="publish-modal-title">
+				<button class="modal-close" data-modal-close aria-label="Close">&times;</button>
+				<h2 id="publish-modal-title">Submission Guidelines</h2>
+
+				<h3>Eligibility</h3>
+				<ul>
+					<li>Open to currently enrolled high school students.</li>
+					<li>Work must be original and authored by the submitting student.</li>
+					<li>Papers previously published in another journal are not eligible.</li>
+					<li>Co-authored submissions are accepted; list every contributor.</li>
+				</ul>
+
+				<h3>Review process</h3>
+				<p>Each submission is read by the ISE editorial team for clarity, soundness of method, and contribution. Papers advancing past the first round receive written feedback and, where appropriate, guidance informed by our mentor Dr. Ellen Roche, Associate Professor of Mechanical Engineering at MIT. Expect a response within several weeks of submitting.</p>
+
+				<h3>What to submit</h3>
+				<ul>
+					<li>Your paper as a PDF, formatted using one of the templates below.</li>
+					<li>An abstract of 250 words or fewer.</li>
+					<li>Author name, grade level, and school.</li>
+					<li>Any figures or datasets referenced in the paper.</li>
+				</ul>
+
+				<h3>Templates</h3>
+				<p>Download the template that fits your work and format your paper to match before submitting.</p>
+				<ul class="actions modal-templates">
+					<li><a href="assets/templates/ISEJ_Research_Paper_Template.docx" class="button alt" download>Research Paper Template</a></li>
+					<li><a href="assets/templates/ISEJ_Engineering_Paper_Template.docx" class="button alt" download>Engineering Paper Template</a></li>
+				</ul>
+
+				<footer>
+					<ul class="actions special">
+						<li><a href="https://forms.gle/4QiPB6YRAWxoKEqv6" class="button" target="_blank" rel="noopener">Submit Your Paper</a></li>
+					</ul>
+				</footer>
+			</div>
+		</div>
+
 		<!-- Sponsors -->
 		<section id="sponsors" class="main">
 			<header>
@@ -500,6 +581,34 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+
+		<script>
+			(function () {
+				var modal = document.getElementById('publish-modal');
+				if (!modal) return;
+
+				function open(e) {
+					e.preventDefault();
+					modal.hidden = false;
+					document.body.style.overflow = 'hidden';
+				}
+
+				function close() {
+					modal.hidden = true;
+					document.body.style.overflow = '';
+				}
+
+				document.querySelectorAll('[data-modal-open="publish-modal"]').forEach(function (el) {
+					el.addEventListener('click', open);
+				});
+				modal.querySelectorAll('[data-modal-close]').forEach(function (el) {
+					el.addEventListener('click', close);
+				});
+				document.addEventListener('keydown', function (e) {
+					if (e.key === 'Escape' && !modal.hidden) close();
+				});
+			})();
+		</script>
 
 	</body>
 </html>
